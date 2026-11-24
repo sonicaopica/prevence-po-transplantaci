@@ -251,8 +251,8 @@ footer a{color:var(--coralink)}
         <div class="step"><div class="n l">2</div><div><h3><a class="hlink" href="#kuze">Chraňte kůži před sluncem</a></h3><p>Krém SPF 50+, oblečení s rukávy, klobouk, mezi 11. a 15. hodinou stín. Solárium vůbec.</p><a class="more" href="#kuze">Více o kůži a slunci →</a></div></div>
         <div class="step"><div class="n">3</div><div><h3><a class="hlink" href="#alkohol">Omezte alkohol</a></h3><p>Zvyšuje riziko nádorů jater, jícnu, úst a prsu. Nejlepší je nepít vůbec; po transplantaci jater to platí vždy.</p><a class="more" href="#alkohol">Více o alkoholu →</a></div></div>
         <div class="step"><div class="n">4</div><div><h3><a class="hlink" href="#pohyb">Hýbejte se a hlídejte váhu</a></h3><p>Imunosupresiva mohou zvyšovat váhu, cukr i tlak. Pravidelný pohyb v rozsahu doporučeném týmem, hodně zeleniny a vlákniny.</p><a class="more" href="#pohyb">Více o pohybu, jídle a váze →</a></div></div>
-        <div class="step"><div class="n">5</div><div><h3><a class="hlink" href="#kazdy-den">Užívejte léky přesně podle plánu</a></h3><p>Dávku imunosupresiv si nikdy nesnižujte sami. Pokud se objeví nádor, léčbu upraví váš tým.</p></div></div>
-        <div class="step"><div class="n l">6</div><div><h3><a class="hlink" href="#kuze">Znejte své tělo</a></h3><p>Jednou měsíčně si prohlédněte kůži; ženy prsy, muži varlata. Změny hlaste včas.</p></div></div>
+        <div class="step"><div class="n">5</div><div><h3>Užívejte léky přesně podle plánu</h3><p>Dávku imunosupresiv si nikdy nesnižujte sami. Pokud se objeví nádor, léčbu upraví váš tým.</p></div></div>
+        <div class="step"><div class="n l">6</div><div><h3><a class="hlink" href="#samovysetreni">Znejte své tělo</a></h3><p>Jednou měsíčně si prohlédněte kůži; ženy prsy, muži varlata. Změny hlaste včas.</p></div></div>
       </div>
     </div>
   </section>
@@ -1116,7 +1116,7 @@ footer a{color:var(--coralink)}
       </div>
     </div>
   </section>
-  <section class="band soft">
+  <section class="band soft" id="samovysetreni">
     <div class="wrap cols3">
       <div>
         <h2>Samovyšetření kůže</h2>
@@ -1154,8 +1154,7 @@ footer a{color:var(--coralink)}
         <div class="step"><div class="n">2</div><div><h3><a class="hlink" href="#pohyb">Hýbejte se</a></h3><p>Pravidelný pohyb zlepšuje kondici, náladu i kvalitu života. S rozsahem a typem pohybu vám poradí tým, sporty proberte hlavně na kontrolách po 6 a 12 měsících.</p></div></div>
         <div class="step"><div class="n">3</div><div><h3><a class="hlink" href="#pohyb">Hlídejte váhu</a></h3><p>Imunosupresiva mohou zvyšovat váhu, cukr i tlak. Hodně zeleniny a vlákniny, málo uzenin a zpracovaného masa.</p></div></div>
         <div class="step"><div class="n">4</div><div><h3>Užívejte léky přesně podle plánu</h3><p>Dávku imunosupresiv si nikdy neměňte sami. Pokud se objeví nádor, léčbu upraví váš tým.</p></div></div>
-        <div class="step"><div class="n l">5</div><div><h3>Chraňte se před viry</h3><p>Kondom snižuje přenos HPV. Nesdílejte jehly, holicí strojky ani kartáčky na zuby. Tetování a piercing jen ve spolehlivém studiu.</p></div></div>
-        <div class="step"><div class="n l">6</div><div><h3>Myjte si ruce</h3><p>Před jídlem a vařením, po toaletě, po práci na zahradě a po kontaktu se zvířaty.</p></div></div>
+        <div class="step"><div class="n l">5</div><div><h3>Chraňte se před viry, které způsobují nádory</h3><p>HPV se přenáší pohlavním stykem, kondom riziko snižuje. Hepatitida B a C, které vedou k rakovině jater, se přenášejí krví: nesdílejte jehly, holicí strojky ani kartáčky na zuby.</p></div></div>
       </div>
     </div>
   </section>
@@ -1214,7 +1213,7 @@ footer a{color:var(--coralink)}
 {
   const views=[...document.querySelectorAll('[data-view]')];
   const names=views.map(v=>v.dataset.view);
-  const sub={hpv:'ockovani',plan:'uvod'};
+  const sub={hpv:'ockovani',plan:'uvod',samovysetreni:'prohlidky'};
   const show=()=>{
     const h=(location.hash||'#uvod').slice(1);
     const name=names.includes(h)?h:(sub[h]||'uvod');
