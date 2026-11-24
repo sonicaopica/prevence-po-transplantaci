@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="color-scheme" content="light only">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prevence po transplantaci</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+<style>
+/* VOICE everyday health guidance: calm, clear, warm, never alarming
+   IDEA a patient handbook from the clinic: a short front page, then one chapter per measure
+   PICTURE friendly original characters, one per chapter; the prevention year calendar on the check-ups chapter
+   COLOUR deep claret, reds to mahogany; contrasted by sage #d6d6dc (only small accents), blue-grey #B8C8D9, lilac #E9DFF2
+   TYPE Manrope 700/800 display + DM Sans text
+   LAYOUT no cards, no rules, no circles: type, space and colour fields; phone stacks title, character, text */
+:root{color-scheme:light only;--bg:#ffffff;--ink:#1d1d22;--soft:#fdf6f2;--muted:#55555e;--wine:#1d1d22;--wine2:#3a3a42;--coral:#e70000;--coralink:#c40000;--sage:#d6d6dc;--blue:#b8c8d9;--lilac:#e9dff2;--mahog:#2e2e35;--blush:#fcede6;--head:#1d1d22}
+:root[data-theme=light]{color-scheme:light}
+:root[data-theme=dark]{color-scheme:light}
+*{box-sizing:border-box;min-width:0}
+html{scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 "DM Sans",system-ui,sans-serif;overflow-x:clip}
+h1,h2,h3{font-family:Manrope,system-ui,sans-serif;line-height:1.1;letter-spacing:-.02em;text-wrap:balance;margin:0}
+h1{font-size:clamp(34px,4.6vw,52px);font-weight:800}
+h2{font-size:clamp(26px,3.2vw,38px);margin-bottom:12px}
+h3{font-size:20px;letter-spacing:-.01em;margin-bottom:6px}
+p{margin:0 0 12px}
+ul{margin:0 0 12px;padding-left:20px}
+li{margin-bottom:4px}
+a{color:var(--coralink)}
+.band{padding-block:clamp(36px,5vw,72px);padding-inline:max(5vw,16px)}
+.wrap{max-width:1180px;margin:0 auto}
+.narrow{max-width:760px}
+.lead{font-size:19px;color:var(--muted);max-width:62ch}
+.soft{background:var(--soft)}
+nav.top{position:sticky;top:0;z-index:5;background:var(--bg);color:var(--ink);box-shadow:0 2px 12px rgba(0,0,0,.06);padding:0 max(5vw,16px)}
+nav.top .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:4px 18px;min-height:60px}
+.brand{font-family:Manrope,sans-serif;font-weight:800;font-size:18px;color:var(--head);text-decoration:none;margin-right:auto;display:flex;align-items:center;gap:10px}
+.brand svg{flex:none}
+nav.top .links{display:flex;flex-wrap:wrap;gap:2px 4px}
+nav.top .links a{color:var(--ink);text-decoration:none;font-weight:600;font-size:15px;padding:10px;border-radius:4px;min-height:44px;display:inline-flex;align-items:center}
+nav.top .links a:hover,nav.top .links a:focus-visible{background:var(--soft);outline:none}
+nav.top .links a[aria-current=page]{color:var(--coralink);text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:2px}
+.hero{background:var(--blush);color:var(--ink)}
+.hero h1{color:var(--head)}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:clamp(24px,4vw,56px);align-items:end}
+.hero .lead{color:var(--muted);margin-top:16px}
+.tag{display:block;color:var(--coralink);font-weight:700;font-size:15px;margin-bottom:14px}
+.big2{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin:24px 0 0}
+.big2 b{font-family:Manrope,sans-serif;font-size:clamp(44px,5vw,60px);line-height:1;color:var(--coralink)}
+.big2 span{color:var(--muted);max-width:30ch}
+.char{width:clamp(110px,13vw,160px);height:auto;flex:none}
+.back{display:inline-flex;align-items:center;min-height:44px;color:var(--coralink);font-weight:700;text-decoration:none;margin-bottom:10px}
+.back:hover{text-decoration:underline}
+.measures{list-style:none;padding:0;margin:8px 0 0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 48px}
+.measures a{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 16px;align-items:baseline;text-decoration:none;color:var(--ink);padding:16px 0;min-height:44px}
+.measures b{font-family:Manrope,sans-serif;font-size:22px;letter-spacing:-.01em;color:var(--coralink)}
+.measures span{grid-column:1/-1;color:var(--muted)}
+.measures i{font-style:normal;font-weight:700;color:var(--coralink);font-size:20px}
+.measures a:hover b,.measures a:focus-visible b{text-decoration:underline;text-underline-offset:5px}
+.measures a:focus-visible{outline:3px solid var(--blue);outline-offset:4px}
+.cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 48px}
+.cols3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px 40px}
+.steps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px 40px;margin-top:16px}
+.step{display:grid;grid-template-columns:52px minmax(0,1fr);gap:12px;padding:12px 0}
+.step .n{font-family:Manrope,sans-serif;font-weight:800;font-size:40px;line-height:1;color:var(--coral)}
+.step .n.l{color:#9b7fb8}
+.step p{margin:4px 0 0;color:var(--muted)}
+.tbl{overflow-x:auto;margin-top:18px}
+table{border-collapse:collapse;width:100%;font-size:16px}
+th,td{text-align:left;padding:12px 14px;vertical-align:top}
+th{color:var(--coralink);font-family:Manrope,sans-serif;font-weight:700;font-size:15px}
+tbody tr:nth-child(odd){background:var(--soft)}
+.soft tbody tr:nth-child(odd){background:var(--bg)}
+td:first-child{font-weight:700}
+.note{font-size:15px;color:var(--muted)}
+.alert{background:var(--blush);color:var(--ink)}
+.alert h2{color:var(--head)}
+.alert ul{display:grid;grid-template-columns:repeat(auto-fit,minmax(16em,1fr));gap:4px 28px;padding:0;margin:16px 0 0;list-style:none}
+.alert li{padding:6px 0 6px 22px;position:relative}
+.alert li::before{content:"–";position:absolute;left:0;color:var(--coral);font-weight:700}
+.alert p{color:var(--muted)}
+.head-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:end}
+.pull{font-family:Manrope,sans-serif;font-weight:700;font-size:clamp(20px,2.2vw,26px);line-height:1.3;color:var(--coralink);max-width:40ch;margin:8px 0 18px}
+.contact p{margin-bottom:6px}
+.cal{color:var(--ink)}
+.cal .note{color:var(--muted);margin-bottom:14px}
+.grid{display:grid;grid-template-columns:minmax(110px,1.3fr) repeat(12,minmax(0,1fr));gap:4px;align-items:center}
+.grid .m{font-size:13px;color:var(--muted);text-align:center;font-weight:600}
+.grid .r{font-size:14px;font-weight:600;line-height:1.2;padding-right:6px}
+.cell{height:26px;border-radius:3px;background:rgba(0,0,0,.07)}
+.cell.on{background:var(--c)}
+.cell.on.join-l{border-top-left-radius:0;border-bottom-left-radius:0;margin-left:-4px}
+.plan{display:grid;grid-template-columns:repeat(auto-fit,minmax(16em,1fr));gap:20px 40px;margin-top:18px;align-items:start}
+.pgroup h3{color:var(--coralink);margin-bottom:2px}
+.pnote{font-size:14px;color:var(--muted);margin-bottom:6px}
+.plan label{display:flex;gap:12px;align-items:center;min-height:44px;padding:4px 0;cursor:pointer;font-size:16px}
+.plan input{width:22px;height:22px;accent-color:var(--wine2);flex:none}
+.plan label:has(input:checked) span{text-decoration:line-through;color:var(--muted)}
+.planbar{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:14px}
+.planbar button{min-height:44px;padding:0 4px;border:0;background:none;color:var(--coralink);text-decoration:underline;text-underline-offset:4px;font:inherit;font-weight:600;cursor:pointer}
+.src ol{padding-left:22px;margin:16px 0 0;columns:2 22em;column-gap:40px}
+.src li{margin-bottom:4px;break-inside:avoid;font-size:13px;line-height:1.45;color:var(--muted)}
+.src li a{color:var(--muted)}
+.src li a:hover{color:var(--coralink)}
+.src h3{font-size:15px;color:var(--muted);margin-bottom:0}
+.src ol{margin-top:8px}
+footer{background:var(--soft);color:var(--ink);font-size:15px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-between}
+footer p{margin:0;max-width:70ch}
+footer a{color:var(--coralink)}
+.figs{display:grid;grid-template-columns:repeat(auto-fit,minmax(13em,1fr));gap:16px 32px;margin-top:20px}
+.figs b{display:block;font-family:Manrope,sans-serif;font-size:clamp(34px,4vw,46px);line-height:1;color:var(--coralink);margin-bottom:8px;white-space:nowrap}
+.figs span{display:block}
+.figs small{display:block;color:var(--muted);font-size:14px;margin-top:6px}
+.more{display:inline-block;margin-top:6px;font-weight:700;color:var(--coralink);text-underline-offset:4px}
+@media(max-width:1000px){#herogrid{grid-template-columns:minmax(0,1fr) auto!important}#herogrid .cal{grid-column:1/-1}}
+@media(max-width:480px){#herogrid{grid-template-columns:minmax(0,1fr)!important}}
+.hlink{color:inherit;text-decoration:none}
+.hlink::after{content:" →";color:var(--coralink);font-weight:700}
+.hlink:hover,.hlink:focus-visible{color:var(--coralink);text-decoration:underline;text-underline-offset:5px;outline:none}
+.srcbox summary{cursor:pointer;font-size:14px;font-weight:700;color:var(--muted);min-height:44px;display:flex;align-items:center;gap:8px;list-style:none}
+.srcbox summary::-webkit-details-marker{display:none}
+.srcbox summary::before{content:"+";font-size:18px;color:var(--coralink);width:14px}
+.srcbox[open] summary::before{content:"–"}
+.srcbox summary:hover{color:var(--coralink)}
+.ico{width:60px;height:60px;flex:none}
+.steps.pics .step{grid-template-columns:64px minmax(0,1fr);align-items:start}
+.syms{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px 28px;margin-top:18px}
+.syms div{display:flex;flex-direction:column;align-items:flex-start;gap:8px}
+.sym{width:76px;height:76px}
+.syms p{margin:0;font-weight:600;color:var(--ink)}
+@media(max-width:700px){.syms{grid-template-columns:repeat(2,minmax(0,1fr))}}
+[data-view]{display:none}
+[data-view].on{display:block}
+@media(max-width:900px){.cols3{grid-template-columns:minmax(0,1fr)}.cal-wrap{grid-template-columns:minmax(0,1fr)!important}}
+@media(max-width:700px){.measures,.cols,.steps{grid-template-columns:minmax(0,1fr)}.hero .wrap,.head-row{grid-template-columns:minmax(0,1fr) auto}.char{width:92px}.grid{grid-template-columns:minmax(84px,1.1fr) repeat(12,minmax(0,1fr));gap:3px}.grid .r{font-size:12.5px}.grid .m{font-size:11px}.cell{height:20px}.cell.on.join-l{margin-left:-3px}nav.top .links a{padding:8px;font-size:14px}table{font-size:15px}.stack thead{display:none}.stack tr{display:grid;padding:12px 14px}.stack td{display:grid;grid-template-columns:7.5em minmax(0,1fr);gap:8px;padding:3px 0}.stack td::before{content:attr(data-l);font-weight:600;color:var(--muted)}}
+@media(max-width:480px){.hero .wrap,.head-row{grid-template-columns:minmax(0,1fr)}.hero .char,.head-row .char{justify-self:start}}
+.grid .cell,.grid .r{transition:opacity .15s,transform .15s}
+.grid.hov .cell:not(.hi),.grid.hov .r:not(.hi){opacity:.35}
+.grid .cell.on.hi{transform:scaleY(1.25)}
+.grid .r{cursor:default;outline:none}.grid .r.hi{color:var(--coralink)}
+.caltip{min-height:3.2em;margin-top:14px;font-size:15px;line-height:1.5;color:var(--ink);max-width:52ch}
+.photo-band{margin:0;padding:0;background:var(--bg)}.photo-band img{display:block;width:100%;height:clamp(220px,34vw,440px);object-fit:cover;object-position:50% 40%}.photo-cap{font-size:13px;color:var(--muted);padding-block:10px 0;margin-block:0}
+.abcde{display:grid;grid-template-columns:repeat(5,1fr);gap:24px;margin-top:22px}
+.abcde svg.abc{width:96px;height:96px;display:block}
+.abcde p{margin:6px 0 0;font-size:15px;line-height:1.45}
+.abcde .abc-l{font-weight:700;font-family:Manrope,sans-serif;font-size:17px}
+.abcde .abc-l b{color:var(--coralink);font-size:26px;margin-right:4px}
+@media(max-width:820px){.abcde{grid-template-columns:repeat(2,1fr)}}
+.photo-band{position:relative;background:#f04848}
+.photo-band img{filter:grayscale(1) contrast(.95) brightness(1.25);mix-blend-mode:multiply}
+.photo-band .photo-cap{position:absolute;left:0;right:0;bottom:22px;color:#fff;font-family:Manrope,sans-serif;font-weight:800;font-size:clamp(22px,3vw,36px);letter-spacing:-.01em}
+.rcards{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:18px;margin-top:20px}
+.rcard{text-align:center}.rcard svg{width:100%;max-width:120px;height:auto}
+.rcard p{margin:6px 0 0;font-weight:700;font-family:Manrope,sans-serif;font-size:15px;line-height:1.3}
+.rcard.hot p{color:var(--coralink)}
+.rcard.hot svg{background:radial-gradient(circle at 50% 45%,#fff 0 55%,transparent 56%)}
+@media(max-width:900px){.rcards{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.gtk{background:var(--blush);border-radius:14px;padding:18px 22px;margin-top:24px}
+.gtk h3{margin:0 0 6px}.gtk ul{margin:0;padding-left:20px}.gtk li{margin:4px 0}
+.abct{margin-top:12px}
+.arow{display:grid;grid-template-columns:56px minmax(0,1fr) 90px 90px;gap:14px;align-items:center;padding:12px 0;border-bottom:1px solid rgba(0,0,0,.07)}
+.arow h3{margin:0}.arow p{margin:2px 0 0;color:var(--muted)}
+.ahead{border-bottom:0;padding:0;font-size:13px;font-weight:700}
+.okh{color:var(--muted);text-align:center}.badh{color:var(--coralink);text-align:center}
+.alet{font-family:Manrope,sans-serif;font-weight:800;font-size:36px;color:var(--coral);line-height:1}
+.mole{width:60px;height:60px;justify-self:center}
+.syms.syms3{grid-template-columns:repeat(3,minmax(0,1fr))}@media(max-width:700px){.syms.syms3{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.vax{width:clamp(150px,18vw,220px);height:auto;flex:none}
+.syms.syms3{gap:14px 28px;margin-top:14px}
+.syms.syms3 div{flex-direction:row;align-items:center;gap:12px}
+.syms.syms3 svg.sym{width:48px;height:48px;flex:none}
+.syms.syms3 p{font-weight:500;font-size:16px;line-height:1.35}
+.alert h3+p{margin-top:4px}
+</style>
+</head>
+<body>
+
+<nav class="top" aria-label="Hlavní navigace">
+  <div class="wrap">
+    <a class="brand" href="#uvod">Prevence po transplantaci</a>
+    <div class="links">
+      <a href="#ockovani">Očkování</a>
+      <a href="#koureni">Kouření</a>
+      <a href="#alkohol">Alkohol</a>
+      <a href="#pohyb">Pohyb a jídlo</a>
+      <a href="#kuze">Kůže a slunce</a>
+      <a href="#prohlidky">Prohlídky</a>
+      <a href="#kazdy-den">Každý den</a>
+      <a href="#plan">Můj plán</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+<!-- ============ ÚVOD ============ -->
+<section data-view="uvod">
+  <header class="hero band" id="uvod-top">
+    <div class="wrap" style="grid-template-columns:minmax(0,1fr) auto minmax(0,1.5fr);align-items:center" id="herogrid">
+      <div>
+        <span class="tag">Pro pacienty a jejich blízké</span>
+        <h1>Prevence nádorů po transplantaci</h1>
+        <p class="lead">Léky po transplantaci tlumí imunitu, aby tělo neodhojilo nový orgán. Utlumená imunita nás ale hůř chrání před infekcemi i nádory. Hodně ale máme ve svých rukách: nekouřit, nepít alkohol, chránit se před sluncem, nechat se očkovat a chodit na prohlídky.</p>
+        <p class="big2"><b>≈ 2×</b><span>vyšší riziko nádorů, ale většině z nich lze předejít nebo je zachytit včas</span></p>
+      </div>
+      <svg class="char hero-char" viewBox="0 0 160 240" role="img" aria-label="Postavička v klobouku s opalovacím krémem"><path d="M50 60 Q48 26 80 24 Q112 26 110 60 L114 132 Q80 140 46 132 Z" fill="#8a5a3a"/><ellipse cx="80" cy="233" rx="40" ry="4" fill="rgba(0,0,0,.10)"/><path d="M58 164 H102 L100 222 H82 L80 184 L78 222 H60 Z" fill="#b4b4ba"/><path d="M80 170 V184" stroke="#000" stroke-opacity=".15" stroke-width="2"/><path d="M55 230 Q55 220 64 219 L80 220 L80 230 Z" fill="#ffffff"/><path d="M105 230 Q105 220 96 219 L80 220 L80 230 Z" fill="#ffffff"/><rect x="54" y="228" width="27" height="4" rx="2" fill="#2b2b30"/><rect x="79" y="228" width="27" height="4" rx="2" fill="#2b2b30"/><rect x="73" y="84" width="14" height="18" fill="#f5bd9c"/><path d="M73 90 Q80 98 87 90 L87 96 Q80 102 73 96 Z" fill="#e89a7c"/><path d="M50 112 Q46 140 50 160" stroke="#f5bd9c" stroke-width="12" stroke-linecap="round" fill="none"/><circle cx="50" cy="162" r="7" fill="#f5bd9c"/><path d="M110 112 Q124 96 120 80" stroke="#f5bd9c" stroke-width="12" stroke-linecap="round" fill="none"/><circle cx="120" cy="78" r="7" fill="#f5bd9c"/><path d="M48 104 Q60 98 72 97 Q80 104 88 97 Q100 98 112 104 Q118 108 118 122 L106 124 L106 168 L54 168 L54 124 L42 122 Q42 108 48 104 Z" fill="#9cc3e6"/><path d="M94 99 Q104 100 112 104 Q118 108 118 122 L106 124 L106 168 L92 168 Q98 140 94 99 Z" fill="#000" fill-opacity=".07"/><path d="M42 118 L54 120 M118 118 L106 120" stroke="#000" stroke-opacity=".14" stroke-width="3" stroke-linecap="round"/><rect x="54" y="162" width="52" height="6" fill="#000" fill-opacity=".10"/><path d="M71 97 L80 112 L89 97" fill="none" stroke="#fff" stroke-opacity=".75" stroke-width="3" stroke-linejoin="round"/><circle cx="80" cy="124" r="1.8" fill="#fff" fill-opacity=".8"/><circle cx="80" cy="138" r="1.8" fill="#fff" fill-opacity=".8"/><circle cx="80" cy="152" r="1.8" fill="#fff" fill-opacity=".8"/><ellipse cx="52.5" cy="64" rx="5" ry="7" fill="#f5bd9c"/><ellipse cx="107.5" cy="64" rx="5" ry="7" fill="#f5bd9c"/><path d="M54 56 Q54 30 80 30 Q106 30 106 56 Q106 78 96 86 Q88 93 80 93 Q72 93 64 86 Q54 78 54 56 Z" fill="#f5bd9c"/><path d="M52 62 Q50 28 80 27 Q110 28 108 62 Q104 46 92 40 Q78 52 56 56 Z" fill="#8a5a3a"/><rect x="64" y="52" width="12" height="4" rx="2" fill="#2b2b30" transform="rotate(-6 70 54)"/><rect x="84" y="52" width="12" height="4" rx="2" fill="#2b2b30" transform="rotate(6 90 54)"/><circle cx="70" cy="63" r="3.6" fill="#4b5866"/><circle cx="90" cy="63" r="3.6" fill="#4b5866"/><path d="M70 73 Q80 74 90 73 Q89 84 80 84 Q71 84 70 73 Z" fill="#fff"/><path d="M60 34 Q62 12 80 12 Q98 12 100 34 Z" fill="#e70000"/><ellipse cx="80" cy="34" rx="38" ry="7" fill="#e70000"/><rect x="61" y="27" width="38" height="5" fill="#fff"/><g transform="rotate(16 124 62)"><rect x="117" y="44" width="14" height="30" rx="3" fill="#e70000"/><rect x="119" y="38" width="10" height="8" rx="2" fill="#fff"/></g><circle cx="120" cy="78" r="7" fill="#f5bd9c"/></svg>
+      <div class="cal" role="figure" aria-label="Váš rok prevence">
+        <h3>Váš rok prevence</h3>
+        <p class="note">Ukázkový plán pro dospělého po transplantaci. Přesné termíny určí váš lékař.</p>
+        <div class="grid"></div>
+        <p class="caltip" aria-live="polite">Najeďte myší na řádek a uvidíte, proč a jak často.</p>
+      </div>
+    </div>
+  </header>
+
+  <section class="band soft">
+    <div class="wrap">
+      <h2>Proč na prevenci záleží</h2>
+      <p class="lead">Riziko je vyšší, ale rozložené nerovnoměrně: nejvíc se týká kůže a nádorů souvisejících s viry. Vyšší riziko neznamená jistotu.</p>
+      <div class="figs">
+        <div><b>≈ 2×</b><span>vyšší celkové riziko nádorů než v běžné populaci</span><small>Engels a kol., JAMA 2011</small></div>
+        <div><b>až 100×</b><span>častější spinocelulární karcinom kůže, nejčastější nádor po transplantaci</span><small>dobře se mu dá předcházet</small></div>
+        <div><b>≈ 2×</b><span>vyšší riziko nádorů způsobených HPV</span><small>Meglic a kol., JAMA Netw Open 2026</small></div>
+        <div><b>≈ 9 %</b><span>příjemců onemocní nádorem do 10 let po transplantaci</span><small>registr UNOS, 2026</small></div>
+      </div>
+    </div>
+  </section>
+  <section class="band">
+    <div class="wrap cols3">
+      <div>
+        <h3>Proč to tak je</h3>
+        <p>Léky proti odhojení oslabují imunitu, která běžně ničí poškozené buňky a drží na uzdě některé viry. Za řadou nádorů stojí právě viry: virus Epsteina-Barrové za lymfomy, HPV za nádory konečníku, pohlavních orgánů a krku, hepatitida B a C za rakovinou jater. Roli hraje i původní nemoc, například dřívější kouření.</p>
+      </div>
+      <div>
+        <h3>Kdy riziko hrozí</h3>
+        <p><strong>V prvním roce</strong> je nejčastější lymfom. <strong>S přibývajícími lety</strong> roste riziko rakoviny plic, močového měchýře, tlustého střeva a pohlavních orgánů. Prevence proto platí po celý život.</p>
+      </div>
+      <div>
+        <h3>Pokud jste měli nádor už před transplantací</h3>
+        <p>Je vyšší riziko, že se po transplantaci objeví stejný druh nádoru. Řekněte to svému lékaři, budete potřebovat častější kontroly.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <div class="head-row"><div><h2>Co můžete udělat každý den</h2><p class="lead">Šest kroků, které riziko snižují nejvíc. Platí před transplantací i po ní.</p></div><svg class="char" viewBox="0 0 160 240" role="img" aria-label="Postavička na procházce"><path d="M104 40 Q124 46 120 78 Q116 92 108 96 Q114 74 102 58 Z" fill="#2b2b30"/><ellipse cx="80" cy="233" rx="40" ry="4" fill="rgba(0,0,0,.10)"/><path d="M70 168 L58 222" stroke="#3a3a42" stroke-width="15" stroke-linecap="round"/><path d="M90 168 L100 222" stroke="#3a3a42" stroke-width="15" stroke-linecap="round"/><path d="M42 230 Q42 220 52 219 L66 221 L66 230 Z" fill="#ffffff"/><path d="M118 230 Q118 220 108 219 L96 221 L96 230 Z" fill="#ffffff"/><rect x="41" y="228" width="26" height="4" rx="2" fill="#2b2b30"/><rect x="95" y="228" width="24" height="4" rx="2" fill="#2b2b30"/><rect x="73" y="84" width="14" height="18" fill="#f5bd9c"/><path d="M73 90 Q80 98 87 90 L87 96 Q80 102 73 96 Z" fill="#e89a7c"/><path d="M50 112 Q46 140 50 160" stroke="#f5bd9c" stroke-width="12" stroke-linecap="round" fill="none"/><circle cx="50" cy="162" r="7" fill="#f5bd9c"/><path d="M110 112 Q114 140 110 160" stroke="#f5bd9c" stroke-width="12" stroke-linecap="round" fill="none"/><circle cx="110" cy="162" r="7" fill="#f5bd9c"/><path d="M48 104 Q60 98 72 97 Q80 104 88 97 Q100 98 112 104 Q118 108 118 122 L106 124 L106 168 L54 168 L54 124 L42 122 Q42 108 48 104 Z" fill="#c9b3d6"/><path d="M94 99 Q104 100 112 104 Q118 108 118 122 L106 124 L106 168 L92 168 Q98 140 94 99 Z" fill="#000" fill-opacity=".07"/><path d="M42 118 L54 120 M118 118 L106 120" stroke="#000" stroke-opacity=".14" stroke-width="3" stroke-linecap="round"/><rect x="54" y="162" width="52" height="6" fill="#000" fill-opacity=".10"/><path d="M71 97 L80 112 L89 97" fill="none" stroke="#fff" stroke-opacity=".75" stroke-width="3" stroke-linejoin="round"/><circle cx="80" cy="124" r="1.8" fill="#fff" fill-opacity=".8"/><circle cx="80" cy="138" r="1.8" fill="#fff" fill-opacity=".8"/><circle cx="80" cy="152" r="1.8" fill="#fff" fill-opacity=".8"/><ellipse cx="52.5" cy="64" rx="5" ry="7" fill="#f5bd9c"/><ellipse cx="107.5" cy="64" rx="5" ry="7" fill="#f5bd9c"/><path d="M54 56 Q54 30 80 30 Q106 30 106 56 Q106 78 96 86 Q88 93 80 93 Q72 93 64 86 Q54 78 54 56 Z" fill="#f5bd9c"/><path d="M52 60 Q50 30 80 29 Q110 30 108 60 Q104 42 80 42 Q60 42 52 60 Z" fill="#2b2b30"/><rect x="64" y="52" width="12" height="4" rx="2" fill="#2b2b30" transform="rotate(-6 70 54)"/><rect x="84" y="52" width="12" height="4" rx="2" fill="#2b2b30" transform="rotate(6 90 54)"/><circle cx="70" cy="63" r="3.6" fill="#4b5866"/><circle cx="90" cy="63" r="3.6" fill="#4b5866"/><path d="M70 73 Q80 74 90 73 Q89 84 80 84 Q71 84 70 73 Z" fill="#fff"/><rect x="44" y="150" width="11" height="22" rx="3" fill="#bcdcef" stroke="#a9c6da" stroke-width="1.5"/><circle cx="50" cy="162" r="7" fill="#f5bd9c"/></svg></div>
+      <div class="steps">
+        <div class="step"><div class="n">1</div><div><h3><a class="hlink" href="#koureni">Nekuřte</a></h3><p>Nejvýznamnější riziko, které můžete ovlivnit. Přestat má smysl kdykoli a s odbornou pomocí je to mnohem snazší.</p><a class="more" href="#koureni">Co kouření způsobuje a kde najít pomoc →</a></div></div>
+        <div class="step"><div class="n l">2</div><div><h3><a class="hlink" href="#kuze">Chraňte kůži před sluncem</a></h3><p>Krém SPF 50+, oblečení s rukávy, klobouk, mezi 11. a 15. hodinou stín. Solárium vůbec.</p><a class="more" href="#kuze">Více o kůži a slunci →</a></div></div>
+        <div class="step"><div class="n">3</div><div><h3><a class="hlink" href="#alkohol">Omezte alkohol</a></h3><p>Zvyšuje riziko nádorů jater, jícnu, úst a prsu. Nejlepší je nepít vůbec; po transplantaci jater to platí vždy.</p><a class="more" href="#alkohol">Více o alkoholu →</a></div></div>
+        <div class="step"><div class="n">4</div><div><h3><a class="hlink" href="#pohyb">Hýbejte se a hlídejte váhu</a></h3><p>Imunosupresiva mohou zvyšovat váhu, cukr i tlak. Pravidelný pohyb v rozsahu doporučeném týmem, hodně zeleniny a vlákniny.</p><a class="more" href="#pohyb">Více o pohybu, jídle a váze →</a></div></div>
+        <div class="step"><div class="n">5</div><div><h3><a class="hlink" href="#kazdy-den">Užívejte léky přesně podle plánu</a></h3><p>Dávku imunosupresiv si nikdy nesnižujte sami. Pokud se objeví nádor, léčbu upraví váš tým.</p></div></div>
+        <div class="step"><div class="n l">6</div><div><h3><a class="hlink" href="#kuze">Znejte své tělo</a></h3><p>Jednou měsíčně si prohlédněte kůži; ženy prsy, muži varlata. Změny hlaste včas.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band soft">
+    <div class="wrap">
+      <div class="head-row"><div><h2><a class="hlink" href="#prohlidky">Pravidelné prohlídky</a></h2><p class="lead">Po transplantaci platí přísnější režim u kůže, gynekologie a konečníku; ostatní screeningy alespoň v rozsahu národních programů.</p></div><svg class="char" viewBox="0 0 160 240" role="img" aria-label="Postavička lékařky s deskami"><circle cx="80" cy="22" r="11" fill="#7a4a2c"/><ellipse cx="80" cy="233" rx="40" ry="4" fill="rgba(0,0,0,.10)"/><path d="M58 164 H102 L100 222 H82 L80 184 L78 222 H60 Z" fill="#3a3a42"/><path d="M80 170 V184" stroke="#000" stroke-opacity=".15" stroke-width="2"/><path d="M55 230 Q55 220 64 219 L80 220 L80 230 Z" fill="#ffffff"/><path d="M105 230 Q105 220 96 219 L80 220 L80 230 Z" fill="#ffffff"/><rect x="54" y="228" width="27" height="4" rx="2" fill="#2b2b30"/><rect x="79" y="228" width="27" height="4" rx="2" fill="#2b2b30"/><rect x="73" y="84" width="14" height="18" fill="#f5bd9c"/><path d="M73 90 Q80 98 87 90 L87 96 Q80 102 73 96 Z" fill="#e89a7c"/><path d="M50 112 Q46 140 50 160" stroke="#f5bd9c" stroke-width="12" stroke-linecap="round" fill="none"/><circle cx="50" cy="162" r="7" fill="#f5bd9c"/><path d="M110 112 Q114 134 110 146" stroke="#f5bd9c" stroke-width="12" stroke-linecap="round" fill="none"/><path d="M48 104 Q60 98 72 97 Q80 104 88 97 Q100 98 112 104 Q118 108 118 122 L106 124 L106 168 L54 168 L54 124 L42 122 Q42 108 48 104 Z" fill="#9cc3e6"/><path d="M48 104 Q60 98 72 97 L80 132 L88 97 Q100 98 112 104 Q118 108 118 122 L106 124 L108 176 L52 176 L54 124 L42 122 Q42 108 48 104 Z" fill="#ffffff" stroke="#e3e3e8" stroke-width="1.5"/><path d="M72 98 Q66 120 76 132 Q84 134 84 124" stroke="#2b2b30" stroke-width="2.5" fill="none"/><circle cx="84" cy="124" r="3.5" fill="#2b2b30"/><ellipse cx="52.5" cy="64" rx="5" ry="7" fill="#f5bd9c"/><ellipse cx="107.5" cy="64" rx="5" ry="7" fill="#f5bd9c"/><path d="M54 56 Q54 30 80 30 Q106 30 106 56 Q106 78 96 86 Q88 93 80 93 Q72 93 64 86 Q54 78 54 56 Z" fill="#f5bd9c"/><path d="M52 60 Q50 30 80 29 Q110 30 108 60 Q106 44 94 40 Q80 46 62 44 Q56 50 52 60 Z" fill="#7a4a2c"/><rect x="64" y="52" width="12" height="4" rx="2" fill="#2b2b30" transform="rotate(-6 70 54)"/><rect x="84" y="52" width="12" height="4" rx="2" fill="#2b2b30" transform="rotate(6 90 54)"/><circle cx="70" cy="63" r="3.6" fill="#4b5866"/><circle cx="90" cy="63" r="3.6" fill="#4b5866"/><path d="M70 73 Q80 74 90 73 Q89 84 80 84 Q71 84 70 73 Z" fill="#fff"/><rect x="80" y="122" width="26" height="34" rx="3" fill="#e70000"/><rect x="84" y="128" width="18" height="24" rx="1" fill="#fff"/><path d="M87 134h12M87 140h12M87 146h8" stroke="#c9b3d6" stroke-width="2"/><rect x="88" y="118" width="10" height="6" rx="2" fill="#2b2b30"/><circle cx="108" cy="146" r="7" fill="#f5bd9c"/></svg></div>
+      <div class="tbl">
+        <table class="stack">
+          <thead><tr><th>Co</th><th>Jak často</th><th>Na co myslet</th></tr></thead>
+          <tbody>
+            <tr><td data-l="Co">Samovyšetření kůže</td><td data-l="Jak často">1× měsíčně</td><td data-l="Na co myslet">nové nebo měnící se skvrny, nehojící se ranky</td></tr>
+            <tr><td data-l="Co">Kožní lékař</td><td data-l="Jak často">1× ročně</td><td data-l="Na co myslet">častěji po kožním nádoru a po transplantaci srdce či plic</td></tr>
+            <tr><td data-l="Co">Gynekolog</td><td data-l="Jak často">1× ročně, dle gynekologa</td><td data-l="Na co myslet">cytologie / HPV test častěji než v běžné populaci</td></tr>
+            <tr><td data-l="Co">Vyšetření konečníku</td><td data-l="Jak často">od 10 let po transplantaci</td><td data-l="Na co myslet">dříve při obtížích nebo bradavicích</td></tr>
+            <tr><td data-l="Co">Zubař a kontrola úst</td><td data-l="Jak často">každých 6 měsíců</td><td data-l="Na co myslet">nehojící se vřídky, bělavá ložiska</td></tr>
+            <tr><td data-l="Co">Střevo, prs, prostata</td><td data-l="Jak často">dle národních programů</td><td data-l="Na co myslet">po transplantaci jater je preferována kolonoskopie</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:14px"><a class="more" href="#prohlidky">Všechny prohlídky a rady podle orgánu →</a></p>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap cols">
+      <div>
+        <h2><a class="hlink" href="#ockovani">Očkování</a></h2>
+        <p class="lead">Vakcíny fungují nejlépe před transplantací, kdy imunita ještě není tlumená léky.</p>
+        <p><strong>HPV</strong> způsobuje nádory děložního hrdla, konečníku, rodidel a krku, u žen i mužů. Lidé s oslabenou imunitou dostávají 3 dávky bez ohledu na věk. Transplantace se kvůli očkování <strong>neodkládá</strong>.</p>
+        <p><a class="more" href="#hpv">Vše o očkování proti HPV →</a></p>
+      </div>
+      <div>
+        <h3><a class="hlink" href="#ockovani">Další doporučená očkování</a></h3>
+        <p>Chřipka, covid-19, pneumokoky, pásový opar, RSV od 50 let, tetanus, hepatitida B a klíšťová encefalitida. Živé vakcíny (spalničky, plané neštovice) jen před transplantací.</p>
+        <p><a class="more" href="#ockovani">Přehled všech vakcín →</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band soft">
+    <div class="wrap">
+      <h2>Podle transplantovaného orgánu</h2>
+      <p class="lead">Základní doporučení platí pro všechny. Pro každý orgán je ale pár věcí navíc.</p>
+      <div class="cols">
+        <div><h3><a class="hlink" href="#ledvina">Ledvina</a></h3><p>Které prohlídky po transplantaci potřebujete, péče o kůži a vlastní ledviny a kdy se ozvat.</p></div>
+        <div><h3><a class="hlink" href="#jatra">Játra</a></h3><p>Novým játrům nejvíc pomůžete bez alkoholu. Při primární sklerozující cholangitidě pravidelná kolonoskopie.</p></div>
+        <div><h3><a class="hlink" href="#srdce">Srdce</a></h3><p>Kožní lékař každý rok, běžné screeningy, kardiorehabilitace a ochrana nového srdce.</p></div>
+        <div><h3>Plíce</h3><p>Nekouřit a chránit kůži před sluncem. Po transplantaci jedné plíce tým sleduje i tu vlastní.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band alert">
+    <div class="wrap head-row">
+      <div>
+        <h2>Kdy se ozvat hned</h2>
+        <p>Ozvěte se hned svému praktickému lékaři, onkologovi nebo transplantačnímu centru IKEM, pokud si všimnete:</p>
+        <div class="syms syms3"><div><svg class="sym" viewBox="0 0 80 80" aria-hidden="true"><rect x="22" y="8" width="12" height="50" rx="6" fill="#f1ecf6"/><rect x="25" y="22" width="6" height="36" rx="3" fill="#e70000"/><circle cx="28" cy="62" r="10" fill="#e70000"/><path d="M54 18c4 6 6 9 6 12a6 6 0 0 1-12 0c0-3 2-6 6-12z" fill="#b8c8d9"/><path d="M62 42c3 4 4 6 4 8a4 4 0 0 1-8 0c0-2 1-4 4-8z" fill="#b8c8d9"/></svg><p>zvětšené uzliny, horečka bez infekce, noční pocení nebo hubnutí</p></div><div><svg class="sym" viewBox="0 0 80 80" aria-hidden="true"><path d="M8 58c10-22 22-34 44-38 10-2 18 2 20 8-14 6-26 18-34 36z" fill="#f2c4ad"/><ellipse cx="44" cy="40" rx="6" ry="4.5" fill="#1d1d22"/><circle cx="44" cy="40" r="13" fill="none" stroke="#9b7fb8" stroke-width="4"/><path d="M53 50l12 12" stroke="#9b7fb8" stroke-width="6" stroke-linecap="round"/></svg><p>nová nebo měnící se skvrna na kůži, nehojící se ranka</p></div><div><svg class="sym" viewBox="0 0 80 80" aria-hidden="true"><path d="M40 10c10 16 16 25 16 33a16 16 0 0 1-32 0c0-8 6-17 16-33z" fill="#e70000"/><path d="M33 44a7 7 0 0 0 7 7" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round"/><rect x="50" y="52" width="22" height="20" rx="3" fill="#c9b3d6"/><path d="M50 58h22" stroke="#fff" stroke-width="2"/><circle cx="56" cy="64" r="2" fill="#fff"/><circle cx="62" cy="64" r="2" fill="#fff"/><circle cx="68" cy="64" r="2" fill="#e70000"/></svg><p>krvácení po pohlavním styku nebo mimo menstruaci</p></div><div><svg class="sym" viewBox="0 0 80 80" aria-hidden="true"><path d="M20 18h40q8 0 8 8v4q0 8-8 8H24q-6 0-6 6v2q0 6 6 6h32q8 0 8 8v2q0 8-8 8H20" stroke="#c9b3d6" stroke-width="9" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M60 50c3 5 5 7 5 10a5 5 0 0 1-10 0c0-3 2-5 5-10z" fill="#e70000"/></svg><p>krev ve stolici nebo v moči</p></div><div><svg class="sym" viewBox="0 0 80 80" aria-hidden="true"><circle cx="38" cy="24" r="14" fill="#f2c4ad"/><path d="M30 36h16v14H30z" fill="#f2c4ad"/><path d="M14 76c0-16 10-26 24-26s24 10 24 26z" fill="#9b7fb8"/><path d="M33 42q5 4 10 0" stroke="#e70000" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M58 18q6 6 0 12M64 13q10 11 0 22" stroke="#b8c8d9" stroke-width="3" fill="none" stroke-linecap="round"/></svg><p>dlouhotrvající kašel, chrapot nebo potíže s polykáním</p></div><div><svg class="sym" viewBox="0 0 80 80" aria-hidden="true"><path d="M10 60 Q40 40 70 60 L70 72 L10 72 Z" fill="#f5bd9c"/><circle cx="30" cy="52" r="6" fill="#d98e68"/><circle cx="38" cy="50" r="4" fill="#d98e68"/><circle cx="52" cy="54" r="5" fill="#d98e68"/><circle cx="30" cy="51" r="2" fill="#f3b48e"/><circle cx="52" cy="53" r="1.8" fill="#f3b48e"/><circle cx="58" cy="22" r="12" fill="none" stroke="#9b7fb8" stroke-width="4"/><path d="M66 31l8 8" stroke="#9b7fb8" stroke-width="5" stroke-linecap="round"/></svg><p>bradavice nebo vřídky v oblasti genitálu a konečníku</p></div></div>
+        <h3 style="margin-top:18px;margin-bottom:0">Když si něčeho všimnete</h3>
+        <p>Nepanikařte a nestyďte se. Odpovědi nehledejte na internetu, ale u lékaře. Pokud potíže trvají, nenechte se odbýt a ozvěte se znovu. Včasné vyšetření zvyšuje šanci na vyléčení.</p>
+      </div>
+      <svg class="char" viewBox="0 0 160 240" role="img" aria-label="Postavička telefonuje lékaři"><ellipse cx="80" cy="233" rx="40" ry="4" fill="rgba(0,0,0,.10)"/><path d="M58 164 H102 L100 222 H82 L80 184 L78 222 H60 Z" fill="#b4b4ba"/><path d="M80 170 V184" stroke="#000" stroke-opacity=".15" stroke-width="2"/><path d="M55 230 Q55 220 64 219 L80 220 L80 230 Z" fill="#ffffff"/><path d="M105 230 Q105 220 96 219 L80 220 L80 230 Z" fill="#ffffff"/><rect x="54" y="228" width="27" height="4" rx="2" fill="#2b2b30"/><rect x="79" y="228" width="27" height="4" rx="2" fill="#2b2b30"/><rect x="73" y="84" width="14" height="18" fill="#f5bd9c"/><path d="M73 90 Q80 98 87 90 L87 96 Q80 102 73 96 Z" fill="#e89a7c"/><path d="M50 112 Q46 140 50 160" stroke="#f5bd9c" stroke-width="12" stroke-linecap="round" fill="none"/><circle cx="50" cy="162" r="7" fill="#f5bd9c"/><path d="M110 112 Q124 96 120 74" stroke="#f5bd9c" stroke-width="12" stroke-linecap="round" fill="none"/><circle cx="116" cy="70" r="7" fill="#f5bd9c"/><path d="M48 104 Q60 98 72 97 Q80 104 88 97 Q100 98 112 104 Q118 108 118 122 L106 124 L106 168 L54 168 L54 124 L42 122 Q42 108 48 104 Z" fill="#f2a0a0"/><path d="M94 99 Q104 100 112 104 Q118 108 118 122 L106 124 L106 168 L92 168 Q98 140 94 99 Z" fill="#000" fill-opacity=".07"/><path d="M42 118 L54 120 M118 118 L106 120" stroke="#000" stroke-opacity=".14" stroke-width="3" stroke-linecap="round"/><rect x="54" y="162" width="52" height="6" fill="#000" fill-opacity=".10"/><path d="M71 97 L80 112 L89 97" fill="none" stroke="#fff" stroke-opacity=".75" stroke-width="3" stroke-linejoin="round"/><circle cx="80" cy="124" r="1.8" fill="#fff" fill-opacity=".8"/><circle cx="80" cy="138" r="1.8" fill="#fff" fill-opacity=".8"/><circle cx="80" cy="152" r="1.8" fill="#fff" fill-opacity=".8"/><ellipse cx="52.5" cy="64" rx="5" ry="7" fill="#f5bd9c"/><ellipse cx="107.5" cy="64" rx="5" ry="7" fill="#f5bd9c"/><path d="M54 56 Q54 30 80 30 Q106 30 106 56 Q106 78 96 86 Q88 93 80 93 Q72 93 64 86 Q54 78 54 56 Z" fill="#f5bd9c"/><path d="M51 60 Q46 30 70 24 Q78 18 92 22 Q108 24 110 42 Q112 52 108 62 L104 48 Q96 42 82 44 Q66 46 58 50 Q54 54 51 60 Z" fill="#3b2620"/><rect x="64" y="52" width="12" height="4" rx="2" fill="#2b2b30" transform="rotate(-6 70 54)"/><rect x="84" y="52" width="12" height="4" rx="2" fill="#2b2b30" transform="rotate(6 90 54)"/><circle cx="70" cy="63" r="3.6" fill="#4b5866"/><circle cx="90" cy="63" r="3.6" fill="#4b5866"/><path d="M70 73 Q80 74 90 73 Q89 84 80 84 Q71 84 70 73 Z" fill="#fff"/><rect x="108" y="54" width="10" height="20" rx="3" fill="#2b2b30" transform="rotate(-14 113 64)"/><circle cx="116" cy="70" r="7" fill="#f5bd9c"/></svg>
+    </div>
+  </section>
+
+  <section class="band" id="plan">
+    <div class="wrap">
+      <h2>Můj plán prevence</h2>
+      <p class="lead">Co stačí udělat jednou, co každý rok a co každý den. Seznam se uloží jen ve vašem prohlížeči.</p>
+      <div class="plan" id="planlist"></div>
+      <div class="planbar"><button type="button" id="reset">Začít znovu</button><span id="count" aria-live="polite"></span></div>
+    </div>
+  </section>
+</section>
+
+<!-- ============ OČKOVÁNÍ ============ -->
+<section data-view="ockovani">
+  <header class="hero band">
+    <div class="wrap">
+      <div>
+        <a class="back" href="#uvod">← Zpět na úvod</a>
+        <h1>Očkování před transplantací a po ní</h1>
+        <p class="lead">Očkování vás chrání před infekcemi a některými nádory. Po transplantaci berete léky, které oslabují imunitu, a infekce pak mohou být vážnější. Nejlépe funguje očkování, které dostanete před transplantací.</p>
+      </div>
+      <svg class="char" viewBox="0 0 160 240" role="img" aria-label="Postavička lékařky s deskami"><circle cx="80" cy="22" r="11" fill="#7a4a2c"/><ellipse cx="80" cy="233" rx="40" ry="4" fill="rgba(0,0,0,.10)"/><path d="M58 164 H102 L100 222 H82 L80 184 L78 222 H60 Z" fill="#3a3a42"/><path d="M80 170 V184" stroke="#000" stroke-opacity=".15" stroke-width="2"/><path d="M55 230 Q55 220 64 219 L80 220 L80 230 Z" fill="#ffffff"/><path d="M105 230 Q105 220 96 219 L80 220 L80 230 Z" fill="#ffffff"/><rect x="54" y="228" width="27" height="4" rx="2" fill="#2b2b30"/><rect x="79" y="228" width="27" height="4" rx="2" fill="#2b2b30"/><rect x="73" y="84" width="14" height="18" fill="#f5bd9c"/><path d="M73 90 Q80 98 87 90 L87 96 Q80 102 73 96 Z" fill="#e89a7c"/><path d="M50 112 Q46 140 50 160" stroke="#f5bd9c" stroke-width="12" stroke-linecap="round" fill="none"/><circle cx="50" cy="162" r="7" fill="#f5bd9c"/><path d="M110 112 Q114 134 110 146" stroke="#f5bd9c" stroke-width="12" stroke-linecap="round" fill="none"/><path d="M48 104 Q60 98 72 97 Q80 104 88 97 Q100 98 112 104 Q118 108 118 122 L106 124 L106 168 L54 168 L54 124 L42 122 Q42 108 48 104 Z" fill="#9cc3e6"/><path d="M48 104 Q60 98 72 97 L80 132 L88 97 Q100 98 112 104 Q118 108 118 122 L106 124 L108 176 L52 176 L54 124 L42 122 Q42 108 48 104 Z" fill="#ffffff" stroke="#e3e3e8" stroke-width="1.5"/><path d="M72 98 Q66 120 76 132 Q84 134 84 124" stroke="#2b2b30" stroke-width="2.5" fill="none"/><circle cx="84" cy="124" r="3.5" fill="#2b2b30"/><ellipse cx="52.5" cy="64" rx="5" ry="7" fill="#f5bd9c"/><ellipse cx="107.5" cy="64" rx="5" ry="7" fill="#f5bd9c"/><path d="M54 56 Q54 30 80 30 Q106 30 106 56 Q106 78 96 86 Q88 93 80 93 Q72 93 64 86 Q54 78 54 56 Z" fill="#f5bd9c"/><path d="M52 60 Q50 30 80 29 Q110 30 108 60 Q106 44 94 40 Q80 46 62 44 Q56 50 52 60 Z" fill="#7a4a2c"/><rect x="64" y="52" width="12" height="4" rx="2" fill="#2b2b30" transform="rotate(-6 70 54)"/><rect x="84" y="52" width="12" height="4" rx="2" fill="#2b2b30" transform="rotate(6 90 54)"/><circle cx="70" cy="63" r="3.6" fill="#4b5866"/><circle cx="90" cy="63" r="3.6" fill="#4b5866"/><path d="M70 73 Q80 74 90 73 Q89 84 80 84 Q71 84 70 73 Z" fill="#fff"/><rect x="80" y="122" width="26" height="34" rx="3" fill="#e70000"/><rect x="84" y="128" width="18" height="24" rx="1" fill="#fff"/><path d="M87 134h12M87 140h12M87 146h8" stroke="#c9b3d6" stroke-width="2"/><rect x="88" y="118" width="10" height="6" rx="2" fill="#2b2b30"/><circle cx="108" cy="146" r="7" fill="#f5bd9c"/></svg>
+    </div>
+  </header>
+  <section class="band">
+    <div class="wrap">
+      <div class="head-row"><div><h2>Kdy se očkovat</h2></div><svg class="vax" viewBox="0 0 220 160" role="img" aria-label="Ilustrace očkovací látky a stříkačky">
+<ellipse cx="110" cy="150" rx="90" ry="6" fill="rgba(0,0,0,.08)"/>
+<rect x="28" y="62" width="44" height="80" rx="8" fill="#e3f0f8" stroke="#a9c6da" stroke-width="2"/>
+<rect x="28" y="96" width="44" height="46" rx="8" fill="#9cc3e6"/>
+<rect x="34" y="44" width="32" height="20" rx="4" fill="#e70000"/><rect x="38" y="38" width="24" height="8" rx="3" fill="#c40000"/>
+<rect x="34" y="78" width="32" height="14" rx="2" fill="#fff"/><path d="M40 85h20" stroke="#c9b3d6" stroke-width="3" stroke-linecap="round"/>
+<g transform="rotate(-28 150 90)">
+<rect x="96" y="80" width="96" height="22" rx="5" fill="#fff" stroke="#b4b4ba" stroke-width="2"/>
+<rect x="98" y="83" width="58" height="16" rx="3" fill="#c9b3d6"/>
+<path d="M110 80v7M122 80v7M134 80v7M146 80v7" stroke="#8a8a94" stroke-width="2"/>
+<rect x="192" y="86" width="14" height="10" rx="2" fill="#d6d6dc"/><rect x="204" y="78" width="6" height="26" rx="2" fill="#2b2b30"/>
+<rect x="88" y="87" width="10" height="8" rx="1" fill="#d6d6dc"/><path d="M88 91H58" stroke="#8a8a94" stroke-width="2.5" stroke-linecap="round"/>
+</g>
+<path d="M168 30l4 9 9 4-9 4-4 9-4-9-9-4 9-4z" fill="#f4d35e"/><path d="M190 56l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" fill="#f4d35e"/>
+</svg></div>
+      <div class="cols3">
+        <div><h3>Co nejdříve</h3><p>Ideálně hned po zařazení do transplantačního programu.</p></div>
+        <div><h3>Transplantace se neodkládá</h3><p>Kvůli očkování se transplantace neodkládá. Chybějící dávky dostanete po ní.</p></div>
+        <div><h3>Po transplantaci</h3><p>Obvykle se pokračuje za 3 až 6 měsíců. Proti chřipce a covidu-19 už po 1 měsíci.</p></div>
+      </div>
+    </div>
+  </section>
+  <section class="band soft">
+    <div class="wrap">
+      <h2>Která očkování potřebujete</h2>
+      <p class="lead">Očkování, která jste dostali před transplantací, platí. Většinu z nich není potřeba opakovat.</p>
+      <div class="tbl">
+        <table class="stack">
+          <thead><tr><th>Očkování</th><th>Kdy</th><th>Pokud jste očkovaní před transplantací</th></tr></thead>
+          <tbody>
+            <tr><td data-l="Očkování">Chřipka</td><td data-l="Kdy">každý rok na podzim</td><td data-l="Pokud jste očkovaní před Tx">znovu každý rok</td></tr>
+            <tr><td data-l="Očkování">Covid-19</td><td data-l="Kdy">podle aktuálních doporučení, obvykle jednou ročně</td><td data-l="Pokud jste očkovaní před Tx">pokračujte podle doporučení</td></tr>
+            <tr><td data-l="Očkování">Pneumokoky</td><td data-l="Kdy">1 dávka</td><td data-l="Pokud jste očkovaní před Tx">už není potřeba</td></tr>
+            <tr><td data-l="Očkování">Pásový opar</td><td data-l="Kdy">2 dávky; po transplantaci už od 18 let, ostatním lidem se doporučuje až od 50 let</td><td data-l="Pokud jste očkovaní před Tx">už není potřeba</td></tr>
+            <tr><td data-l="Očkování">HPV</td><td data-l="Kdy">3 dávky, <a href="#hpv">viz níže</a></td><td data-l="Pokud jste očkovaní před Tx">už není potřeba</td></tr>
+            <tr><td data-l="Očkování">RSV</td><td data-l="Kdy">od 50 let, 1 dávka</td><td data-l="Pokud jste očkovaní před Tx">zatím není potřeba</td></tr>
+            <tr><td data-l="Očkování">Tetanus, záškrt a černý kašel</td><td data-l="Kdy">pokud poslední dávka byla před více než 10 lety</td><td data-l="Pokud jste očkovaní před Tx">přeočkování každých 10 let</td></tr>
+            <tr><td data-l="Očkování">Hepatitida B</td><td data-l="Kdy">pokud nemáte protilátky</td><td data-l="Pokud jste očkovaní před Tx">lékař zkontroluje protilátky; když klesnou, dostanete další dávku</td></tr>
+            <tr><td data-l="Očkování">Klíšťová encefalitida</td><td data-l="Kdy">pokud chodíte do přírody</td><td data-l="Pokud jste očkovaní před Tx">přeočkování; lékař vám může doporučit kratší odstupy nebo kontrolu protilátek</td></tr>
+            <tr><td data-l="Očkování">Hepatitida A a meningokoky</td><td data-l="Kdy">jen někomu, lékař vám řekne, jestli se vás týkají</td><td data-l="Pokud jste očkovaní před Tx">hepatitida A už není potřeba; meningokoky někdy přeočkování</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+  <section class="band" id="hpv">
+    <div class="wrap narrow">
+      <h2>Očkování proti HPV</h2>
+      <p class="pull">HPV je běžný virus. Může způsobit rakovinu děložního čípku, konečníku, zevních rodidel a penisu a nádory v ústech a krku. Týká se žen i mužů.</p>
+      <p>Po transplantaci jsou tyto nádory asi 2,5krát častější. Během 10 let se objeví asi u 9 z 1&nbsp;000 transplantovaných, u ostatních lidí asi u 4 z 1&nbsp;000.</p>
+      <p>Před transplantací si ochranu vytvoří téměř všichni očkovaní. Po transplantaci jen asi polovina až dvě třetiny.</p>
+      <ul>
+        <li>Očkuje se 3 dávkami během 6 měsíců.</li>
+        <li>Mladším doporučujeme vždy, ostatním po domluvě s lékařem.</li>
+        <li>Z veřejného pojištění je očkování hrazené ve věku 11–15 let; dospělí si ho obvykle platí sami.</li>
+        <li>Očkování nenahrazuje gynekologické a další prohlídky.</li>
+      </ul>
+    </div>
+  </section>
+  <section class="band soft">
+    <div class="wrap narrow">
+      <h2>Na co si dát pozor</h2>
+      <ul>
+        <li>Po transplantaci nesmíte dostat živé vakcíny, například proti spalničkám, planým neštovicím nebo žluté zimnici. Pokud je potřebujete, dostanete je nejpozději 4 týdny před transplantací.</li>
+        <li>Během léčby odhojování (rejekce) se neočkuje.</li>
+        <li>Před cestou do zahraničí se poraďte s lékařem 1 až 2 měsíce předem.</li>
+        <li>Nechte se očkovat i vaši blízcí. Chrání tím i vás.</li>
+      </ul>
+    </div>
+  </section>
+  <section class="band src" style="padding-block:20px 28px">
+    <div class="wrap">
+      <details class="srcbox"><summary>Zdroje k této stránce</summary>
+      <ol>
+        <li><a href="https://doi.org/10.1016/j.ajt.2026.07.033">Americká transplantační společnost (AST): Vaccination and Safe Living Strategies for SOT Candidates and Recipients, 2026</a></li>
+        <li><a href="https://immunisationhandbook.health.gov.au/node/929">Australian Immunisation Handbook: očkování před transplantací a po ní</a></li>
+        <li><a href="https://doi.org/10.1111/ctr.13590">AST: Human Papillomavirus Infection in SOT Recipients, 2019</a></li>
+        <li><a href="https://onlinelibrary.wiley.com/doi/10.1002/ijc.70529">Timm S. a kol.: HPV-Related Cancers in SOT Recipients, dánská studie, 2026</a></li>
+        <li><a href="https://academic.oup.com/cid/article/73/3/e661/6054974">Boey L. a kol.: očkování 9valentní HPV vakcínou po transplantaci, 2021</a></li>
+        <li><a href="https://academic.oup.com/ndt/article-abstract/32/1/132/2931147">Praditpornsilpa K. a kol.: HPV vakcína u onemocnění ledvin před transplantací, 2016</a></li>
+        <li><a href="https://fnmotol.cz/wp-content/uploads/2024/09/KMEK.pdf">FN Motol: Klíšťová meningoencefalitida, informace o očkování</a></li>
+        <li><a href="https://vakcinace.eu/storage/files/3/doporuceni_a_stanoviska/2025/ockovani-proti-hpv.pdf">Česká vakcinologická společnost ČLS JEP: Doporučení k očkování proti HPV, 2025</a></li>
+      </ol>
+      </details>
+    </div>
+  </section>
+</section>
+
+<!-- ============ KOUŘENÍ ============ -->
+<section data-view="koureni">
+  <header class="hero band">
+    <div class="wrap">
+      <div>
+        <a class="back" href="#uvod">← Zpět na úvod</a>
+        <h1>Nekouřit je to nejlepší, co pro sebe můžete udělat</h1>
+        <p class="lead">Kouření je rizikový faktor, který máte plně ve svých rukou. Přestat má smysl kdykoli, před transplantací i po ní.</p>
+      </div>
+      <svg class="char" viewBox="0 0 160 240" role="img" aria-label="Postavička na procházce"><path d="M104 40 Q124 46 120 78 Q116 92 108 96 Q114 74 102 58 Z" fill="#2b2b30"/><ellipse cx="80" cy="233" rx="40" ry="4" fill="rgba(0,0,0,.10)"/><path d="M70 168 L58 222" stroke="#3a3a42" stroke-width="15" stroke-linecap="round"/><path d="M90 168 L100 222" stroke="#3a3a42" stroke-width="15" stroke-linecap="round"/><path d="M42 230 Q42 220 52 219 L66 221 L66 230 Z" fill="#ffffff"/><path d="M118 230 Q118 220 108 219 L96 221 L96 230 Z" fill="#ffffff"/><rect x="41" y="228" width="26" height="4" rx="2" fill="#2b2b30"/><rect x="95" y="228" width="24" height="4" rx="2" fill="#2b2b30"/><rect x="73" y="84" width="14" height="18" fill="#f5bd9c"/><path d="M73 90 Q80 98 87 90 L87 96 Q80 102 73 96 Z" fill="#e89a7c"/><path d="M50 112 Q46 140 50 160" stroke="#f5bd9c" stroke-width="12" stroke-linecap="round" fill="none"/><circle cx="50" cy="162" r="7" fill="#f5bd9c"/><path d="M110 112 Q114 140 110 160" stroke="#f5bd9c" stroke-width="12" stroke-linecap="round" fill="none"/><circle cx="110" cy="162" r="7" fill="#f5bd9c"/><path d="M48 104 Q60 98 72 97 Q80 104 88 97 Q100 98 112 104 Q118 108 118 122 L106 124 L106 168 L54 168 L54 124 L42 122 Q42 108 48 104 Z" fill="#c9b3d6"/><path d="M94 99 Q104 100 112 104 Q118 108 118 122 L106 124 L106 168 L92 168 Q98 140 94 99 Z" fill="#000" fill-opacity=".07"/><path d="M42 118 L54 120 M118 118 L106 120" stroke="#000" stroke-opacity=".14" stroke-width="3" stroke-linecap="round"/><rect x="54" y="162" width="52" height="6" fill="#000" fill-opacity=".10"/><path d="M71 97 L80 112 L89 97" fill="none" stroke="#fff" stroke-opacity=".75" stroke-width="3" stroke-linejoin="round"/><circle cx="80" cy="124" r="1.8" fill="#fff" fill-opacity=".8"/><circle cx="80" cy="138" r="1.8" fill="#fff" fill-opacity=".8"/><circle cx="80" cy="152" r="1.8" fill="#fff" fill-opacity=".8"/><ellipse cx="52.5" cy="64" rx="5" ry="7" fill="#f5bd9c"/><ellipse cx="107.5" cy="64" rx="5" ry="7" fill="#f5bd9c"/><path d="M54 56 Q54 30 80 30 Q106 30 106 56 Q106 78 96 86 Q88 93 80 93 Q72 93 64 86 Q54 78 54 56 Z" fill="#f5bd9c"/><path d="M52 60 Q50 30 80 29 Q110 30 108 60 Q104 42 80 42 Q60 42 52 60 Z" fill="#2b2b30"/><rect x="64" y="52" width="12" height="4" rx="2" fill="#2b2b30" transform="rotate(-6 70 54)"/><rect x="84" y="52" width="12" height="4" rx="2" fill="#2b2b30" transform="rotate(6 90 54)"/><circle cx="70" cy="63" r="3.6" fill="#4b5866"/><circle cx="90" cy="63" r="3.6" fill="#4b5866"/><path d="M70 73 Q80 74 90 73 Q89 84 80 84 Q71 84 70 73 Z" fill="#fff"/><rect x="44" y="150" width="11" height="22" rx="3" fill="#bcdcef" stroke="#a9c6da" stroke-width="1.5"/><circle cx="50" cy="162" r="7" fill="#f5bd9c"/></svg>
+    </div>
+  </header>
+  <section class="band">
+    <div class="wrap cols">
+      <div>
+        <h2>Co kouření po transplantaci způsobuje</h2>
+        <ul>
+          <li>nádory plic, úst, hrtanu a jícnu</li>
+          <li>nádory močového měchýře a ledvin</li>
+          <li>nádory děložního hrdla a konečníku (kouření zhoršuje obranu proti HPV)</li>
+          <li>infarkt, mrtvici a poškození cév nového orgánu</li>
+          <li>častější infekce dýchacích cest</li>
+          <li>horší hojení ran</li>
+        </ul>
+      </div>
+      <div>
+        <h2>A co další kouření?</h2>
+        <p><strong>Marihuana:</strong> kouřená nebo vapovaná může obsahovat plísně a bakterie, které u lidí s tlumenou imunitou způsobují vážné infekce plic a dutin.</p>
+        <p><strong>E-cigarety a zahřívaný tabák:</strong> nejsou bezpečnou náhradou. Pokud vám pomáhají přestat, proberte to s lékařem.</p>
+        <p><strong>Pasivní kouření:</strong> vyhýbejte se zakouřenému prostředí. Požádejte blízké, aby nekouřili doma ani v autě.</p>
+      </div>
+    </div>
+  </section>
+  <section class="band soft">
+    <div class="wrap">
+      <h2>Jak přestat</h2>
+      <div class="steps">
+        <div class="step"><div class="n">1</div><div><h3>Řekněte to svému týmu</h3><p>Koordinátor nebo lékař vás doporučí do centra pro závislé na tabáku.</p></div></div>
+        <div class="step"><div class="n">2</div><div><h3>Využijte odbornou pomoc</h3><p>Léčba v centrech pro závislé na tabáku je hrazená z pojištění a mnohem účinnější než snaha přestat sám.</p></div></div>
+        <div class="step"><div class="n l">3</div><div><h3>Nebojte se léků</h3><p>Náhradní nikotin nebo léky na odvykání výrazně zvyšují šanci. Lékař vybere ty, které jsou bezpečné s vašimi léky.</p></div></div>
+        <div class="step"><div class="n l">4</div><div><h3>Nepřestávejte přestávat</h3><p>Většině lidí se nepovede přestat napoprvé. Každý další pokus se počítá.</p></div></div>
+      </div>
+    </div>
+  </section>
+  <section class="band contact">
+    <div class="wrap cols">
+      <div>
+        <h2>Kde najít pomoc</h2>
+        <p><strong>IKEM, Pracoviště preventivní kardiologie</strong><br>Vídeňská 1958, Praha 4, tel. <a href="tel:+420236055309">+420&nbsp;236&nbsp;055&nbsp;309</a> (po objednání)</p>
+        <p><strong>Národní linka pro odvykání kouření</strong><br><a href="tel:+420800350000">+420&nbsp;800&nbsp;350&nbsp;000</a>, zdarma</p>
+      </div>
+      <div>
+        <h2>&nbsp;</h2>
+        <p><a href="https://www.slzt.cz/centra-lecby">Centra pro závislé na tabáku v celé ČR (slzt.cz)</a></p>
+        <p class="note">Na webu Společnosti pro léčbu závislosti na tabáku najdete i lékárny s poradenstvím, online poradnu a bezplatné mobilní aplikace.</p>
+      </div>
+    </div>
+  </section>
+</section>
+
+<!-- ============ ALKOHOL ============ -->
+<section data-view="alkohol">
+  <header class="hero band">
+    <div class="wrap">
+      <div>
+        <a class="back" href="#uvod">← Zpět na úvod</a>
+        <h1>Alkohol po transplantaci</h1>
+        <p class="lead">Žádná dávka alkoholu není pro zdraví bezpečná. Nový Evropský kodex proti rakovině proto doporučuje alkoholu se vyhnout, ne jen ho omezit.</p>
+      </div>
+      <svg class="char" viewBox="0 0 160 240" role="img" aria-label="Postavička telefonuje lékaři"><ellipse cx="80" cy="233" rx="40" ry="4" fill="rgba(0,0,0,.10)"/><path d="M58 164 H102 L100 222 H82 L80 184 L78 222 H60 Z" fill="#b4b4ba"/><path d="M80 170 V184" stroke="#000" stroke-opacity=".15" stroke-width="2"/><path d="M55 230 Q55 220 64 219 L80 220 L80 230 Z" fill="#ffffff"/><path d="M105 230 Q105 220 96 219 L80 220 L80 230 Z" fill="#ffffff"/><rect x="54" y="228" width="27" height="4" rx="2" fill="#2b2b30"/><rect x="79" y="228" width="27" height="4" rx="2" fill="#2b2b30"/><rect x="73" y="84" width="14" height="18" fill="#f5bd9c"/><path d="M73 90 Q80 98 87 90 L87 96 Q80 102 73 96 Z" fill="#e89a7c"/><path d="M50 112 Q46 140 50 160" stroke="#f5bd9c" stroke-width="12" stroke-linecap="round" fill="none"/><circle cx="50" cy="162" r="7" fill="#f5bd9c"/><path d="M110 112 Q124 96 120 74" stroke="#f5bd9c" stroke-width="12" stroke-linecap="round" fill="none"/><circle cx="116" cy="70" r="7" fill="#f5bd9c"/><path d="M48 104 Q60 98 72 97 Q80 104 88 97 Q100 98 112 104 Q118 108 118 122 L106 124 L106 168 L54 168 L54 124 L42 122 Q42 108 48 104 Z" fill="#f2a0a0"/><path d="M94 99 Q104 100 112 104 Q118 108 118 122 L106 124 L106 168 L92 168 Q98 140 94 99 Z" fill="#000" fill-opacity=".07"/><path d="M42 118 L54 120 M118 118 L106 120" stroke="#000" stroke-opacity=".14" stroke-width="3" stroke-linecap="round"/><rect x="54" y="162" width="52" height="6" fill="#000" fill-opacity=".10"/><path d="M71 97 L80 112 L89 97" fill="none" stroke="#fff" stroke-opacity=".75" stroke-width="3" stroke-linejoin="round"/><circle cx="80" cy="124" r="1.8" fill="#fff" fill-opacity=".8"/><circle cx="80" cy="138" r="1.8" fill="#fff" fill-opacity=".8"/><circle cx="80" cy="152" r="1.8" fill="#fff" fill-opacity=".8"/><ellipse cx="52.5" cy="64" rx="5" ry="7" fill="#f5bd9c"/><ellipse cx="107.5" cy="64" rx="5" ry="7" fill="#f5bd9c"/><path d="M54 56 Q54 30 80 30 Q106 30 106 56 Q106 78 96 86 Q88 93 80 93 Q72 93 64 86 Q54 78 54 56 Z" fill="#f5bd9c"/><path d="M51 60 Q46 30 70 24 Q78 18 92 22 Q108 24 110 42 Q112 52 108 62 L104 48 Q96 42 82 44 Q66 46 58 50 Q54 54 51 60 Z" fill="#3b2620"/><rect x="64" y="52" width="12" height="4" rx="2" fill="#2b2b30" transform="rotate(-6 70 54)"/><rect x="84" y="52" width="12" height="4" rx="2" fill="#2b2b30" transform="rotate(6 90 54)"/><circle cx="70" cy="63" r="3.6" fill="#4b5866"/><circle cx="90" cy="63" r="3.6" fill="#4b5866"/><path d="M70 73 Q80 74 90 73 Q89 84 80 84 Q71 84 70 73 Z" fill="#fff"/><rect x="108" y="54" width="10" height="20" rx="3" fill="#2b2b30" transform="rotate(-14 113 64)"/><circle cx="116" cy="70" r="7" fill="#f5bd9c"/></svg>
+    </div>
+  </header>
+  <section class="band soft">
+    <div class="wrap cols">
+      <div>
+        <h2>Bezpečná dávka neexistuje</h2>
+        <p>Světová zdravotnická organizace v roce 2023 uvedla, že žádné množství alkoholu není pro zdraví bezpečné. Riziko nádorů začíná první skleničkou a roste s každou další. Nezáleží na tom, jestli pijete pivo, víno, nebo destiláty: škodí alkohol sám.</p>
+        <h3>Francouzský paradox neplatí</h3>
+        <p>Dlouho se tradovalo, že sklenka červeného vína denně chrání srdce. Velký přehled téměř 5 milionů lidí z roku 2023 ukázal, že umírněné pití život neprodlužuje ani nechrání před nemocemi srdce. Starší studie to zkreslovaly, protože mezi „abstinenty“ počítaly i lidi, kteří přestali pít kvůli nemoci.</p>
+      </div>
+      <div>
+        <h2>A co jedna sklenička?</h2>
+        <p>Možná jste slyšeli o „nízkorizikovém pití“. Pro prevenci nádorů ale hranice, pod kterou by alkohol neškodil, neexistuje.</p>
+        <p>Jedna sklenička výjimečně, třeba na svatbě, není důvod k panice. Pití by ale nemělo být pravidelné, natož každodenní. Platí to i pro „jedno pivo k jídlu“.</p>
+        <p><strong>Po transplantaci jater neplatí ani výjimka: žádný alkohol, nikdy.</strong></p>
+        <p>Ideálně tedy ani pivo. Proto existují nealkoholické verze piva i vína.</p>
+      </div>
+    </div>
+  </section>
+  <section class="band">
+    <div class="wrap cols">
+      <div>
+        <h2>Jaké nádory alkohol způsobuje</h2>
+        <ul>
+          <li>nádory úst, hltanu a hrtanu</li>
+          <li>nádor jícnu</li>
+          <li>nádor jater</li>
+          <li>nádor tlustého střeva a konečníku</li>
+          <li>nádor prsu, i při malém množství</li>
+        </ul>
+        <p>Čím víc alkoholu, tím vyšší riziko. Nezáleží na tom, jestli pijete pivo, víno, nebo destiláty. V kombinaci s kouřením se riziko nádorů úst a krku ještě zvyšuje.</p>
+      </div>
+      <div>
+        <h2>Proč je alkohol po transplantaci horší</h2>
+        <ul>
+          <li>zatěžuje játra, která zpracovávají i vaše léky</li>
+          <li>zvyšuje krevní tlak, cukr a váhu, kterým už imunosupresiva nahrávají</li>
+          <li>po pár skleničkách se snáz zapomene na léky nebo na dávku</li>
+          <li>některé léky, například některá antibiotika, se s alkoholem vůbec nesnášejí</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section class="band soft">
+    <div class="wrap narrow">
+      <h2>Po transplantaci jater</h2>
+      <p class="pull">Po transplantaci jater platí: žádný alkohol, a to natrvalo.</p>
+      <p>Pokud byla důvodem transplantace nemoc jater způsobená alkoholem, návrat k pití je pro nový orgán největší hrozbou. Zvyšuje riziko nádorů hlavy, krku a jícnu, nemocí srdce a opakovaného poškození jater.</p>
+      <p>Pokud máte chuť se napít nebo už se to stalo, řekněte to svému týmu. Není to selhání a nikdo vás nebude trestat. Čím dřív si řeknete o pomoc, tím líp se dá situace zvládnout.</p>
+      <p class="note">Nealkoholické pivo označené „nealko“ může obsahovat až 0,5 % alkoholu. Po transplantaci jater volte verze s 0,0 % a poraďte se s týmem.</p>
+    </div>
+  </section>
+  <section class="band">
+    <div class="wrap">
+      <h2>Jak pít méně nebo vůbec</h2>
+      <div class="steps">
+        <div class="step"><div class="n">1</div><div><h3>Mějte po ruce náhradu</h3><p>Nealko pivo nebo víno, minerálka s citronem či neslazený čaj. Na oslavách si vezměte sklenici hned na začátku, ať vám nikdo nenalévá.</p></div></div>
+        <div class="step"><div class="n">2</div><div><h3>Připravte si odpověď</h3><p>Stačí říct „po transplantaci nepiju“. Většina lidí to pochopí a nebude se dál vyptávat.</p></div></div>
+        <div class="step"><div class="n l">3</div><div><h3>Hlídejte si situace</h3><p>Pití často patří ke stresu, nudě nebo určité společnosti. Když víte, kdy na vás chuť přichází, je snazší jí předejít.</p></div></div>
+        <div class="step"><div class="n l">4</div><div><h3>Řekněte si o pomoc</h3><p>Praktický lékař, psycholog transplantačního týmu nebo adiktologická ambulance vám pomohou, pokud to sami nezvládáte. Zdarma a anonymně poradí i Národní linka pro odvykání <a href="tel:+420800350000">+420&nbsp;800&nbsp;350&nbsp;000</a> (<a href="https://www.chciodvykat.cz">chciodvykat.cz</a>).</p></div></div>
+      </div>
+    </div>
+  </section>
+  <section class="band src" style="padding-block:20px 28px">
+    <div class="wrap">
+      <details class="srcbox"><summary>Zdroje k této stránce</summary>
+      <ol>
+        <li><a href="https://www.who.int/azerbaijan/news/item/04-01-2023-no-level-of-alcohol-consumption-is-safe-for-our-health">WHO: No level of alcohol consumption is safe for our health, 2023</a></li>
+        <li><a href="https://pubmed.ncbi.nlm.nih.gov/36603913/">Anderson BO a kol.: Health and cancer risks associated with low levels of alcohol consumption. Lancet Public Health 2023</a></li>
+        <li><a href="https://www.clinician.com/articles/does-alcohol-provide-any-health-benefit">Zhao J., Stockwell T. a kol.: Moderate alcohol use and all-cause mortality, meta-analýza 107 studií. JAMA Netw Open 2023 (shrnutí)</a></li>
+        <li><a href="https://cancer-code-europe.iarc.who.int/wp-content/uploads/2025/08/6-european-code-against-cancer-alcohol-consumption-factsheet.pdf">Evropský kodex proti rakovině, 5. vydání: alkohol (fact sheet), IARC 2025</a></li>
+        <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12809474">Feliu A. a kol.: ECAC5 – tobacco, second-hand smoke, alcohol and cancer. Mol Oncol 2026</a></li>
+        <li><a href="https://www.iarc.who.int/reference/european-code-against-cancer-4th-edition-alcohol-drinking-and-cancer-2">IARC: European Code against Cancer 4th edition – alcohol drinking and cancer</a></li>
+        <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10480527">Alcohol relapse after liver transplantation and survival (JHEP Reports 2023)</a></li>
+        <li><a href="https://www.drugsandalcohol.ie/40628/">Germani G. a kol.: Liver transplantation in alcohol-related liver disease. UEG J 2024</a></li>
+        <li><a href="https://easlcampus.eu/sites/default/files/2024-11/EASL_CPGs_liver_transplantation_2024.pdf">EASL: Clinical practice guidelines on liver transplantation, 2024</a></li>
+      </ol>
+      </details>
+    </div>
+  </section>
+</section>
+
+<!-- ============ POHYB ============ -->
+<section data-view="pohyb">
+  <header class="hero band">
+    <div class="wrap">
+      <div>
+        <a class="back" href="#uvod">← Zpět na úvod</a>
+        <h1>Pohyb, jídlo a váha</h1>
+        <p class="lead">Po transplantaci se snadno přibírá a léky mohou zvyšovat cukr, tlak i cholesterol. Pravidelný pohyb a dobré jídlo zlepšují kondici a náladu, pomáhají novému orgánu i srdci a snižují riziko nádorů.</p>
+      </div>
+      <svg class="char" viewBox="0 0 160 240" role="img" aria-label="Postavička na procházce"><path d="M104 40 Q124 46 120 78 Q116 92 108 96 Q114 74 102 58 Z" fill="#2b2b30"/><ellipse cx="80" cy="233" rx="40" ry="4" fill="rgba(0,0,0,.10)"/><path d="M70 168 L58 222" stroke="#3a3a42" stroke-width="15" stroke-linecap="round"/><path d="M90 168 L100 222" stroke="#3a3a42" stroke-width="15" stroke-linecap="round"/><path d="M42 230 Q42 220 52 219 L66 221 L66 230 Z" fill="#ffffff"/><path d="M118 230 Q118 220 108 219 L96 221 L96 230 Z" fill="#ffffff"/><rect x="41" y="228" width="26" height="4" rx="2" fill="#2b2b30"/><rect x="95" y="228" width="24" height="4" rx="2" fill="#2b2b30"/><rect x="73" y="84" width="14" height="18" fill="#f5bd9c"/><path d="M73 90 Q80 98 87 90 L87 96 Q80 102 73 96 Z" fill="#e89a7c"/><path d="M50 112 Q46 140 50 160" stroke="#f5bd9c" stroke-width="12" stroke-linecap="round" fill="none"/><circle cx="50" cy="162" r="7" fill="#f5bd9c"/><path d="M110 112 Q114 140 110 160" stroke="#f5bd9c" stroke-width="12" stroke-linecap="round" fill="none"/><circle cx="110" cy="162" r="7" fill="#f5bd9c"/><path d="M48 104 Q60 98 72 97 Q80 104 88 97 Q100 98 112 104 Q118 108 118 122 L106 124 L106 168 L54 168 L54 124 L42 122 Q42 108 48 104 Z" fill="#c9b3d6"/><path d="M94 99 Q104 100 112 104 Q118 108 118 122 L106 124 L106 168 L92 168 Q98 140 94 99 Z" fill="#000" fill-opacity=".07"/><path d="M42 118 L54 120 M118 118 L106 120" stroke="#000" stroke-opacity=".14" stroke-width="3" stroke-linecap="round"/><rect x="54" y="162" width="52" height="6" fill="#000" fill-opacity=".10"/><path d="M71 97 L80 112 L89 97" fill="none" stroke="#fff" stroke-opacity=".75" stroke-width="3" stroke-linejoin="round"/><circle cx="80" cy="124" r="1.8" fill="#fff" fill-opacity=".8"/><circle cx="80" cy="138" r="1.8" fill="#fff" fill-opacity=".8"/><circle cx="80" cy="152" r="1.8" fill="#fff" fill-opacity=".8"/><ellipse cx="52.5" cy="64" rx="5" ry="7" fill="#f5bd9c"/><ellipse cx="107.5" cy="64" rx="5" ry="7" fill="#f5bd9c"/><path d="M54 56 Q54 30 80 30 Q106 30 106 56 Q106 78 96 86 Q88 93 80 93 Q72 93 64 86 Q54 78 54 56 Z" fill="#f5bd9c"/><path d="M52 60 Q50 30 80 29 Q110 30 108 60 Q104 42 80 42 Q60 42 52 60 Z" fill="#2b2b30"/><rect x="64" y="52" width="12" height="4" rx="2" fill="#2b2b30" transform="rotate(-6 70 54)"/><rect x="84" y="52" width="12" height="4" rx="2" fill="#2b2b30" transform="rotate(6 90 54)"/><circle cx="70" cy="63" r="3.6" fill="#4b5866"/><circle cx="90" cy="63" r="3.6" fill="#4b5866"/><path d="M70 73 Q80 74 90 73 Q89 84 80 84 Q71 84 70 73 Z" fill="#fff"/><rect x="44" y="150" width="11" height="22" rx="3" fill="#bcdcef" stroke="#a9c6da" stroke-width="1.5"/><circle cx="50" cy="162" r="7" fill="#f5bd9c"/></svg>
+    </div>
+  </header>
+  <section class="band">
+    <div class="wrap">
+      <h2>Kolik a jak se hýbat</h2>
+      <p class="lead">Transplantační odborníci doporučují středně intenzivní až intenzivní pohyb 3 až 5krát týdně. V praxi to může vypadat třeba takhle:</p>
+      <div class="steps">
+        <div class="step"><div class="n">1</div><div><h3>Vytrvalost: 30 minut, 5 dní v týdnu</h3><p>Svižná chůze, kolo, plavání, tanec nebo nordic walking. Tempo, při kterém se zadýcháte, ale ještě zvládnete mluvit. Dohromady to dělá zhruba 150 minut týdně, což je obecné doporučení i pro zdravé dospělé.</p></div></div>
+        <div class="step"><div class="n">2</div><div><h3>Síla: 2krát týdně</h3><p>Cviky s vlastní vahou nebo s odporovou gumou: vstávání ze židle, kliky o zeď, výpony na špičky, lehké činky. Udržují svaly a kosti, které kortikoidy oslabují.</p></div></div>
+        <div class="step"><div class="n l">3</div><div><h3>Méně seďte</h3><p>Každou hodinu se zvedněte a projděte se. Každá procházka se počítá, i krátká.</p></div></div>
+        <div class="step"><div class="n l">4</div><div><h3>Začněte pomalu</h3><p>První týdny po operaci stačí chůze. Těžké věci nezvedejte, dokud vám to chirurg nepovolí. Pak přidávejte postupně, o pár minut týdně.</p></div></div>
+      </div>
+    </div>
+  </section>
+  <section class="band soft">
+    <div class="wrap cols">
+      <div>
+        <h2>Kde najít pomoc</h2>
+        <p><strong>Fyzioterapie a rehabilitace.</strong> Požádejte svého lékaře o doporučení k fyzioterapeutovi, který vám sestaví cvičení na míru. Je hrazená z pojištění.</p>
+        <p><strong>Kardiorehabilitace.</strong> Po transplantaci srdce bývá součástí péče řízený program cvičení; zeptejte se svého kardiologa.</p>
+        <p class="note">Které sporty jsou pro vás vhodné, proberte s týmem, hlavně na kontrolách po 6 a 12 měsících.</p>
+      </div>
+      <div>
+        <h2>Sport po transplantaci</h2>
+        <p>Po transplantaci se dá sportovat i závodně. Český tým transplantovaných sportovců se pravidelně účastní evropských a světových her pro transplantované, kde se soutěží v atletice, plavání, tenisu i dalších sportech. Podmínkou je, aby od transplantace uplynul alespoň rok.</p>
+        <p><a class="more" href="https://wtgf.org/">Světová federace her pro transplantované (WTGF) →</a></p>
+      </div>
+    </div>
+  </section>
+  <section class="band soft">
+    <div class="wrap">
+      <h2>Jídlo</h2>
+      <div class="steps pics">
+        <div class="step"><svg class="ico" viewBox="0 0 64 64" aria-hidden="true"><ellipse cx="32" cy="44" rx="28" ry="9" fill="#e9dff2"/><ellipse cx="32" cy="42" rx="22" ry="6" fill="#ffffff"/><path d="M20 40c0-8 6-12 9-12s5 5 3 10z" fill="#8fb3a1"/><path d="M24 30c-2-4 1-8 5-6 1-4 7-4 7 1 4 0 5 5 1 6" fill="#8fb3a1"/><circle cx="40" cy="36" r="6" fill="#e70000"/><path d="M40 30l2-3" stroke="#5a7d6b" stroke-width="2" stroke-linecap="round"/><path d="M30 40l16-14" stroke="#ae3e2b" stroke-width="5" stroke-linecap="round"/></svg><div><h3>Základ z rostlin</h3><p>Celozrnné pečivo a přílohy, zelenina, luštěniny a ovoce by měly tvořit většinu talíře.</p></div></div>
+        <div class="step"><svg class="ico" viewBox="0 0 64 64" aria-hidden="true"><ellipse cx="32" cy="50" rx="24" ry="5" fill="#e9dff2"/><path d="M14 34c0-6 6-8 18-8s18 2 18 8-6 8-18 8-18-2-18-8z" fill="#2e2e35"/><path d="M22 30c2 3 2 6 0 9M32 29c2 4 2 7 0 11M42 30c2 3 2 6 0 9" stroke="#a3403a" stroke-width="2" fill="none"/><path d="M12 14l40 36" stroke="#e70000" stroke-width="5" stroke-linecap="round"/></svg><div><h3>Méně masa, žádné uzeniny</h3><p>Červené maso omezte, uzeniny a jiné zpracované maso vynechejte. Dostatek bílkovin dodají i ryby, drůbež, luštěniny a mléčné výrobky.</p></div></div>
+        <div class="step"><svg class="ico" viewBox="0 0 64 64" aria-hidden="true"><ellipse cx="32" cy="56" rx="16" ry="3" fill="#e9dff2"/><path d="M18 10h28l-4 44H22z" fill="#f1ecf6"/><path d="M20 26h24l-2.6 28H22.6z" fill="#b8c8d9"/><path d="M26 32v16" stroke="#ffffff" stroke-width="3" stroke-linecap="round" opacity=".7"/></svg><div><h3>Pijte hlavně vodu</h3><p>Omezte slazené nápoje a ultrazpracované potraviny. Méně soli pomáhá udržet tlak.</p></div></div>
+        <div class="step"><svg class="ico" viewBox="0 0 64 64" aria-hidden="true"><path d="M6 36a26 26 0 0 0 52 0z" fill="#e70000"/><path d="M10 36a22 22 0 0 0 44 0z" fill="#f2a49b"/><path d="M32 36v20M32 36L17 50M32 36l15 14M32 36L12 42M32 36l20 6" stroke="#fbf0ef" stroke-width="2"/><path d="M8 14l48 40" stroke="#1d1d22" stroke-width="5" stroke-linecap="round"/></svg><div><h3>Pozor na grapefruit</h3><p>Grapefruit a pomelo mění hladinu některých imunosupresiv v krvi. Vynechejte je.</p></div></div>
+        <div class="step"><svg class="ico" viewBox="0 0 64 64" aria-hidden="true"><rect x="16" y="22" width="22" height="32" rx="4" fill="#1d1d22"/><rect x="18" y="16" width="18" height="8" rx="2" fill="#9b7fb8"/><rect x="20" y="32" width="14" height="12" fill="#e9dff2"/><path d="M44 54c0-14 4-24 14-30-2 12-6 22-14 30z" fill="#8fb3a1"/><path d="M44 54c4-10 8-18 12-24" stroke="#5a7d6b" stroke-width="2" fill="none"/></svg><div><h3>Doplňky a bylinky jen po poradě</h3><p>Některé, například třezalka, ovlivňují účinek léků. Než začnete cokoli užívat, zeptejte se lékaře nebo lékárníka.</p></div></div>
+        <div class="step"><svg class="ico" viewBox="0 0 64 64" aria-hidden="true"><ellipse cx="28" cy="38" rx="22" ry="12" fill="#3a0812"/><path d="M48 36l14-6" stroke="#3a0812" stroke-width="6" stroke-linecap="round"/><path d="M14 36c2-8 10-10 16-8s12-2 14 4-4 10-14 10-18 0-16-6z" fill="#ffffff"/><circle cx="29" cy="34" r="5" fill="#e8a33d"/></svg><div><h3>Bezpečné jídlo</h3><p>Maso a vejce dobře propečené, žádné nepasterizované mléčné výrobky. <a href="#kazdy-den">Více v části Každý den →</a></p></div></div>
+      </div>
+    </div>
+  </section>
+  <section class="band">
+    <div class="wrap narrow">
+      <h2>Váha</h2>
+      <p>Přibírání po transplantaci je časté a není vaše vina. Přispívají k němu léky, hlavně kortikoidy, a také lepší chuť k jídlu, když se po nemoci cítíte líp.</p>
+      <p>Hubněte pomalu, bez drastických diet. Kombinace pohybu a jídla je nejúčinnější. Pokud nevíte, jak začít, požádejte tým o doporučení k nutričnímu terapeutovi.</p>
+    </div>
+  </section>
+  <section class="band src" style="padding-block:20px 28px">
+    <div class="wrap">
+      <details class="srcbox"><summary>Zdroje k této stránce</summary>
+      <ol>
+        <li><a href="https://www.mcgill.ca/spot/article/exercise-solid-organ-transplant-candidates-and-recipients">CST + CAN-RESTORE: Exercise for SOT candidates and recipients. Transplantation 2019</a></li>
+        <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10898592">Stylemans D. a kol.: Physical exercise after solid organ transplantation. Transpl Int 2024</a></li>
+        <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12809479">Leitzmann MF a kol.: ECAC5 – diet, excess body weight, physical activity. Mol Oncol 2026</a></li>
+        <li><a href="https://cancer-code-europe.iarc.who.int/">Evropský kodex proti rakovině, 5. vydání</a></li>
+        <li><a href="https://www.who.int/publications/i/item/9789240015128">WHO: Guidelines on physical activity and sedentary behaviour, 2020</a></li>
+        <li><a href="https://ct24.ceskatelevize.cz/clanek/domaci/v-zahrebu-budou-o-medaile-bojovat-sportovci-po-transplantaci-282562">ČT24: Hry pro transplantované sportovce</a></li>
+        <li><a href="https://doi.org/10.1016/j.ajt.2026.07.033">AST IDCOP: Vaccination and Safe Living Strategies for SOT Candidates and Recipients, 2026</a></li>
+      </ol>
+      </details>
+    </div>
+  </section>
+</section>
+
+<!-- ============ LEDVINA ============ -->
+<section data-view="ledvina">
+  <header class="hero band">
+    <div class="wrap">
+      <div>
+        <a class="back" href="#uvod">← Zpět na úvod</a>
+        <h1>Po transplantaci ledviny</h1>
+        <p class="lead">Co je při prevenci nádorů specifické pro příjemce ledviny: které prohlídky po transplantaci potřebujete, jak chránit kůži a kdy se ozvat.</p>
+      </div>
+      <svg class="char" viewBox="0 0 160 240" role="img" aria-label="Postavička lékařky s deskami"><circle cx="80" cy="22" r="11" fill="#7a4a2c"/><ellipse cx="80" cy="233" rx="40" ry="4" fill="rgba(0,0,0,.10)"/><path d="M58 164 H102 L100 222 H82 L80 184 L78 222 H60 Z" fill="#3a3a42"/><path d="M80 170 V184" stroke="#000" stroke-opacity=".15" stroke-width="2"/><path d="M55 230 Q55 220 64 219 L80 220 L80 230 Z" fill="#ffffff"/><path d="M105 230 Q105 220 96 219 L80 220 L80 230 Z" fill="#ffffff"/><rect x="54" y="228" width="27" height="4" rx="2" fill="#2b2b30"/><rect x="79" y="228" width="27" height="4" rx="2" fill="#2b2b30"/><rect x="73" y="84" width="14" height="18" fill="#f5bd9c"/><path d="M73 90 Q80 98 87 90 L87 96 Q80 102 73 96 Z" fill="#e89a7c"/><path d="M50 112 Q46 140 50 160" stroke="#f5bd9c" stroke-width="12" stroke-linecap="round" fill="none"/><circle cx="50" cy="162" r="7" fill="#f5bd9c"/><path d="M110 112 Q114 134 110 146" stroke="#f5bd9c" stroke-width="12" stroke-linecap="round" fill="none"/><path d="M48 104 Q60 98 72 97 Q80 104 88 97 Q100 98 112 104 Q118 108 118 122 L106 124 L106 168 L54 168 L54 124 L42 122 Q42 108 48 104 Z" fill="#9cc3e6"/><path d="M48 104 Q60 98 72 97 L80 132 L88 97 Q100 98 112 104 Q118 108 118 122 L106 124 L108 176 L52 176 L54 124 L42 122 Q42 108 48 104 Z" fill="#ffffff" stroke="#e3e3e8" stroke-width="1.5"/><path d="M72 98 Q66 120 76 132 Q84 134 84 124" stroke="#2b2b30" stroke-width="2.5" fill="none"/><circle cx="84" cy="124" r="3.5" fill="#2b2b30"/><ellipse cx="52.5" cy="64" rx="5" ry="7" fill="#f5bd9c"/><ellipse cx="107.5" cy="64" rx="5" ry="7" fill="#f5bd9c"/><path d="M54 56 Q54 30 80 30 Q106 30 106 56 Q106 78 96 86 Q88 93 80 93 Q72 93 64 86 Q54 78 54 56 Z" fill="#f5bd9c"/><path d="M52 60 Q50 30 80 29 Q110 30 108 60 Q106 44 94 40 Q80 46 62 44 Q56 50 52 60 Z" fill="#7a4a2c"/><rect x="64" y="52" width="12" height="4" rx="2" fill="#2b2b30" transform="rotate(-6 70 54)"/><rect x="84" y="52" width="12" height="4" rx="2" fill="#2b2b30" transform="rotate(6 90 54)"/><circle cx="70" cy="63" r="3.6" fill="#4b5866"/><circle cx="90" cy="63" r="3.6" fill="#4b5866"/><path d="M70 73 Q80 74 90 73 Q89 84 80 84 Q71 84 70 73 Z" fill="#fff"/><rect x="80" y="122" width="26" height="34" rx="3" fill="#e70000"/><rect x="84" y="128" width="18" height="24" rx="1" fill="#fff"/><path d="M87 134h12M87 140h12M87 146h8" stroke="#c9b3d6" stroke-width="2"/><rect x="88" y="118" width="10" height="6" rx="2" fill="#2b2b30"/><circle cx="108" cy="146" r="7" fill="#f5bd9c"/></svg>
+    </div>
+  </header>
+  <section class="band soft">
+    <div class="wrap">
+      <h2>Prohlídky po transplantaci ledviny</h2>
+      <p class="lead">Většina screeningů je stejná jako u ostatních lidí. Přísnější je péče o kůži a gynekologie.</p>
+      <div class="tbl">
+        <table class="stack">
+          <thead><tr><th>Co</th><th>Jak často</th><th>Na co myslet</th></tr></thead>
+          <tbody>
+            <tr><td data-l="Co">Samovyšetření kůže a rtů</td><td data-l="Jak často">1× měsíčně</td><td data-l="Na co myslet">nové skvrny, bulky, drsná místa, nehojící se ranky, změny na rtech</td></tr>
+            <tr><td data-l="Co">Kožní lékař</td><td data-l="Jak často">1× ročně, v prvních letech raději 2× ročně</td><td data-l="Na co myslet">po kožním nádoru vás bude dermatolog sledovat pravidelně</td></tr>
+            <tr><td data-l="Co">Gynekolog (cytologie)</td><td data-l="Jak často">1× ročně až 1× za 3 roky, dle gynekologa</td><td data-l="Na co myslet">při prohlídce se kontroluje i oblast konečníku a zevních rodidel</td></tr>
+            <tr><td data-l="Co">Tlusté střevo</td><td data-l="Jak často">dle národního programu</td><td data-l="Na co myslet">u příjemců ledviny se objevuje častěji a dříve, i před 50. rokem; screening neodkládejte</td></tr>
+            <tr><td data-l="Co">Prs, prostata</td><td data-l="Jak často">dle národních programů</td><td data-l="Na co myslet">stejně jako u ostatních lidí</td></tr>
+            <tr><td data-l="Co">Vlastní ledviny</td><td data-l="Jak často">rutinní ultrazvuk se nedoporučuje</td><td data-l="Na co myslet">hlaste krev v moči; při vyšším riziku může lékař ultrazvuk doporučit</td></tr>
+            <tr><td data-l="Co">Játra</td><td data-l="Jak často">1× ročně ultrazvuk a krevní test</td><td data-l="Na co myslet">jen při cirhóze nebo chronické hepatitidě B či C</td></tr>
+            <tr><td data-l="Co">Virus EBV</td><td data-l="Jak často">v prvním roce po transplantaci</td><td data-l="Na co myslet">kontroly v krvi zajišťuje transplantační tým</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note" style="margin-top:12px">Plán prohlídek by měl být vždy individuální. Lékař zohlední váš věk, celkový zdravotní stav a předchozí nemoci.</p>
+    </div>
+  </section>
+  <section class="band">
+    <div class="wrap cols">
+      <div>
+        <h2>Kůže a rty</h2>
+        <p>Kožní nádory jsou po transplantaci ledviny nejčastější. Riziko je vyšší, pokud máte světlou kůži, pracujete venku, jako dítě jste se často spálili na slunci nebo už jste kožní nádor měli.</p>
+        <ul>
+          <li>Chraňte se před sluncem celý život: oblečení, klobouk a krém SPF 50+.</li>
+          <li>Prohlížejte si kůži i rty a nové změny ukažte lékaři.</li>
+          <li>Po kožním nádoru zůstaňte v péči dermatologa. Při opakovaných nádorech vám může doporučit i preventivní léčbu.</li>
+        </ul>
+        <p><a class="more" href="#kuze">Více o kůži a slunci →</a></p>
+      </div>
+      <div>
+        <h2>Každodenní život</h2>
+        <ul>
+          <li><strong>Nekuřte</strong>, ani po letech od transplantace.</li>
+          <li><strong>Hlídejte cukr, tlak a cholesterol.</strong> Cukrovka po transplantaci je častá, souvisí hlavně s kortikoidy a tým vám bude cukr pravidelně kontrolovat.</li>
+          <li><strong>Hýbejte se a jezte zdravě.</strong> <a href="#pohyb">Pohyb, jídlo a váha →</a></li>
+          <li><strong>Léky proti bolesti</strong> typu ibuprofen mohou ledvinu poškodit. Užívejte je jen po poradě s lékařem.</li>
+          <li><strong>Těhotenství</strong> plánujte až po roce stabilní funkce ledviny a vždy s týmem. Některé léky po transplantaci škodí plodu, proto je důležitá antikoncepce.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section class="band alert">
+    <div class="wrap">
+      <h2>Kdy se ozvat</h2>
+      <div class="syms">
+        <div><svg class="sym" viewBox="0 0 80 80" aria-hidden="true"><ellipse cx="40" cy="72" rx="22" ry="4" fill="#e9dff2"/><path d="M22 18h36l-4 50H26z" fill="#f1ecf6"/><path d="M24.5 38h31l-2.4 30H26.9z" fill="#e70000" opacity=".85"/><path d="M40 6c4 6 7 9 7 13a7 7 0 0 1-14 0c0-4 3-7 7-13z" fill="#c40000"/></svg><p>krev v moči</p></div>
+        <div><svg class="sym" viewBox="0 0 80 80" aria-hidden="true"><path d="M8 58c10-22 22-34 44-38 10-2 18 2 20 8-14 6-26 18-34 36z" fill="#f2c4ad"/><ellipse cx="44" cy="40" rx="6" ry="4.5" fill="#1d1d22"/><circle cx="44" cy="40" r="13" fill="none" stroke="#9b7fb8" stroke-width="4"/><path d="M53 50l12 12" stroke="#9b7fb8" stroke-width="6" stroke-linecap="round"/></svg><p>nová nebo měnící se skvrna na kůži či rtech</p></div>
+        <div><svg class="sym" viewBox="0 0 80 80" aria-hidden="true"><path d="M14 74V46c0-14 12-22 26-22s26 8 26 22v28z" fill="#9b7fb8"/><circle cx="40" cy="16" r="11" fill="#f2c4ad"/><circle cx="30" cy="48" r="5" fill="#e70000"/><circle cx="30" cy="48" r="9" fill="none" stroke="#e70000" stroke-width="2" stroke-dasharray="3 3"/></svg><p>bulka v prsu nebo ve varleti</p></div>
+        <div><svg class="sym" viewBox="0 0 80 80" aria-hidden="true"><rect x="22" y="8" width="12" height="50" rx="6" fill="#f1ecf6"/><rect x="25" y="22" width="6" height="36" rx="3" fill="#e70000"/><circle cx="28" cy="62" r="10" fill="#e70000"/><path d="M54 18c4 6 6 9 6 12a6 6 0 0 1-12 0c0-3 2-6 6-12z" fill="#b8c8d9"/><path d="M62 42c3 4 4 6 4 8a4 4 0 0 1-8 0c0-2 1-4 4-8z" fill="#b8c8d9"/></svg><p>zvětšené uzliny, horečka bez infekce, noční pocení nebo hubnutí</p></div>
+      </div>
+    </div>
+  </section>
+  <section class="band src" style="padding-block:20px 28px">
+    <div class="wrap">
+      <details class="srcbox"><summary>Zdroje k této stránce</summary>
+      <ol>
+        <li><a href="https://tts.org/kdigo/downloads/kdigo/KDIGO_KidneyTxGuideline.pdf">KDIGO: Clinical practice guideline for the care of kidney transplant recipients. Am J Transplant 2009;9(Suppl 3)</a></li>
+        <li><a href="https://doi.org/10.1097/TP.0000000000003136">Chadban SJ a kol.: KDIGO guideline on the evaluation and management of candidates for kidney transplantation. Transplantation 2020</a></li>
+        <li><a href="https://doi.org/10.1093/ndt/gft218">ERBP: Guideline on the management and evaluation of the kidney donor and recipient. Nephrol Dial Transplant 2013</a></li>
+        <li><a href="https://doi.org/10.1186/s12882-017-0553-2">Baker RJ a kol.: Renal Association guideline in post-operative care in the kidney transplant recipient. BMC Nephrol 2017</a></li>
+        <li><a href="https://www.kidney.org/sites/default/files/02-50-4080_ABB_ManagingTransRecipBk_Neph.pdf">NKF KDOQI: Managing kidney transplant recipients, clinical guide</a></li>
+        <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3152279">Wong G, Chapman JR, Craig JC: Cancer screening in renal transplant recipients: what is the evidence? CJASN 2008</a></li>
+        <li><a href="https://doi.org/10.7861/clinmed.2019-0423">Manickavasagar R, Thuraisingham R: Post renal-transplant malignancy surveillance. Clin Med 2020</a></li>
+        <li><a href="https://doi.org/10.34067/KID.0000000000000545">Bigotte Vieira M a kol.: Cancer screening and cancer treatment in kidney transplant recipients. Kidney360 2024</a></li>
+        <li><a href="https://doi.org/10.1053/j.ackd.2021.09.002">Murakami N a kol.: Transplant onconephrology in patients with kidney transplants. Adv Chronic Kidney Dis 2022</a></li>
+        <li><a href="https://doi.org/10.1503/cmaj.250712">Rampersad C, Bau J: Primary care for recipients of kidney transplants. CMAJ 2025</a></li>
+        <li><a href="https://doi.org/10.1093/ckj/sfab072">Devresse A a kol.: How to manage cigarette smoking in kidney transplant candidates and recipients? Clin Kidney J 2021</a></li>
+        <li><a href="https://doi.org/10.3389/fmed.2018.00302">Nolte Fong JV, Moore LW: Nutrition trends in kidney transplant recipients. Front Med 2018</a></li>
+        <li><a href="https://doi.org/10.3390/nu14234996">Górska M, Kurnatowska I: Nutrition disturbances and metabolic complications in kidney transplant recipients. Nutrients 2022</a></li>
+        <li><a href="https://doi.org/10.3389/ti.2024.13965">Saleem N a kol.: Global survey of cancer screening practices for kidney transplant candidates and recipients. Transpl Int 2025</a></li>
+      </ol>
+      </details>
+    </div>
+  </section>
+</section>
+
+<!-- ============ SRDCE ============ -->
+<section data-view="srdce">
+  <header class="hero band">
+    <div class="wrap">
+      <div>
+        <a class="back" href="#uvod">← Zpět na úvod</a>
+        <h1>Po transplantaci srdce</h1>
+        <p class="lead">Nejčastějším nádorem po transplantaci srdce jsou nádory kůže, následuje prostata a plíce. Dobrou zprávou je, že kůži můžete chránit každý den a ostatní nádory zachytí běžné screeningy.</p>
+      </div>
+      <svg class="char" viewBox="0 0 160 240" role="img" aria-label="Postavička v klobouku s opalovacím krémem"><path d="M50 60 Q48 26 80 24 Q112 26 110 60 L114 132 Q80 140 46 132 Z" fill="#8a5a3a"/><ellipse cx="80" cy="233" rx="40" ry="4" fill="rgba(0,0,0,.10)"/><path d="M58 164 H102 L100 222 H82 L80 184 L78 222 H60 Z" fill="#b4b4ba"/><path d="M80 170 V184" stroke="#000" stroke-opacity=".15" stroke-width="2"/><path d="M55 230 Q55 220 64 219 L80 220 L80 230 Z" fill="#ffffff"/><path d="M105 230 Q105 220 96 219 L80 220 L80 230 Z" fill="#ffffff"/><rect x="54" y="228" width="27" height="4" rx="2" fill="#2b2b30"/><rect x="79" y="228" width="27" height="4" rx="2" fill="#2b2b30"/><rect x="73" y="84" width="14" height="18" fill="#f5bd9c"/><path d="M73 90 Q80 98 87 90 L87 96 Q80 102 73 96 Z" fill="#e89a7c"/><path d="M50 112 Q46 140 50 160" stroke="#f5bd9c" stroke-width="12" stroke-linecap="round" fill="none"/><circle cx="50" cy="162" r="7" fill="#f5bd9c"/><path d="M110 112 Q124 96 120 80" stroke="#f5bd9c" stroke-width="12" stroke-linecap="round" fill="none"/><circle cx="120" cy="78" r="7" fill="#f5bd9c"/><path d="M48 104 Q60 98 72 97 Q80 104 88 97 Q100 98 112 104 Q118 108 118 122 L106 124 L106 168 L54 168 L54 124 L42 122 Q42 108 48 104 Z" fill="#9cc3e6"/><path d="M94 99 Q104 100 112 104 Q118 108 118 122 L106 124 L106 168 L92 168 Q98 140 94 99 Z" fill="#000" fill-opacity=".07"/><path d="M42 118 L54 120 M118 118 L106 120" stroke="#000" stroke-opacity=".14" stroke-width="3" stroke-linecap="round"/><rect x="54" y="162" width="52" height="6" fill="#000" fill-opacity=".10"/><path d="M71 97 L80 112 L89 97" fill="none" stroke="#fff" stroke-opacity=".75" stroke-width="3" stroke-linejoin="round"/><circle cx="80" cy="124" r="1.8" fill="#fff" fill-opacity=".8"/><circle cx="80" cy="138" r="1.8" fill="#fff" fill-opacity=".8"/><circle cx="80" cy="152" r="1.8" fill="#fff" fill-opacity=".8"/><ellipse cx="52.5" cy="64" rx="5" ry="7" fill="#f5bd9c"/><ellipse cx="107.5" cy="64" rx="5" ry="7" fill="#f5bd9c"/><path d="M54 56 Q54 30 80 30 Q106 30 106 56 Q106 78 96 86 Q88 93 80 93 Q72 93 64 86 Q54 78 54 56 Z" fill="#f5bd9c"/><path d="M52 62 Q50 28 80 27 Q110 28 108 62 Q104 46 92 40 Q78 52 56 56 Z" fill="#8a5a3a"/><rect x="64" y="52" width="12" height="4" rx="2" fill="#2b2b30" transform="rotate(-6 70 54)"/><rect x="84" y="52" width="12" height="4" rx="2" fill="#2b2b30" transform="rotate(6 90 54)"/><circle cx="70" cy="63" r="3.6" fill="#4b5866"/><circle cx="90" cy="63" r="3.6" fill="#4b5866"/><path d="M70 73 Q80 74 90 73 Q89 84 80 84 Q71 84 70 73 Z" fill="#fff"/><path d="M60 34 Q62 12 80 12 Q98 12 100 34 Z" fill="#e70000"/><ellipse cx="80" cy="34" rx="38" ry="7" fill="#e70000"/><rect x="61" y="27" width="38" height="5" fill="#fff"/><g transform="rotate(16 124 62)"><rect x="117" y="44" width="14" height="30" rx="3" fill="#e70000"/><rect x="119" y="38" width="10" height="8" rx="2" fill="#fff"/></g><circle cx="120" cy="78" r="7" fill="#f5bd9c"/></svg>
+    </div>
+  </header>
+  <section class="band soft">
+    <div class="wrap">
+      <h2>Prohlídky po transplantaci srdce</h2>
+      <p class="lead">Screeningy jsou stejné jako u ostatních lidí. Navíc je potřeba pravidelný kožní lékař.</p>
+      <div class="tbl">
+        <table class="stack">
+          <thead><tr><th>Co</th><th>Jak často</th><th>Na co myslet</th></tr></thead>
+          <tbody>
+            <tr><td data-l="Co">Samovyšetření kůže a rtů</td><td data-l="Jak často">1× měsíčně</td><td data-l="Na co myslet">nové skvrny, bulky, drsná místa, nehojící se ranky</td></tr>
+            <tr><td data-l="Co">Kožní lékař</td><td data-l="Jak často">1× ročně, od prvního roku</td><td data-l="Na co myslet">kožní nádory jsou po transplantaci srdce nejčastější</td></tr>
+            <tr><td data-l="Co">Prostata</td><td data-l="Jak často">dle národního programu</td><td data-l="Na co myslet">po kůži druhý nejčastější nádor u mužů po transplantaci srdce</td></tr>
+            <tr><td data-l="Co">Plíce</td><td data-l="Jak často">u kuřáků a bývalých kuřáků dle programu časného záchytu</td><td data-l="Na co myslet">rakovina plic patří mezi tři nejčastější nádory po transplantaci srdce</td></tr>
+            <tr><td data-l="Co">Prs, tlusté střevo</td><td data-l="Jak často">dle národních programů</td><td data-l="Na co myslet">stejně jako u ostatních lidí</td></tr>
+            <tr><td data-l="Co">Gynekolog a vyšetření genitálu a konečníku</td><td data-l="Jak často">pravidelně</td><td data-l="Na co myslet">kontrola bradavic a jiných změn způsobených HPV, u žen i mužů</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+  <section class="band">
+    <div class="wrap cols">
+      <div>
+        <h2>Kůže</h2>
+        <p>Po transplantaci srdce se berou silnější imunosupresiva než po některých jiných transplantacích, a kůže je proto zranitelnější.</p>
+        <ul>
+          <li>Krém SPF 50+ každý den, oblečení a klobouk.</li>
+          <li>Kožní lékař jednou ročně, ne až když se něco objeví.</li>
+          <li>Prohlížejte si kůži a rty a změny hlaste.</li>
+        </ul>
+        <p><a class="more" href="#kuze">Více o kůži a slunci →</a></p>
+      </div>
+      <div>
+        <h2>Očkování proti HPV</h2>
+        <p>Pro věk 9–45 let se doporučují všechny 3 dávky, nejlépe ještě před transplantací. Po transplantaci se očkovat také může, jen odpověď bývá slabší.</p>
+        <p><a class="more" href="#hpv">Vše o očkování proti HPV →</a></p>
+      </div>
+    </div>
+  </section>
+  <section class="band soft">
+    <div class="wrap">
+      <h2>Pohyb a kardiorehabilitace</h2>
+      <div class="steps">
+        <div class="step"><div class="n">1</div><div><h3>Kardiorehabilitace</h3><p>Po transplantaci srdce se doporučuje všem, jakmile to zdravotní stav dovolí. Zlepšuje kondici a snižuje riziko návratu do nemocnice. Může probíhat v centru, doma, nebo kombinovaně.</p></div></div>
+        <div class="step"><div class="n">2</div><div><h3>Vytrvalost dlouhodobě</h3><p>150 minut týdně středně intenzivního pohybu, nebo 75 minut intenzivního. Některým pacientům může lékař doporučit i intervalový trénink.</p></div></div>
+        <div class="step"><div class="n l">3</div><div><h3>Síla</h3><p>Posilování chrání kosti a svaly, které oslabují kortikoidy a další léky.</p></div></div>
+        <div class="step"><div class="n l">4</div><div><h3>Sledujte svůj pohyb</h3><p>Hodinky nebo aplikace v mobilu pomohou udržet pravidelnost.</p></div></div>
+      </div>
+    </div>
+  </section>
+  <section class="band">
+    <div class="wrap narrow">
+      <h2>Chraňte nové srdce</h2>
+      <p>Nové srdce ohrožuje hlavně postupné zužování jeho cév. Pomůžete mu tím, že nekouříte, hlídáte si krevní tlak, cukr, cholesterol a váhu, jíte méně soli a hýbete se. Většina pacientů po transplantaci srdce užívá statin, i když cholesterol nemají vysoký.</p>
+      <p><a class="more" href="#pohyb">Pohyb, jídlo a váha →</a></p>
+    </div>
+  </section>
+  <section class="band alert">
+    <div class="wrap">
+      <h2>Kdy se ozvat</h2>
+      <div class="syms">
+        <div><svg class="sym" viewBox="0 0 80 80" aria-hidden="true"><path d="M8 58c10-22 22-34 44-38 10-2 18 2 20 8-14 6-26 18-34 36z" fill="#f2c4ad"/><ellipse cx="44" cy="40" rx="6" ry="4.5" fill="#1d1d22"/><circle cx="44" cy="40" r="13" fill="none" stroke="#9b7fb8" stroke-width="4"/><path d="M53 50l12 12" stroke="#9b7fb8" stroke-width="6" stroke-linecap="round"/></svg><p>nová nebo měnící se skvrna na kůži či rtech</p></div>
+        <div><svg class="sym" viewBox="0 0 80 80" aria-hidden="true"><path d="M14 74V46c0-14 12-22 26-22s26 8 26 22v28z" fill="#9b7fb8"/><circle cx="40" cy="16" r="11" fill="#f2c4ad"/><circle cx="30" cy="48" r="5" fill="#e70000"/><circle cx="30" cy="48" r="9" fill="none" stroke="#e70000" stroke-width="2" stroke-dasharray="3 3"/></svg><p>bulka v prsu nebo ve varleti</p></div>
+        <div><svg class="sym" viewBox="0 0 80 80" aria-hidden="true"><path d="M40 12v22" stroke="#9b7fb8" stroke-width="5" stroke-linecap="round"/><path d="M36 30c-6-6-18-4-22 10-3 12-2 24 4 26 8 3 16-4 18-14z" fill="#c9b3d6"/><path d="M44 30c6-6 18-4 22 10 3 12 2 24-4 26-8 3-16-4-18-14z" fill="#c9b3d6"/><path d="M58 18c4 0 6-2 6-5M64 24c4 0 7-3 7-7" stroke="#b8c8d9" stroke-width="3" fill="none" stroke-linecap="round"/></svg><p>dlouhotrvající kašel nebo vykašlávání krve</p></div>
+        <div><svg class="sym" viewBox="0 0 80 80" aria-hidden="true"><rect x="22" y="8" width="12" height="50" rx="6" fill="#f1ecf6"/><rect x="25" y="22" width="6" height="36" rx="3" fill="#e70000"/><circle cx="28" cy="62" r="10" fill="#e70000"/><path d="M54 18c4 6 6 9 6 12a6 6 0 0 1-12 0c0-3 2-6 6-12z" fill="#b8c8d9"/><path d="M62 42c3 4 4 6 4 8a4 4 0 0 1-8 0c0-2 1-4 4-8z" fill="#b8c8d9"/></svg><p>zvětšené uzliny, horečka bez infekce, noční pocení nebo hubnutí</p></div>
+      </div>
+    </div>
+  </section>
+  <section class="band src" style="padding-block:20px 28px">
+    <div class="wrap">
+      <details class="srcbox"><summary>Zdroje k této stránce</summary>
+      <ol>
+        <li><a href="https://doi.org/10.1016/j.healun.2022.10.015">Velleca A a kol.: The ISHLT guidelines for the care of heart transplant recipients. J Heart Lung Transplant 2023;42(5):e1–e141</a></li>
+        <li><a href="https://frontierspartnerships.org/journals/transplant-international/articles/10.1111/tri.13520/full">Crow LD a kol.: Initial skin cancer screening for solid organ transplant recipients, Delphi consensus. Transpl Int 2019</a></li>
+        <li><a href="https://pubmed.ncbi.nlm.nih.gov/22045767/">Engels EA a kol.: Spectrum of cancer risk among US solid organ transplant recipients. JAMA 2011</a></li>
+        <li><a href="https://www.mcgill.ca/spot/article/exercise-solid-organ-transplant-candidates-and-recipients">CST + CAN-RESTORE: Exercise for SOT candidates and recipients. Transplantation 2019</a></li>
+      </ol>
+      </details>
+    </div>
+  </section>
+</section>
+
+<!-- ============ JÁTRA ============ -->
+<section data-view="jatra">
+  <header class="hero band">
+    <div class="wrap">
+      <div>
+        <a class="back" href="#uvod">← Zpět na úvod</a>
+        <h1>Po transplantaci jater</h1>
+        <p class="lead">Nová játra nejvíc ochráníte tím, že nepijete alkohol a nekouříte. K tomu kožní lékař jednou ročně a kolonoskopie podle toho, jaké máte střevo.</p>
+      </div>
+      <svg class="char" viewBox="0 0 160 240" role="img" aria-label="Postavička se sklenicí vody s citronem"><ellipse cx="80" cy="233" rx="40" ry="4" fill="rgba(0,0,0,.10)"/><path d="M58 164 H102 L100 222 H82 L80 184 L78 222 H60 Z" fill="#3a3a42"/><path d="M80 170 V184" stroke="#000" stroke-opacity=".15" stroke-width="2"/><path d="M55 230 Q55 220 64 219 L80 220 L80 230 Z" fill="#ffffff"/><path d="M105 230 Q105 220 96 219 L80 220 L80 230 Z" fill="#ffffff"/><rect x="54" y="228" width="27" height="4" rx="2" fill="#2b2b30"/><rect x="79" y="228" width="27" height="4" rx="2" fill="#2b2b30"/><rect x="73" y="84" width="14" height="18" fill="#f5bd9c"/><path d="M73 90 Q80 98 87 90 L87 96 Q80 102 73 96 Z" fill="#e89a7c"/><path d="M50 112 Q46 140 50 160" stroke="#f5bd9c" stroke-width="12" stroke-linecap="round" fill="none"/><circle cx="50" cy="162" r="7" fill="#f5bd9c"/><path d="M110 112 Q124 96 120 80" stroke="#f5bd9c" stroke-width="12" stroke-linecap="round" fill="none"/><circle cx="120" cy="78" r="7" fill="#f5bd9c"/><path d="M48 104 Q60 98 72 97 Q80 104 88 97 Q100 98 112 104 Q118 108 118 122 L106 124 L106 168 L54 168 L54 124 L42 122 Q42 108 48 104 Z" fill="#c9b3d6"/><path d="M94 99 Q104 100 112 104 Q118 108 118 122 L106 124 L106 168 L92 168 Q98 140 94 99 Z" fill="#000" fill-opacity=".07"/><path d="M42 118 L54 120 M118 118 L106 120" stroke="#000" stroke-opacity=".14" stroke-width="3" stroke-linecap="round"/><rect x="54" y="162" width="52" height="6" fill="#000" fill-opacity=".10"/><path d="M71 97 L80 112 L89 97" fill="none" stroke="#fff" stroke-opacity=".75" stroke-width="3" stroke-linejoin="round"/><circle cx="80" cy="124" r="1.8" fill="#fff" fill-opacity=".8"/><circle cx="80" cy="138" r="1.8" fill="#fff" fill-opacity=".8"/><circle cx="80" cy="152" r="1.8" fill="#fff" fill-opacity=".8"/><ellipse cx="52.5" cy="64" rx="5" ry="7" fill="#f5bd9c"/><ellipse cx="107.5" cy="64" rx="5" ry="7" fill="#f5bd9c"/><path d="M54 56 Q54 30 80 30 Q106 30 106 56 Q106 78 96 86 Q88 93 80 93 Q72 93 64 86 Q54 78 54 56 Z" fill="#f5bd9c"/><path d="M52 56 Q52 32 80 30 Q108 32 108 56 Q104 44 92 42 Q80 40 68 42 Q56 44 52 56 Z" fill="#9a9aa2"/><rect x="64" y="52" width="12" height="4" rx="2" fill="#2b2b30" transform="rotate(-6 70 54)"/><rect x="84" y="52" width="12" height="4" rx="2" fill="#2b2b30" transform="rotate(6 90 54)"/><circle cx="70" cy="63" r="3.6" fill="#4b5866"/><circle cx="90" cy="63" r="3.6" fill="#4b5866"/><path d="M70 73 Q80 74 90 73 Q89 84 80 84 Q71 84 70 73 Z" fill="#fff"/><g><path d="M112 50 L132 50 L129 82 L115 82 Z" fill="#e3f0f8" stroke="#a9c6da" stroke-width="2"/><path d="M113.5 62 L130.5 62 L129 82 L115 82 Z" fill="#bcdcef"/><circle cx="128" cy="52" r="6" fill="#f4d35e"/><path d="M118 42 L123 70" stroke="#e70000" stroke-width="3" stroke-linecap="round"/></g><circle cx="120" cy="78" r="7" fill="#f5bd9c"/></svg>
+    </div>
+  </header>
+  <section class="band soft">
+    <div class="wrap">
+      <h2>Prohlídky po transplantaci jater</h2>
+      <p class="lead">Většina screeningů je stejná jako u ostatních lidí. Navíc kůže, střevo podle toho, zda máte PSC nebo střevní zánět, a u některých lidí ušní, nosní, krční lékař.</p>
+      <div class="tbl">
+        <table class="stack">
+          <thead><tr><th>Co</th><th>Jak často</th><th>Na co myslet</th></tr></thead>
+          <tbody>
+            <tr><td data-l="Co">Samovyšetření kůže a rtů</td><td data-l="Jak často">1× měsíčně</td><td data-l="Na co myslet">nové skvrny, bulky, drsná místa, nehojící se ranky</td></tr>
+            <tr><td data-l="Co">Kožní lékař</td><td data-l="Jak často">1× ročně</td><td data-l="Na co myslet">po kožním nádoru častěji</td></tr>
+            <tr><td data-l="Co">Tlusté střevo</td><td data-l="Jak často">dle národního programu, lékař může doporučit kolonoskopii každých 5 let</td><td data-l="Na co myslet">kolonoskopie je po transplantaci jater vhodnější než test stolice</td></tr>
+            <tr><td data-l="Co">Tlusté střevo při PSC a střevním zánětu</td><td data-l="Jak často">kolonoskopie 1× ročně, s odběrem vzorků</td><td data-l="Na co myslet">platí v jakémkoli věku</td></tr>
+            <tr><td data-l="Co">Tlusté střevo při střevním zánětu bez PSC</td><td data-l="Jak často">kolonoskopie 1× ročně, dle gastroenterologa</td><td data-l="Na co myslet">test stolice ji nenahradí</td></tr>
+            <tr><td data-l="Co">Tlusté střevo při PSC bez střevního zánětu</td><td data-l="Jak často">kolonoskopie každých 5 let, s odběrem vzorků</td><td data-l="Na co myslet">zachytí i skrytý střevní zánět</td></tr>
+            <tr><td data-l="Co">Ušní, nosní, krční lékař</td><td data-l="Jak často">jednou během prvního roku po transplantaci</td><td data-l="Na co myslet">pro kuřáky a bývalé kuřáky, po jaterní nemoci z alkoholu a při infekci HPV</td></tr>
+            <tr><td data-l="Co">Plíce</td><td data-l="Jak často">u kuřáků a bývalých kuřáků dle programu časného záchytu</td><td data-l="Na co myslet">nízkodávkové CT jednou ročně</td></tr>
+            <tr><td data-l="Co">Gynekolog</td><td data-l="Jak často">pravidelně, při pozitivním HPV testu zvažte 1× ročně</td><td data-l="Na co myslet">při pozitivním HPV i stěr z konečníku</td></tr>
+            <tr><td data-l="Co">Prs, prostata</td><td data-l="Jak často">dle národních programů</td><td data-l="Na co myslet">stejně jako u ostatních lidí</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.9rem">PSC je primární sklerozující cholangitida. Střevním zánětem myslíme Crohnovu nemoc nebo ulcerózní kolitidu.</p>
+    </div>
+  </section>
+  <section class="band">
+    <div class="wrap cols">
+      <div>
+        <h2>Bez alkoholu, napořád</h2>
+        <p>Po transplantaci jater se doporučuje nepít alkohol vůbec, ať byla důvodem transplantace jakákoli nemoc. Ani pivo, ani sklenka vína k jídlu.</p>
+        <p>Existuje spousta nealkoholických piv, vín i míchaných nápojů, takže si můžete připít s ostatními.</p>
+        <p>Pokud je těžké nepít, řekněte to svému hepatologovi. Pomoc existuje a není to selhání.</p>
+        <p><a class="more" href="#alkohol">Více o alkoholu →</a></p>
+      </div>
+      <div>
+        <h2>Bez cigaret</h2>
+        <p>Kouření po transplantaci jater zvyšuje riziko nádorů plic, úst, krku a hrtanu. Přestat se vyplatí kdykoli.</p>
+        <p><a class="more" href="#koureni">Jak přestat kouřit →</a></p>
+        <h2 style="margin-top:28px">Očkování proti HPV</h2>
+        <p>Pro věk 9–45 let se doporučují všechny 3 dávky, nejlépe ještě před transplantací.</p>
+        <p><a class="more" href="#hpv">Vše o očkování proti HPV →</a></p>
+      </div>
+    </div>
+  </section>
+  <section class="band soft">
+    <div class="wrap">
+      <h2>Co ještě pomáhá</h2>
+      <div class="steps">
+        <div class="step"><div class="n">1</div><div><h3>Pohyb</h3><p>Pravidelný pohyb vrací sílu svalům, které nemoc jater oslabila, a chrání kosti.</p></div></div>
+        <div class="step"><div class="n">2</div><div><h3>Hlídejte si váhu</h3><p>Po transplantaci se snadno přibírá. Ztučnění se ale může objevit i v nových játrech, proto pomáhá rozumné jídlo a pohyb.</p></div></div>
+        <div class="step"><div class="n l">3</div><div><h3>Spánek</h3><p>Aspoň 7 hodin spánku denně. Problémy se spánkem jsou po transplantaci jater časté, nebojte se o nich mluvit.</p></div></div>
+        <div class="step"><div class="n l">4</div><div><h3>Psychika</h3><p>Smutek, únava nebo úzkost po transplantaci nejsou slabost. Řekněte o nich lékaři, dají se léčit.</p></div></div>
+      </div>
+      <p><a class="more" href="#pohyb">Pohyb, jídlo a váha →</a></p>
+    </div>
+  </section>
+  <section class="band alert">
+    <div class="wrap">
+      <h2>Kdy se ozvat</h2>
+      <div class="syms">
+        <div><svg class="sym" viewBox="0 0 80 80" aria-hidden="true"><path d="M8 58c10-22 22-34 44-38 10-2 18 2 20 8-14 6-26 18-34 36z" fill="#f2c4ad"/><ellipse cx="44" cy="40" rx="6" ry="4.5" fill="#1d1d22"/><circle cx="44" cy="40" r="13" fill="none" stroke="#9b7fb8" stroke-width="4"/><path d="M53 50l12 12" stroke="#9b7fb8" stroke-width="6" stroke-linecap="round"/></svg><p>nová nebo měnící se skvrna na kůži či rtech</p></div>
+        <div><svg class="sym" viewBox="0 0 80 80" aria-hidden="true"><circle cx="38" cy="24" r="14" fill="#f2c4ad"/><path d="M30 36h16v14H30z" fill="#f2c4ad"/><path d="M14 76c0-16 10-26 24-26s24 10 24 26z" fill="#9b7fb8"/><path d="M33 42q5 4 10 0" stroke="#e70000" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M58 18q6 6 0 12M64 13q10 11 0 22" stroke="#b8c8d9" stroke-width="3" fill="none" stroke-linecap="round"/></svg><p>chrapot nebo potíže s polykáním déle než 3 týdny, nehojící se ranka v ústech</p></div>
+        <div><svg class="sym" viewBox="0 0 80 80" aria-hidden="true"><path d="M20 18h40q8 0 8 8v4q0 8-8 8H24q-6 0-6 6v2q0 6 6 6h32q8 0 8 8v2q0 8-8 8H20" stroke="#c9b3d6" stroke-width="9" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M60 50c3 5 5 7 5 10a5 5 0 0 1-10 0c0-3 2-5 5-10z" fill="#e70000"/></svg><p>krev ve stolici nebo dlouhodobá změna vyprazdňování</p></div>
+        <div><svg class="sym" viewBox="0 0 80 80" aria-hidden="true"><path d="M14 74V46c0-14 12-22 26-22s26 8 26 22v28z" fill="#9b7fb8"/><circle cx="40" cy="16" r="11" fill="#f2c4ad"/><circle cx="30" cy="48" r="5" fill="#e70000"/><circle cx="30" cy="48" r="9" fill="none" stroke="#e70000" stroke-width="2" stroke-dasharray="3 3"/></svg><p>bulka v prsu, ve varleti nebo na krku</p></div>
+        <div><svg class="sym" viewBox="0 0 80 80" aria-hidden="true"><rect x="22" y="8" width="12" height="50" rx="6" fill="#f1ecf6"/><rect x="25" y="22" width="6" height="36" rx="3" fill="#e70000"/><circle cx="28" cy="62" r="10" fill="#e70000"/><path d="M54 18c4 6 6 9 6 12a6 6 0 0 1-12 0c0-3 2-6 6-12z" fill="#b8c8d9"/><path d="M62 42c3 4 4 6 4 8a4 4 0 0 1-8 0c0-2 1-4 4-8z" fill="#b8c8d9"/></svg><p>zvětšené uzliny, horečka bez infekce, noční pocení nebo hubnutí</p></div>
+      </div>
+    </div>
+  </section>
+  <section class="band src" style="padding-block:20px 28px">
+    <div class="wrap">
+      <details class="srcbox"><summary>Zdroje k této stránce</summary>
+      <ol>
+        <li><a href="https://doi.org/10.1097/LVT.0000000000000785">Sharma P a kol.: AASLD AST Practice Guideline on adult liver transplantation: Diagnosis and management of long-term complications. Liver Transpl 2026;32:1157–1193</a></li>
+        <li><a href="https://doi.org/10.1016/j.jhep.2024.07.032">EASL Clinical Practice Guidelines on liver transplantation. J Hepatol 2024</a></li>
+      </ol>
+      </details>
+    </div>
+  </section>
+</section>
+
+<!-- ============ KŮŽE ============ -->
+<section data-view="kuze">
+  <header class="hero band">
+    <div class="wrap">
+      <div>
+        <a class="back" href="#uvod">← Zpět na úvod</a>
+        <h1>Kůže a slunce</h1>
+        <p class="lead">Kožní nádory jsou po transplantaci nejčastější. Dobrá zpráva: většině lze předejít ochranou před sluncem a zachytit je včas, když kůži znáte.</p>
+      </div>
+      <svg class="char hero-char" viewBox="0 0 160 240" role="img" aria-label="Postavička v klobouku s opalovacím krémem"><path d="M50 60 Q48 26 80 24 Q112 26 110 60 L114 132 Q80 140 46 132 Z" fill="#8a5a3a"/><ellipse cx="80" cy="233" rx="40" ry="4" fill="rgba(0,0,0,.10)"/><path d="M58 164 H102 L100 222 H82 L80 184 L78 222 H60 Z" fill="#b4b4ba"/><path d="M80 170 V184" stroke="#000" stroke-opacity=".15" stroke-width="2"/><path d="M55 230 Q55 220 64 219 L80 220 L80 230 Z" fill="#ffffff"/><path d="M105 230 Q105 220 96 219 L80 220 L80 230 Z" fill="#ffffff"/><rect x="54" y="228" width="27" height="4" rx="2" fill="#2b2b30"/><rect x="79" y="228" width="27" height="4" rx="2" fill="#2b2b30"/><rect x="73" y="84" width="14" height="18" fill="#f5bd9c"/><path d="M73 90 Q80 98 87 90 L87 96 Q80 102 73 96 Z" fill="#e89a7c"/><path d="M50 112 Q46 140 50 160" stroke="#f5bd9c" stroke-width="12" stroke-linecap="round" fill="none"/><circle cx="50" cy="162" r="7" fill="#f5bd9c"/><path d="M110 112 Q124 96 120 80" stroke="#f5bd9c" stroke-width="12" stroke-linecap="round" fill="none"/><circle cx="120" cy="78" r="7" fill="#f5bd9c"/><path d="M48 104 Q60 98 72 97 Q80 104 88 97 Q100 98 112 104 Q118 108 118 122 L106 124 L106 168 L54 168 L54 124 L42 122 Q42 108 48 104 Z" fill="#9cc3e6"/><path d="M94 99 Q104 100 112 104 Q118 108 118 122 L106 124 L106 168 L92 168 Q98 140 94 99 Z" fill="#000" fill-opacity=".07"/><path d="M42 118 L54 120 M118 118 L106 120" stroke="#000" stroke-opacity=".14" stroke-width="3" stroke-linecap="round"/><rect x="54" y="162" width="52" height="6" fill="#000" fill-opacity=".10"/><path d="M71 97 L80 112 L89 97" fill="none" stroke="#fff" stroke-opacity=".75" stroke-width="3" stroke-linejoin="round"/><circle cx="80" cy="124" r="1.8" fill="#fff" fill-opacity=".8"/><circle cx="80" cy="138" r="1.8" fill="#fff" fill-opacity=".8"/><circle cx="80" cy="152" r="1.8" fill="#fff" fill-opacity=".8"/><ellipse cx="52.5" cy="64" rx="5" ry="7" fill="#f5bd9c"/><ellipse cx="107.5" cy="64" rx="5" ry="7" fill="#f5bd9c"/><path d="M54 56 Q54 30 80 30 Q106 30 106 56 Q106 78 96 86 Q88 93 80 93 Q72 93 64 86 Q54 78 54 56 Z" fill="#f5bd9c"/><path d="M52 62 Q50 28 80 27 Q110 28 108 62 Q104 46 92 40 Q78 52 56 56 Z" fill="#8a5a3a"/><rect x="64" y="52" width="12" height="4" rx="2" fill="#2b2b30" transform="rotate(-6 70 54)"/><rect x="84" y="52" width="12" height="4" rx="2" fill="#2b2b30" transform="rotate(6 90 54)"/><circle cx="70" cy="63" r="3.6" fill="#4b5866"/><circle cx="90" cy="63" r="3.6" fill="#4b5866"/><path d="M70 73 Q80 74 90 73 Q89 84 80 84 Q71 84 70 73 Z" fill="#fff"/><path d="M60 34 Q62 12 80 12 Q98 12 100 34 Z" fill="#e70000"/><ellipse cx="80" cy="34" rx="38" ry="7" fill="#e70000"/><rect x="61" y="27" width="38" height="5" fill="#fff"/><g transform="rotate(16 124 62)"><rect x="117" y="44" width="14" height="30" rx="3" fill="#e70000"/><rect x="119" y="38" width="10" height="8" rx="2" fill="#fff"/></g><circle cx="120" cy="78" r="7" fill="#f5bd9c"/></svg>
+    </div>
+  </header>
+  <section class="band">
+    <div class="wrap cols">
+      <div>
+        <h2>Kožní lékař každý rok</h2>
+        <p>Po transplantaci je prohlídka u kožního lékaře <strong>potřeba každý rok</strong>, i když vám nic není. Kožní nádory na začátku nebolí a sami je často nepoznáte.</p>
+        <ul>
+          <li>První prohlídku mějte už před transplantací.</li>
+          <li>Na konci každé prohlídky si nechte rovnou objednat termín na příští rok.</li>
+          <li>Pokud jste už kožní nádor měli, budete chodit častěji, podle dermatologa.</li>
+        </ul>
+      </div>
+      <div>
+        <h2>Hlavní příčinou je slunce</h2>
+        <p>A to můžete ovlivnit vy. Na slunci nejste jen u moře: stačí práce na zahradě, procházka, kolo nebo jízda autem. Chraňte se proto <strong>po celý rok</strong>, ne jen v létě.</p>
+        <p>Nejlépe chrání stín a oblečení. Opalovací krém je až třetí krok, na místa, která zakrýt nejdou.</p>
+      </div>
+    </div>
+  </section>
+  <section class="band soft">
+    <div class="wrap">
+      <h2>Kdo má vyšší riziko</h2>
+      <p class="lead">Pokud se vás týká cokoli z toho, je pravidelná prohlídka u dermatologa o to důležitější.</p>
+      <div class="rcards"><div class="rcard"><svg class="rchar" viewBox="0 0 160 240" role="img" aria-label="Po transplantaci plic nebo srdce"><path d="M50 60 Q48 26 80 24 Q112 26 110 60 L114 132 Q80 140 46 132 Z" fill="#3b2620"/><ellipse cx="80" cy="233" rx="40" ry="4" fill="rgba(0,0,0,.10)"/><path d="M58 164 H102 L100 222 H82 L80 184 L78 222 H60 Z" fill="#3a3a42"/><path d="M80 170 V184" stroke="#000" stroke-opacity=".15" stroke-width="2"/><path d="M55 230 Q55 220 64 219 L80 220 L80 230 Z" fill="#ffffff"/><path d="M105 230 Q105 220 96 219 L80 220 L80 230 Z" fill="#ffffff"/><rect x="54" y="228" width="27" height="4" rx="2" fill="#2b2b30"/><rect x="79" y="228" width="27" height="4" rx="2" fill="#2b2b30"/><rect x="73" y="84" width="14" height="18" fill="#f5bd9c"/><path d="M73 90 Q80 98 87 90 L87 96 Q80 102 73 96 Z" fill="#e89a7c"/><path d="M50 112 Q46 140 50 160" stroke="#f5bd9c" stroke-width="12" stroke-linecap="round" fill="none"/><circle cx="50" cy="162" r="7" fill="#f5bd9c"/><path d="M110 112 Q114 140 110 160" stroke="#f5bd9c" stroke-width="12" stroke-linecap="round" fill="none"/><circle cx="110" cy="162" r="7" fill="#f5bd9c"/><path d="M48 104 Q60 98 72 97 Q80 104 88 97 Q100 98 112 104 Q118 108 118 122 L106 124 L106 168 L54 168 L54 124 L42 122 Q42 108 48 104 Z" fill="#c9b3d6"/><path d="M94 99 Q104 100 112 104 Q118 108 118 122 L106 124 L106 168 L92 168 Q98 140 94 99 Z" fill="#000" fill-opacity=".07"/><path d="M42 118 L54 120 M118 118 L106 120" stroke="#000" stroke-opacity=".14" stroke-width="3" stroke-linecap="round"/><rect x="54" y="162" width="52" height="6" fill="#000" fill-opacity=".10"/><path d="M71 97 L80 112 L89 97" fill="none" stroke="#fff" stroke-opacity=".75" stroke-width="3" stroke-linejoin="round"/><circle cx="80" cy="124" r="1.8" fill="#fff" fill-opacity=".8"/><circle cx="80" cy="138" r="1.8" fill="#fff" fill-opacity=".8"/><circle cx="80" cy="152" r="1.8" fill="#fff" fill-opacity=".8"/><ellipse cx="52.5" cy="64" rx="5" ry="7" fill="#f5bd9c"/><ellipse cx="107.5" cy="64" rx="5" ry="7" fill="#f5bd9c"/><path d="M54 56 Q54 30 80 30 Q106 30 106 56 Q106 78 96 86 Q88 93 80 93 Q72 93 64 86 Q54 78 54 56 Z" fill="#f5bd9c"/><path d="M52 62 Q50 28 80 27 Q110 28 108 62 Q104 46 92 40 Q78 52 56 56 Z" fill="#3b2620"/><rect x="64" y="52" width="12" height="4" rx="2" fill="#2b2b30" transform="rotate(-6 70 54)"/><rect x="84" y="52" width="12" height="4" rx="2" fill="#2b2b30" transform="rotate(6 90 54)"/><circle cx="70" cy="63" r="3.6" fill="#4b5866"/><circle cx="90" cy="63" r="3.6" fill="#4b5866"/><path d="M70 73 Q80 74 90 73 Q89 84 80 84 Q71 84 70 73 Z" fill="#fff"/><path d="M80 140 C68 130 70 116 80 124 C90 116 92 130 80 140Z" fill="#e70000"/></svg><p>Po transplantaci plic nebo srdce</p></div><div class="rcard"><svg class="rchar" viewBox="0 0 160 240" role="img" aria-label="Věk nad 50 let"><ellipse cx="80" cy="233" rx="40" ry="4" fill="rgba(0,0,0,.10)"/><path d="M58 164 H102 L100 222 H82 L80 184 L78 222 H60 Z" fill="#3a3a42"/><path d="M80 170 V184" stroke="#000" stroke-opacity=".15" stroke-width="2"/><path d="M55 230 Q55 220 64 219 L80 220 L80 230 Z" fill="#ffffff"/><path d="M105 230 Q105 220 96 219 L80 220 L80 230 Z" fill="#ffffff"/><rect x="54" y="228" width="27" height="4" rx="2" fill="#2b2b30"/><rect x="79" y="228" width="27" height="4" rx="2" fill="#2b2b30"/><rect x="73" y="84" width="14" height="18" fill="#f5bd9c"/><path d="M73 90 Q80 98 87 90 L87 96 Q80 102 73 96 Z" fill="#e89a7c"/><path d="M50 112 Q46 140 50 160" stroke="#f5bd9c" stroke-width="12" stroke-linecap="round" fill="none"/><circle cx="50" cy="162" r="7" fill="#f5bd9c"/><path d="M110 112 Q114 140 110 160" stroke="#f5bd9c" stroke-width="12" stroke-linecap="round" fill="none"/><circle cx="110" cy="162" r="7" fill="#f5bd9c"/><path d="M48 104 Q60 98 72 97 Q80 104 88 97 Q100 98 112 104 Q118 108 118 122 L106 124 L106 168 L54 168 L54 124 L42 122 Q42 108 48 104 Z" fill="#9cc3e6"/><path d="M94 99 Q104 100 112 104 Q118 108 118 122 L106 124 L106 168 L92 168 Q98 140 94 99 Z" fill="#000" fill-opacity=".07"/><path d="M42 118 L54 120 M118 118 L106 120" stroke="#000" stroke-opacity=".14" stroke-width="3" stroke-linecap="round"/><rect x="54" y="162" width="52" height="6" fill="#000" fill-opacity=".10"/><path d="M71 97 L80 112 L89 97" fill="none" stroke="#fff" stroke-opacity=".75" stroke-width="3" stroke-linejoin="round"/><circle cx="80" cy="124" r="1.8" fill="#fff" fill-opacity=".8"/><circle cx="80" cy="138" r="1.8" fill="#fff" fill-opacity=".8"/><circle cx="80" cy="152" r="1.8" fill="#fff" fill-opacity=".8"/><ellipse cx="52.5" cy="64" rx="5" ry="7" fill="#f5bd9c"/><ellipse cx="107.5" cy="64" rx="5" ry="7" fill="#f5bd9c"/><path d="M54 56 Q54 30 80 30 Q106 30 106 56 Q106 78 96 86 Q88 93 80 93 Q72 93 64 86 Q54 78 54 56 Z" fill="#f5bd9c"/><path d="M52 56 Q52 32 80 30 Q108 32 108 56 Q104 44 92 42 Q80 40 68 42 Q56 44 52 56 Z" fill="#c9c9cf"/><rect x="64" y="52" width="12" height="4" rx="2" fill="#2b2b30" transform="rotate(-6 70 54)"/><rect x="84" y="52" width="12" height="4" rx="2" fill="#2b2b30" transform="rotate(6 90 54)"/><circle cx="70" cy="63" r="3.6" fill="#4b5866"/><circle cx="90" cy="63" r="3.6" fill="#4b5866"/><path d="M70 73 Q80 74 90 73 Q89 84 80 84 Q71 84 70 73 Z" fill="#fff"/><rect x="62" y="58" width="15" height="11" rx="4" fill="none" stroke="#2b2b30" stroke-width="2.5"/><rect x="83" y="58" width="15" height="11" rx="4" fill="none" stroke="#2b2b30" stroke-width="2.5"/><path d="M77 63h6" stroke="#2b2b30" stroke-width="2.5"/><path d="M50 162 L46 230" stroke="#2b2b30" stroke-width="4" stroke-linecap="round"/></svg><p>Věk nad 50 let</p></div><div class="rcard"><svg class="rchar" viewBox="0 0 160 240" role="img" aria-label="Muži"><ellipse cx="80" cy="233" rx="40" ry="4" fill="rgba(0,0,0,.10)"/><path d="M58 164 H102 L100 222 H82 L80 184 L78 222 H60 Z" fill="#55555e"/><path d="M80 170 V184" stroke="#000" stroke-opacity=".15" stroke-width="2"/><path d="M55 230 Q55 220 64 219 L80 220 L80 230 Z" fill="#ffffff"/><path d="M105 230 Q105 220 96 219 L80 220 L80 230 Z" fill="#ffffff"/><rect x="54" y="228" width="27" height="4" rx="2" fill="#2b2b30"/><rect x="79" y="228" width="27" height="4" rx="2" fill="#2b2b30"/><rect x="73" y="84" width="14" height="18" fill="#f5bd9c"/><path d="M73 90 Q80 98 87 90 L87 96 Q80 102 73 96 Z" fill="#e89a7c"/><path d="M50 112 Q46 140 50 160" stroke="#f5bd9c" stroke-width="12" stroke-linecap="round" fill="none"/><circle cx="50" cy="162" r="7" fill="#f5bd9c"/><path d="M110 112 Q114 140 110 160" stroke="#f5bd9c" stroke-width="12" stroke-linecap="round" fill="none"/><circle cx="110" cy="162" r="7" fill="#f5bd9c"/><path d="M48 104 Q60 98 72 97 Q80 104 88 97 Q100 98 112 104 Q118 108 118 122 L106 124 L106 168 L54 168 L54 124 L42 122 Q42 108 48 104 Z" fill="#d6d6dc"/><path d="M94 99 Q104 100 112 104 Q118 108 118 122 L106 124 L106 168 L92 168 Q98 140 94 99 Z" fill="#000" fill-opacity=".07"/><path d="M42 118 L54 120 M118 118 L106 120" stroke="#000" stroke-opacity=".14" stroke-width="3" stroke-linecap="round"/><rect x="54" y="162" width="52" height="6" fill="#000" fill-opacity=".10"/><path d="M71 97 L80 112 L89 97" fill="none" stroke="#fff" stroke-opacity=".75" stroke-width="3" stroke-linejoin="round"/><circle cx="80" cy="124" r="1.8" fill="#fff" fill-opacity=".8"/><circle cx="80" cy="138" r="1.8" fill="#fff" fill-opacity=".8"/><circle cx="80" cy="152" r="1.8" fill="#fff" fill-opacity=".8"/><ellipse cx="52.5" cy="64" rx="5" ry="7" fill="#f5bd9c"/><ellipse cx="107.5" cy="64" rx="5" ry="7" fill="#f5bd9c"/><path d="M54 56 Q54 30 80 30 Q106 30 106 56 Q106 78 96 86 Q88 93 80 93 Q72 93 64 86 Q54 78 54 56 Z" fill="#f5bd9c"/><path d="M51 60 Q46 30 70 24 Q78 18 92 22 Q108 24 110 42 Q112 52 108 62 L104 48 Q96 42 82 44 Q66 46 58 50 Q54 54 51 60 Z" fill="#3b2620"/><rect x="64" y="52" width="12" height="4" rx="2" fill="#2b2b30" transform="rotate(-6 70 54)"/><rect x="84" y="52" width="12" height="4" rx="2" fill="#2b2b30" transform="rotate(6 90 54)"/><circle cx="70" cy="63" r="3.6" fill="#4b5866"/><circle cx="90" cy="63" r="3.6" fill="#4b5866"/><path d="M70 73 Q80 74 90 73 Q89 84 80 84 Q71 84 70 73 Z" fill="#fff"/><path d="M56 66 Q58 92 80 94 Q102 92 104 66 Q100 80 90 82 Q80 76 70 82 Q60 80 56 66Z" fill="#3b2620"/><path d="M70 76 Q80 82 90 76 Q89 84 80 84 Q71 84 70 76Z" fill="#fff"/></svg><p>Muži</p></div><div class="rcard"><svg class="rchar" viewBox="0 0 160 240" role="img" aria-label="Světlá kůže"><path d="M50 60 Q48 26 80 24 Q112 26 110 60 L114 132 Q80 140 46 132 Z" fill="#c8642c"/><ellipse cx="80" cy="233" rx="40" ry="4" fill="rgba(0,0,0,.10)"/><path d="M58 164 H102 L100 222 H82 L80 184 L78 222 H60 Z" fill="#b4b4ba"/><path d="M80 170 V184" stroke="#000" stroke-opacity=".15" stroke-width="2"/><path d="M55 230 Q55 220 64 219 L80 220 L80 230 Z" fill="#ffffff"/><path d="M105 230 Q105 220 96 219 L80 220 L80 230 Z" fill="#ffffff"/><rect x="54" y="228" width="27" height="4" rx="2" fill="#2b2b30"/><rect x="79" y="228" width="27" height="4" rx="2" fill="#2b2b30"/><rect x="73" y="84" width="14" height="18" fill="#fde3d3"/><path d="M73 90 Q80 98 87 90 L87 96 Q80 102 73 96 Z" fill="#e89a7c"/><path d="M50 112 Q46 140 50 160" stroke="#fde3d3" stroke-width="12" stroke-linecap="round" fill="none"/><circle cx="50" cy="162" r="7" fill="#fde3d3"/><path d="M110 112 Q114 140 110 160" stroke="#fde3d3" stroke-width="12" stroke-linecap="round" fill="none"/><circle cx="110" cy="162" r="7" fill="#fde3d3"/><path d="M48 104 Q60 98 72 97 Q80 104 88 97 Q100 98 112 104 Q118 108 118 122 L106 124 L106 168 L54 168 L54 124 L42 122 Q42 108 48 104 Z" fill="#f2a0a0"/><path d="M94 99 Q104 100 112 104 Q118 108 118 122 L106 124 L106 168 L92 168 Q98 140 94 99 Z" fill="#000" fill-opacity=".07"/><path d="M42 118 L54 120 M118 118 L106 120" stroke="#000" stroke-opacity=".14" stroke-width="3" stroke-linecap="round"/><rect x="54" y="162" width="52" height="6" fill="#000" fill-opacity=".10"/><path d="M71 97 L80 112 L89 97" fill="none" stroke="#fff" stroke-opacity=".75" stroke-width="3" stroke-linejoin="round"/><circle cx="80" cy="124" r="1.8" fill="#fff" fill-opacity=".8"/><circle cx="80" cy="138" r="1.8" fill="#fff" fill-opacity=".8"/><circle cx="80" cy="152" r="1.8" fill="#fff" fill-opacity=".8"/><ellipse cx="52.5" cy="64" rx="5" ry="7" fill="#fde3d3"/><ellipse cx="107.5" cy="64" rx="5" ry="7" fill="#fde3d3"/><path d="M54 56 Q54 30 80 30 Q106 30 106 56 Q106 78 96 86 Q88 93 80 93 Q72 93 64 86 Q54 78 54 56 Z" fill="#fde3d3"/><path d="M52 62 Q50 28 80 27 Q110 28 108 62 Q104 46 92 40 Q78 52 56 56 Z" fill="#c8642c"/><rect x="64" y="52" width="12" height="4" rx="2" fill="#2b2b30" transform="rotate(-6 70 54)"/><rect x="84" y="52" width="12" height="4" rx="2" fill="#2b2b30" transform="rotate(6 90 54)"/><circle cx="70" cy="63" r="3.6" fill="#4b5866"/><circle cx="90" cy="63" r="3.6" fill="#4b5866"/><path d="M70 73 Q80 74 90 73 Q89 84 80 84 Q71 84 70 73 Z" fill="#fff"/><circle cx="64" cy="72" r="1.3" fill="#c8642c"/><circle cx="68" cy="74" r="1.3" fill="#c8642c"/><circle cx="66" cy="77" r="1.3" fill="#c8642c"/><circle cx="92" cy="74" r="1.3" fill="#c8642c"/><circle cx="96" cy="72" r="1.3" fill="#c8642c"/><circle cx="94" cy="77" r="1.3" fill="#c8642c"/></svg><p>Světlá kůže, snadno se spálíte</p></div><div class="rcard"><svg class="rchar" viewBox="0 0 160 240" role="img" aria-label="Hodně slunce v minulosti"><ellipse cx="80" cy="233" rx="40" ry="4" fill="rgba(0,0,0,.10)"/><path d="M58 164 H102 L100 222 H82 L80 184 L78 222 H60 Z" fill="#b4b4ba"/><path d="M80 170 V184" stroke="#000" stroke-opacity=".15" stroke-width="2"/><path d="M55 230 Q55 220 64 219 L80 220 L80 230 Z" fill="#ffffff"/><path d="M105 230 Q105 220 96 219 L80 220 L80 230 Z" fill="#ffffff"/><rect x="54" y="228" width="27" height="4" rx="2" fill="#2b2b30"/><rect x="79" y="228" width="27" height="4" rx="2" fill="#2b2b30"/><rect x="73" y="84" width="14" height="18" fill="#f5bd9c"/><path d="M73 90 Q80 98 87 90 L87 96 Q80 102 73 96 Z" fill="#e89a7c"/><path d="M50 112 Q46 140 50 160" stroke="#f5bd9c" stroke-width="12" stroke-linecap="round" fill="none"/><circle cx="50" cy="162" r="7" fill="#f5bd9c"/><path d="M110 112 Q114 140 110 160" stroke="#f5bd9c" stroke-width="12" stroke-linecap="round" fill="none"/><circle cx="110" cy="162" r="7" fill="#f5bd9c"/><path d="M48 104 Q60 98 72 97 Q80 104 88 97 Q100 98 112 104 Q118 108 118 122 L106 124 L106 168 L54 168 L54 124 L42 122 Q42 108 48 104 Z" fill="#e70000"/><path d="M94 99 Q104 100 112 104 Q118 108 118 122 L106 124 L106 168 L92 168 Q98 140 94 99 Z" fill="#000" fill-opacity=".07"/><path d="M42 118 L54 120 M118 118 L106 120" stroke="#000" stroke-opacity=".14" stroke-width="3" stroke-linecap="round"/><rect x="54" y="162" width="52" height="6" fill="#000" fill-opacity=".10"/><path d="M71 97 L80 112 L89 97" fill="none" stroke="#fff" stroke-opacity=".75" stroke-width="3" stroke-linejoin="round"/><circle cx="80" cy="124" r="1.8" fill="#fff" fill-opacity=".8"/><circle cx="80" cy="138" r="1.8" fill="#fff" fill-opacity=".8"/><circle cx="80" cy="152" r="1.8" fill="#fff" fill-opacity=".8"/><ellipse cx="52.5" cy="64" rx="5" ry="7" fill="#f5bd9c"/><ellipse cx="107.5" cy="64" rx="5" ry="7" fill="#f5bd9c"/><path d="M54 56 Q54 30 80 30 Q106 30 106 56 Q106 78 96 86 Q88 93 80 93 Q72 93 64 86 Q54 78 54 56 Z" fill="#f5bd9c"/><path d="M51 60 Q46 30 70 24 Q78 18 92 22 Q108 24 110 42 Q112 52 108 62 L104 48 Q96 42 82 44 Q66 46 58 50 Q54 54 51 60 Z" fill="#7a4a2c"/><rect x="64" y="52" width="12" height="4" rx="2" fill="#2b2b30" transform="rotate(-6 70 54)"/><rect x="84" y="52" width="12" height="4" rx="2" fill="#2b2b30" transform="rotate(6 90 54)"/><circle cx="70" cy="63" r="3.6" fill="#4b5866"/><circle cx="90" cy="63" r="3.6" fill="#4b5866"/><path d="M70 73 Q80 74 90 73 Q89 84 80 84 Q71 84 70 73 Z" fill="#fff"/><rect x="61" y="58" width="16" height="10" rx="4" fill="#2b2b30"/><rect x="83" y="58" width="16" height="10" rx="4" fill="#2b2b30"/><path d="M77 62h6" stroke="#2b2b30" stroke-width="2.5"/><circle cx="140" cy="28" r="11" fill="#f4d35e"/><g stroke="#f4b93e" stroke-width="4" stroke-linecap="round"><path d="M140 6v6M140 44v6M118 28h6M156 28h6M125 13l4 4M151 39l4 4M155 13l-4 4M129 39l-4 4"/></g></svg><p>Hodně slunce v minulosti</p></div><div class="rcard hot"><svg class="rchar" viewBox="0 0 160 240" role="img" aria-label="Kožní nádor už jste měli"><circle cx="80" cy="22" r="11" fill="#2b2b30"/><ellipse cx="80" cy="233" rx="40" ry="4" fill="rgba(0,0,0,.10)"/><path d="M58 164 H102 L100 222 H82 L80 184 L78 222 H60 Z" fill="#3a3a42"/><path d="M80 170 V184" stroke="#000" stroke-opacity=".15" stroke-width="2"/><path d="M55 230 Q55 220 64 219 L80 220 L80 230 Z" fill="#ffffff"/><path d="M105 230 Q105 220 96 219 L80 220 L80 230 Z" fill="#ffffff"/><rect x="54" y="228" width="27" height="4" rx="2" fill="#2b2b30"/><rect x="79" y="228" width="27" height="4" rx="2" fill="#2b2b30"/><rect x="73" y="84" width="14" height="18" fill="#f5bd9c"/><path d="M73 90 Q80 98 87 90 L87 96 Q80 102 73 96 Z" fill="#e89a7c"/><path d="M50 112 Q46 140 50 160" stroke="#f5bd9c" stroke-width="12" stroke-linecap="round" fill="none"/><circle cx="50" cy="162" r="7" fill="#f5bd9c"/><path d="M110 112 Q114 140 110 160" stroke="#f5bd9c" stroke-width="12" stroke-linecap="round" fill="none"/><circle cx="110" cy="162" r="7" fill="#f5bd9c"/><path d="M48 104 Q60 98 72 97 Q80 104 88 97 Q100 98 112 104 Q118 108 118 122 L106 124 L106 168 L54 168 L54 124 L42 122 Q42 108 48 104 Z" fill="#9cc3e6"/><path d="M94 99 Q104 100 112 104 Q118 108 118 122 L106 124 L106 168 L92 168 Q98 140 94 99 Z" fill="#000" fill-opacity=".07"/><path d="M42 118 L54 120 M118 118 L106 120" stroke="#000" stroke-opacity=".14" stroke-width="3" stroke-linecap="round"/><rect x="54" y="162" width="52" height="6" fill="#000" fill-opacity=".10"/><path d="M71 97 L80 112 L89 97" fill="none" stroke="#fff" stroke-opacity=".75" stroke-width="3" stroke-linejoin="round"/><circle cx="80" cy="124" r="1.8" fill="#fff" fill-opacity=".8"/><circle cx="80" cy="138" r="1.8" fill="#fff" fill-opacity=".8"/><circle cx="80" cy="152" r="1.8" fill="#fff" fill-opacity=".8"/><ellipse cx="52.5" cy="64" rx="5" ry="7" fill="#f5bd9c"/><ellipse cx="107.5" cy="64" rx="5" ry="7" fill="#f5bd9c"/><path d="M54 56 Q54 30 80 30 Q106 30 106 56 Q106 78 96 86 Q88 93 80 93 Q72 93 64 86 Q54 78 54 56 Z" fill="#f5bd9c"/><path d="M52 60 Q50 30 80 29 Q110 30 108 60 Q106 44 94 40 Q80 46 62 44 Q56 50 52 60 Z" fill="#2b2b30"/><rect x="64" y="52" width="12" height="4" rx="2" fill="#2b2b30" transform="rotate(-6 70 54)"/><rect x="84" y="52" width="12" height="4" rx="2" fill="#2b2b30" transform="rotate(6 90 54)"/><circle cx="70" cy="63" r="3.6" fill="#4b5866"/><circle cx="90" cy="63" r="3.6" fill="#4b5866"/><path d="M70 73 Q80 74 90 73 Q89 84 80 84 Q71 84 70 73 Z" fill="#fff"/><g transform="rotate(-25 94 74)"><rect x="86" y="70" width="17" height="7" rx="3" fill="#fbe3c8" stroke="#d9b48f" stroke-width="1"/></g></svg><p>Kožní nádor už jste měli</p></div></div>
+    </div>
+  </section>
+  <section class="band">
+    <div class="wrap">
+      <h2>Jak se chránit před sluncem</h2>
+      <div class="steps pics">
+        <div class="step"><svg class="ico" viewBox="0 0 64 64" aria-hidden="true"><path d="M8 30Q32 4 56 30Z" fill="#e70000"/><path d="M8 30q6-5 12 0q6-5 12 0q6-5 12 0q6-5 12 0" fill="#fcede6"/><path d="M32 30v26" stroke="#1d1d22" stroke-width="3"/><path d="M32 56q0 4-4 4" stroke="#1d1d22" stroke-width="3" fill="none"/><circle cx="12" cy="10" r="5" fill="#f4d35e"/></svg><div><h3>Stín</h3><p>Mezi 11. a 15. hodinou zůstaňte ve stínu. Chraňte se vždy, když je UV index 3 a víc. Najdete ho v počasí v mobilu.</p></div></div>
+        <div class="step"><svg class="ico" viewBox="0 0 64 64" aria-hidden="true"><path d="M24 10L12 16L6 34L14 37L18 26V56H46V26L50 37L58 34L52 16L40 10Q32 18 24 10Z" fill="#9cc3e6"/><path d="M24 10Q32 18 40 10" stroke="#fff" stroke-width="2.5" fill="none"/><text x="32" y="44" text-anchor="middle" font-family="Manrope,sans-serif" font-weight="800" font-size="9" fill="#1d1d22">UPF 50+</text></svg><div><h3>Oblečení</h3><p>Dlouhé rukávy, dlouhé kalhoty nebo sukně z husté látky. Nejlépe s označením UPF 40 nebo 50+.</p></div></div>
+        <div class="step"><svg class="ico" viewBox="0 0 64 64" aria-hidden="true"><path d="M20 38Q21 16 32 16Q43 16 44 38Z" fill="#f0d6b3"/><ellipse cx="32" cy="40" rx="28" ry="8" fill="#e9c9a0"/><rect x="20" y="31" width="24" height="5" fill="#e70000"/></svg><div><h3>Klobouk</h3><p>Se širokou krempou, která zastíní obličej, uši i krk. Kšiltovka uši a krk nechrání.</p></div></div>
+        <div class="step"><svg class="ico" viewBox="0 0 64 64" aria-hidden="true"><path d="M6 28l5-4M58 28l-5-4" stroke="#1d1d22" stroke-width="3" stroke-linecap="round"/><rect x="9" y="26" width="20" height="16" rx="7" fill="#1d1d22"/><rect x="35" y="26" width="20" height="16" rx="7" fill="#1d1d22"/><path d="M29 31q3-3 6 0" stroke="#1d1d22" stroke-width="3" fill="none"/><path d="M14 31l5-2M40 31l5-2" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg><div><h3>Sluneční brýle</h3><p>S UV ochranou a značkou CE, nejlépe takové, které zakrývají i boky.</p></div></div>
+        <div class="step"><svg class="ico" viewBox="0 0 64 64" aria-hidden="true"><g transform="rotate(-18 32 32)"><rect x="22" y="14" width="20" height="40" rx="5" fill="#e70000"/><rect x="25" y="8" width="14" height="8" rx="2" fill="#1d1d22"/><rect x="25" y="26" width="14" height="14" rx="2" fill="#fff"/><text x="32" y="36.5" text-anchor="middle" font-family="Manrope,sans-serif" font-weight="800" font-size="8" fill="#c40000">50+</text></g></svg><div><h3>Krém SPF 50+</h3><p>S označením UVA v kroužku. Každý den na obličej, uši, krk a ruce, na celé tělo 6 až 8 lžiček. Znovu každé 2 hodiny a po koupání nebo pocení. Na rty balzám s SPF.</p></div></div>
+        <div class="step"><svg class="ico" viewBox="0 0 64 64" aria-hidden="true"><rect x="14" y="26" width="36" height="14" rx="7" fill="#c9b3d6"/><path d="M18 20h28" stroke="#c9b3d6" stroke-width="3" stroke-linecap="round"/><circle cx="32" cy="32" r="24" fill="none" stroke="#e70000" stroke-width="4.5"/><path d="M15 15L49 49" stroke="#e70000" stroke-width="4.5" stroke-linecap="round"/></svg><div><h3>Nikdy solárium</h3><p>Solárium zvyšuje riziko rakoviny kůže. Po transplantaci ho nepoužívejte vůbec.</p></div></div>
+      </div>
+      <div class="gtk">
+        <h3>Dobré vědět</h3>
+        <ul>
+          <li>Některé léky po transplantaci zvyšují citlivost kůže na slunce. Zeptejte se svého lékaře.</li>
+          <li>Při důsledné ochraně před sluncem může klesnout vitamin D. Lékař vám ho může zkontrolovat.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section class="band soft">
+    <div class="wrap cols">
+      <div>
+        <h2>Prohlížejte si kůži sami</h2>
+        <p>Jednou za měsíc si prohlédněte celou kůži, i záda a hlavu. Pomůže zrcadlo nebo někdo blízký.</p>
+      </div>
+      <div>
+        <h3 style="margin-top:6px">K dermatologovi hned, nečekejte na pravidelnou prohlídku, pokud si všimnete:</h3>
+        <ul>
+          <li>nového výrůstku nebo skvrny, která roste</li>
+          <li>drsného, šupinatého místa, které nemizí</li>
+          <li>rány, která se nehojí nebo krvácí</li>
+          <li>znaménka, které mění tvar, velikost nebo barvu</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section class="band">
+    <div class="wrap">
+      <h2>Pravidlo ABCDE: kdy ukázat znaménko lékaři</h2>
+      <p class="lead">Stačí jeden z těchto znaků a objednejte se k dermatologovi.</p>
+      <div class="abcde"><div><svg class="abc" viewBox="0 0 100 100" aria-hidden="true"><path d="M22 50 Q20 24 46 22 Q58 21 66 30 Q80 40 76 56 Q72 70 60 72 Q60 82 48 80 Q24 78 22 50 Z" fill="#f3b48e"/><path d="M48 10v80" stroke="#55555e" stroke-width="3" stroke-dasharray="7 5"/></svg><p class="abc-l"><b>A</b> Asymetrie</p><p>Jedna polovina znaménka nevypadá jako druhá.</p></div><div><svg class="abc" viewBox="0 0 100 100" aria-hidden="true"><path d="M30 30 Q36 20 46 26 Q52 18 60 26 Q72 22 72 34 Q82 40 74 50 Q82 60 70 66 Q70 78 58 74 Q50 84 42 74 Q30 78 30 66 Q18 60 26 50 Q18 38 30 30 Z" fill="#f3b48e"/></svg><p class="abc-l"><b>B</b> Ohraničení</p><p>Okraje jsou zubaté, neostré nebo rozmazané.</p></div><div><svg class="abc" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="32" fill="#f3b48e"/><circle cx="40" cy="55" r="13" fill="#a8654a"/><circle cx="61" cy="38" r="8" fill="#fbd9c4"/><circle cx="63" cy="61" r="8" fill="#d98e68"/></svg><p class="abc-l"><b>C</b> Barva</p><p>Více barev nebo odstínů: hnědá, černá, červená, modrošedá.</p></div><div><svg class="abc" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="46" r="28" fill="#f3b48e"/><path d="M16 46h68" stroke="#55555e" stroke-width="3" stroke-dasharray="9 6"/><text x="50" y="94" text-anchor="middle" font-size="13" font-weight="700" fill="#55555e" font-family="DM Sans,sans-serif">&gt; 6 mm</text></svg><p class="abc-l"><b>D</b> Průměr</p><p>Větší než 6 mm, asi jako gumička na konci tužky.</p></div><div><svg class="abc" viewBox="0 0 100 100" aria-hidden="true"><circle cx="20" cy="50" r="13" fill="#f3b48e"/><path d="M38 50h14" stroke="#55555e" stroke-width="3"/><path d="M48 44l6 6-6 6" stroke="#55555e" stroke-width="3" fill="none"/><path d="M62 36 Q70 28 78 34 Q92 34 90 48 Q96 58 86 66 Q82 76 70 70 Q60 74 60 62 Q54 50 62 36 Z" fill="#f3b48e"/><circle cx="72" cy="58" r="8" fill="#a8654a"/><circle cx="80" cy="44" r="5" fill="#fbd9c4"/><circle cx="84" cy="60" r="4" fill="#d98e68"/></svg><p class="abc-l"><b>E</b> Vývoj</p><p>Znaménko se mění: roste, mění tvar nebo barvu, svědí, krvácí.</p></div></div>
+      <p class="note" style="margin-top:18px">ABCDE pomáhá hlavně u melanomu. Jiné kožní nádory po transplantaci často vypadají spíš jako drsné, šupinaté místo nebo rána, která se nehojí. I s tím jděte k dermatologovi.</p>
+      <p><a class="more" href="https://dermnetnz.org/topics/cutaneous-squamous-cell-carcinoma">Jak vypadá spinocelulární karcinom kůže: fotografie na DermNet (anglicky) →</a></p>
+    </div>
+  </section>
+  <section class="band src" style="padding-block:20px 28px">
+    <div class="wrap">
+      <details class="srcbox"><summary>Zdroje k této stránce</summary>
+      <ol>
+        <li><a href="https://doi.org/10.1016/j.ejca.2023.113251">Evropská doporučení pro spinocelulární karcinom kůže (EADO, EDF, EORTC), část 1: diagnostika a prevence, 2023</a></li>
+        <li><a href="https://doi.org/10.1111/tri.13520">Crow LD a kol.: Screening rakoviny kůže po transplantaci, konsenzus odborníků. Transpl Int 2019</a></li>
+        <li><a href="https://www.skinhealthinfo.org.uk/condition/skin-cancer-in-organ-transplant-recipients/">British Association of Dermatologists: Skin cancer in organ transplant recipients</a></li>
+        <li><a href="https://www.nhs.uk/live-well/seasonal-health/sunscreen-and-sun-safety/">NHS: Sunscreen and sun safety</a></li>
+        <li><a href="https://www.dermatologiepropraxi.cz/pdfs/der/2019/02/10.pdf">Dermatologie pro praxi: Fotoprotekce, 2019</a></li>
+      </ol>
+      </details>
+    </div>
+  </section>
+</section>
+
+<!-- ============ PROHLÍDKY ============ -->
+<section data-view="prohlidky">
+  <header class="hero band">
+    <div class="wrap">
+      <div>
+        <a class="back" href="#uvod">← Zpět na úvod</a>
+        <h1>Pravidelné prohlídky</h1>
+        <p class="lead">Před zařazením na čekací listinu mějte všechny prohlídky pro svůj věk aktuální. Po transplantaci platí přísnější režim u kůže, gynekologie a konečníku.</p>
+      </div>
+      <svg class="char" viewBox="0 0 160 240" role="img" aria-label="Postavička lékařky s deskami"><circle cx="80" cy="22" r="11" fill="#7a4a2c"/><ellipse cx="80" cy="233" rx="40" ry="4" fill="rgba(0,0,0,.10)"/><path d="M58 164 H102 L100 222 H82 L80 184 L78 222 H60 Z" fill="#3a3a42"/><path d="M80 170 V184" stroke="#000" stroke-opacity=".15" stroke-width="2"/><path d="M55 230 Q55 220 64 219 L80 220 L80 230 Z" fill="#ffffff"/><path d="M105 230 Q105 220 96 219 L80 220 L80 230 Z" fill="#ffffff"/><rect x="54" y="228" width="27" height="4" rx="2" fill="#2b2b30"/><rect x="79" y="228" width="27" height="4" rx="2" fill="#2b2b30"/><rect x="73" y="84" width="14" height="18" fill="#f5bd9c"/><path d="M73 90 Q80 98 87 90 L87 96 Q80 102 73 96 Z" fill="#e89a7c"/><path d="M50 112 Q46 140 50 160" stroke="#f5bd9c" stroke-width="12" stroke-linecap="round" fill="none"/><circle cx="50" cy="162" r="7" fill="#f5bd9c"/><path d="M110 112 Q114 134 110 146" stroke="#f5bd9c" stroke-width="12" stroke-linecap="round" fill="none"/><path d="M48 104 Q60 98 72 97 Q80 104 88 97 Q100 98 112 104 Q118 108 118 122 L106 124 L106 168 L54 168 L54 124 L42 122 Q42 108 48 104 Z" fill="#9cc3e6"/><path d="M48 104 Q60 98 72 97 L80 132 L88 97 Q100 98 112 104 Q118 108 118 122 L106 124 L108 176 L52 176 L54 124 L42 122 Q42 108 48 104 Z" fill="#ffffff" stroke="#e3e3e8" stroke-width="1.5"/><path d="M72 98 Q66 120 76 132 Q84 134 84 124" stroke="#2b2b30" stroke-width="2.5" fill="none"/><circle cx="84" cy="124" r="3.5" fill="#2b2b30"/><ellipse cx="52.5" cy="64" rx="5" ry="7" fill="#f5bd9c"/><ellipse cx="107.5" cy="64" rx="5" ry="7" fill="#f5bd9c"/><path d="M54 56 Q54 30 80 30 Q106 30 106 56 Q106 78 96 86 Q88 93 80 93 Q72 93 64 86 Q54 78 54 56 Z" fill="#f5bd9c"/><path d="M52 60 Q50 30 80 29 Q110 30 108 60 Q106 44 94 40 Q80 46 62 44 Q56 50 52 60 Z" fill="#7a4a2c"/><rect x="64" y="52" width="12" height="4" rx="2" fill="#2b2b30" transform="rotate(-6 70 54)"/><rect x="84" y="52" width="12" height="4" rx="2" fill="#2b2b30" transform="rotate(6 90 54)"/><circle cx="70" cy="63" r="3.6" fill="#4b5866"/><circle cx="90" cy="63" r="3.6" fill="#4b5866"/><path d="M70 73 Q80 74 90 73 Q89 84 80 84 Q71 84 70 73 Z" fill="#fff"/><rect x="80" y="122" width="26" height="34" rx="3" fill="#e70000"/><rect x="84" y="128" width="18" height="24" rx="1" fill="#fff"/><path d="M87 134h12M87 140h12M87 146h8" stroke="#c9b3d6" stroke-width="2"/><rect x="88" y="118" width="10" height="6" rx="2" fill="#2b2b30"/><circle cx="108" cy="146" r="7" fill="#f5bd9c"/></svg>
+    </div>
+  </header>
+  <section class="band">
+    <div class="wrap">
+      <div class="tbl">
+        <table class="stack">
+          <thead><tr><th>Co</th><th>Jak často</th><th>Na co myslet</th></tr></thead>
+          <tbody>
+            <tr><td data-l="Co">Samovyšetření kůže</td><td data-l="Jak často">1× měsíčně</td><td data-l="Na co myslet">nové nebo měnící se skvrny, nehojící se ranky, změny na rtech</td></tr>
+            <tr><td data-l="Co">Kožní lékař</td><td data-l="Jak často">1× ročně</td><td data-l="Na co myslet">častěji po kožním nádoru a po transplantaci srdce či plic</td></tr>
+            <tr><td data-l="Co">Gynekolog</td><td data-l="Jak často">1× ročně, dle gynekologa</td><td data-l="Na co myslet">cytologie / HPV test častěji než v běžné populaci</td></tr>
+            <tr><td data-l="Co">Vyšetření konečníku</td><td data-l="Jak často">od 10 let po transplantaci</td><td data-l="Na co myslet">dříve při obtížích nebo bradavicích</td></tr>
+            <tr><td data-l="Co">Zubař a kontrola úst</td><td data-l="Jak často">každých 6 měsíců</td><td data-l="Na co myslet">nehojící se vřídky, bělavá ložiska</td></tr>
+            <tr><td data-l="Co">Tlusté střevo, prs, prostata</td><td data-l="Jak často">dle národních programů</td><td data-l="Na co myslet">po transplantaci jater je preferována kolonoskopie</td></tr>
+            <tr><td data-l="Co">CT plic</td><td data-l="Jak často">kuřáci a bývalí kuřáci</td><td data-l="Na co myslet">program časného záchytu karcinomu plic</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+  <section class="band soft">
+    <div class="wrap">
+      <h2>Podle transplantovaného orgánu</h2>
+      <p class="lead">Ke každému orgánu jedna věc navíc, která vám pomůže mít zdraví pod kontrolou.</p>
+      <div class="cols">
+        <div><h3><a class="hlink" href="#ledvina">Ledvina</a></h3><p>Všímejte si moči: pokud v ní uvidíte krev, ozvěte se. Vlastní ledviny zůstávají v těle, a proto je dobré nechat je občas zkontrolovat.</p></div>
+        <div><h3><a class="hlink" href="#jatra">Játra</a></h3><p>Novým játrům nejvíc pomůžete bez alkoholu. Pokud máte primární sklerozující cholangitidu (PSC), pravidelná kolonoskopie zachytí změny včas.</p></div>
+        <div><h3><a class="hlink" href="#srdce">Srdce</a></h3><p>Kůže si zaslouží pozornost: krém SPF 50+ každý den a kožní lékař pravidelně už od prvního roku.</p></div>
+        <div><h3>Plíce</h3><p>Nejvíc uděláte tím, že nekouříte a chráníte kůži před sluncem. Po transplantaci jedné plíce tým sleduje i tu vlastní.</p></div>
+      </div>
+    </div>
+  </section>
+  <section class="band soft">
+    <div class="wrap cols3">
+      <div>
+        <h2>Samovyšetření kůže</h2>
+        <p>Jednou měsíčně si v dobrém světle prohlédněte celou kůži, i záda, hlavu a rty. Pomůže zrcadlo nebo někdo blízký. Hledejte novou skvrnu nebo výrůstek, drsné šupinaté místo, ranku, která se nehojí, a znaménko, které se mění. <a href="#kuze">Více o kůži →</a></p>
+      </div>
+      <div>
+        <h2>Samovyšetření prsu</h2>
+        <p>Jednou měsíčně, nejlépe pár dní po menstruaci. Nejdřív se podívejte do zrcadla, jestli se nezměnil tvar prsu, kůže nebo bradavka. Pak prs i podpaží prohmatejte bříšky prstů.</p>
+      </div>
+      <div>
+        <h2>Samovyšetření varlat</h2>
+        <p>Jednou měsíčně, nejlépe po teplé sprše. Podívejte se, jestli se nezměnila velikost nebo tvar, a každé varle jemně promněte mezi prsty. Hledejte bulku, zatvrdnutí nebo pocit tíhy.</p>
+      </div>
+    </div>
+    <div class="wrap"><p class="note">Když něco nahmatáte, nepanikařte. Většina bulek není nádor, ale ukažte ji lékaři.</p></div>
+  </section>
+</section>
+
+<!-- ============ KAŽDÝ DEN ============ -->
+<section data-view="kazdy-den">
+  <header class="hero band">
+    <div class="wrap">
+      <div>
+        <a class="back" href="#uvod">← Zpět na úvod</a>
+        <h1>Zdravě každý den</h1>
+        <p class="lead">Drobné návyky, které chrání před nádory i infekcemi a pomáhají novému orgánu.</p>
+      </div>
+      <svg class="char" viewBox="0 0 160 240" role="img" aria-label="Postavička na procházce"><path d="M104 40 Q124 46 120 78 Q116 92 108 96 Q114 74 102 58 Z" fill="#2b2b30"/><ellipse cx="80" cy="233" rx="40" ry="4" fill="rgba(0,0,0,.10)"/><path d="M70 168 L58 222" stroke="#3a3a42" stroke-width="15" stroke-linecap="round"/><path d="M90 168 L100 222" stroke="#3a3a42" stroke-width="15" stroke-linecap="round"/><path d="M42 230 Q42 220 52 219 L66 221 L66 230 Z" fill="#ffffff"/><path d="M118 230 Q118 220 108 219 L96 221 L96 230 Z" fill="#ffffff"/><rect x="41" y="228" width="26" height="4" rx="2" fill="#2b2b30"/><rect x="95" y="228" width="24" height="4" rx="2" fill="#2b2b30"/><rect x="73" y="84" width="14" height="18" fill="#f5bd9c"/><path d="M73 90 Q80 98 87 90 L87 96 Q80 102 73 96 Z" fill="#e89a7c"/><path d="M50 112 Q46 140 50 160" stroke="#f5bd9c" stroke-width="12" stroke-linecap="round" fill="none"/><circle cx="50" cy="162" r="7" fill="#f5bd9c"/><path d="M110 112 Q114 140 110 160" stroke="#f5bd9c" stroke-width="12" stroke-linecap="round" fill="none"/><circle cx="110" cy="162" r="7" fill="#f5bd9c"/><path d="M48 104 Q60 98 72 97 Q80 104 88 97 Q100 98 112 104 Q118 108 118 122 L106 124 L106 168 L54 168 L54 124 L42 122 Q42 108 48 104 Z" fill="#c9b3d6"/><path d="M94 99 Q104 100 112 104 Q118 108 118 122 L106 124 L106 168 L92 168 Q98 140 94 99 Z" fill="#000" fill-opacity=".07"/><path d="M42 118 L54 120 M118 118 L106 120" stroke="#000" stroke-opacity=".14" stroke-width="3" stroke-linecap="round"/><rect x="54" y="162" width="52" height="6" fill="#000" fill-opacity=".10"/><path d="M71 97 L80 112 L89 97" fill="none" stroke="#fff" stroke-opacity=".75" stroke-width="3" stroke-linejoin="round"/><circle cx="80" cy="124" r="1.8" fill="#fff" fill-opacity=".8"/><circle cx="80" cy="138" r="1.8" fill="#fff" fill-opacity=".8"/><circle cx="80" cy="152" r="1.8" fill="#fff" fill-opacity=".8"/><ellipse cx="52.5" cy="64" rx="5" ry="7" fill="#f5bd9c"/><ellipse cx="107.5" cy="64" rx="5" ry="7" fill="#f5bd9c"/><path d="M54 56 Q54 30 80 30 Q106 30 106 56 Q106 78 96 86 Q88 93 80 93 Q72 93 64 86 Q54 78 54 56 Z" fill="#f5bd9c"/><path d="M52 60 Q50 30 80 29 Q110 30 108 60 Q104 42 80 42 Q60 42 52 60 Z" fill="#2b2b30"/><rect x="64" y="52" width="12" height="4" rx="2" fill="#2b2b30" transform="rotate(-6 70 54)"/><rect x="84" y="52" width="12" height="4" rx="2" fill="#2b2b30" transform="rotate(6 90 54)"/><circle cx="70" cy="63" r="3.6" fill="#4b5866"/><circle cx="90" cy="63" r="3.6" fill="#4b5866"/><path d="M70 73 Q80 74 90 73 Q89 84 80 84 Q71 84 70 73 Z" fill="#fff"/><rect x="44" y="150" width="11" height="22" rx="3" fill="#bcdcef" stroke="#a9c6da" stroke-width="1.5"/><circle cx="50" cy="162" r="7" fill="#f5bd9c"/></svg>
+    </div>
+  </header>
+  <section class="band">
+    <div class="wrap">
+      <div class="steps">
+        <div class="step"><div class="n">1</div><div><h3><a class="hlink" href="#alkohol">Omezte alkohol</a></h3><p>Zvyšuje riziko nádorů jater, jícnu, úst a prsu. Nejlepší je nepít vůbec; po transplantaci jater to platí vždy.</p></div></div>
+        <div class="step"><div class="n">2</div><div><h3><a class="hlink" href="#pohyb">Hýbejte se</a></h3><p>Pravidelný pohyb zlepšuje kondici, náladu i kvalitu života. S rozsahem a typem pohybu vám poradí tým, sporty proberte hlavně na kontrolách po 6 a 12 měsících.</p></div></div>
+        <div class="step"><div class="n">3</div><div><h3><a class="hlink" href="#pohyb">Hlídejte váhu</a></h3><p>Imunosupresiva mohou zvyšovat váhu, cukr i tlak. Hodně zeleniny a vlákniny, málo uzenin a zpracovaného masa.</p></div></div>
+        <div class="step"><div class="n">4</div><div><h3>Užívejte léky přesně podle plánu</h3><p>Dávku imunosupresiv si nikdy neměňte sami. Pokud se objeví nádor, léčbu upraví váš tým.</p></div></div>
+        <div class="step"><div class="n l">5</div><div><h3>Chraňte se před viry</h3><p>Kondom snižuje přenos HPV. Nesdílejte jehly, holicí strojky ani kartáčky na zuby. Tetování a piercing jen ve spolehlivém studiu.</p></div></div>
+        <div class="step"><div class="n l">6</div><div><h3>Myjte si ruce</h3><p>Před jídlem a vařením, po toaletě, po práci na zahradě a po kontaktu se zvířaty.</p></div></div>
+      </div>
+    </div>
+  </section>
+  <section class="band soft">
+    <div class="wrap cols3">
+      <div><h3>Jídlo a voda</h3><p>Maso a vejce dobře propečené, žádné nepasterizované mléčné výrobky. Vodu z kohoutku pít lze. První rok po transplantaci se vyhněte koupání v rybnících a na koupalištích.</p></div>
+      <div><h3>Zvířata</h3><p>Nové zvíře si pořizujte nejdřív 6–12 měsíců po transplantaci. Vyhněte se plazům, obojživelníkům a ptákům. Po úklidu po zvířeti si umyjte ruce.</p></div>
+      <div><h3>Zahrada a stavby</h3><p>Při práci s hlínou rukavice a respirátor, dlouhé rukávy a kalhoty. Vyhýbejte se prašným stavbám a místům s plísní.</p></div>
+    </div>
+  </section>
+</section>
+
+<!-- ============ ZDROJE ============ -->
+<section data-view="zdroje" class="src">
+  <header class="hero band">
+    <div class="wrap"><div><a class="back" href="#uvod">← Zpět na úvod</a><h1>Zdroje</h1><p class="lead">Odborná doporučení a studie, ze kterých tento web vychází.</p></div></div>
+  </header>
+  <section class="band">
+    <div class="wrap">
+      <ol>
+        <li><a href="https://doi.org/10.1016/j.ajt.2026.07.033">AST IDCOP: Vaccination and Safe Living Strategies for SOT Candidates and Recipients. Am J Transplant 2026.</a></li>
+        <li><a href="https://onlinelibrary.wiley.com/doi/10.1002/ijc.70529">Timm S. a kol.: HPV-Related Cancers in SOT Recipients. Int J Cancer 2026.</a></li>
+        <li><a href="https://academic.oup.com/cid/article/73/3/e661/6054974">Boey L. a kol.: 9-valent HPV vaccine in SOT recipients. Clin Infect Dis 2021.</a></li>
+        <li><a href="https://doi.org/10.1111/ctr.13563">AST IDCOP: Vaccination of SOT candidates and recipients. Clin Transplant 2019.</a></li>
+        <li><a href="https://immunisationhandbook.health.gov.au/node/929">Australian Immunisation Handbook: Recommendations for vaccination before and after solid organ transplant.</a></li>
+        <li><a href="https://vakcinace.eu/storage/files/3/doporuceni_a_stanoviska/2025/ockovani-proti-hpv.pdf">Česká vakcinologická společnost ČLS JEP: Doporučení k očkování proti HPV. 2025.</a></li>
+        <li><a href="https://pubmed.ncbi.nlm.nih.gov/31077438">AST IDCOP: HPV infection in SOT recipients. Clin Transplant 2019.</a></li>
+        <li><a href="https://pubmed.ncbi.nlm.nih.gov/22045767/">Engels EA a kol. Spectrum of cancer risk among US solid organ transplant recipients. JAMA 2011.</a></li>
+        <li><a href="https://pubmed.ncbi.nlm.nih.gov/38297406/">IANS: Consensus guidelines for anal cancer screening. Int J Cancer 2024.</a></li>
+        <li><a href="https://www.pubmed.gov/30907775/">Moscicki AB a kol. Cervical cancer screening in immunosuppressed women without HIV. 2019.</a></li>
+        <li><a href="https://frontierspartnerships.org/journals/transplant-international/articles/10.1111/tri.13520/full">Crow LD a kol. Skin cancer screening for SOT recipients, Delphi consensus. Transpl Int 2019.</a></li>
+        <li><a href="https://gi.org/journals-publications/ebgi/sierra_duong_jun2026/">AASLD/AST: Adult liver transplantation, non-graft-related complications. 2025.</a></li>
+        <li><a href="https://www.mcgill.ca/spot/article/exercise-solid-organ-transplant-candidates-and-recipients">CST + CAN-RESTORE: Exercise for SOT candidates and recipients. 2019.</a></li>
+        <li><a href="https://tts.org/kdigo/downloads/kdigo/KDIGO_KidneyTxGuideline.pdf">KDIGO: Care of kidney transplant recipients. 2009.</a></li>
+        <li><a href="https://www.ishlt.org/education-and-publications/standards-guidelines-detail/ishlt-guidelines-for-the-care-of-heart-transplant-recipients">ISHLT: Care of heart transplant recipients. 2023.</a></li>
+        <li><a href="https://easlcampus.eu/sites/default/files/2024-11/EASL_CPGs_liver_transplantation_2024.pdf">EASL: Clinical practice guidelines on liver transplantation. 2024.</a></li>
+        <li><a href="https://cancer-code-europe.iarc.who.int/">IARC: Evropský kodex proti rakovině, 5. vydání. 2025.</a></li>
+        <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10480527">Alcohol relapse after liver transplantation and survival. JHEP Reports 2023.</a></li>
+        <li><a href="https://www.slzt.cz/centra-lecby">Společnost pro léčbu závislosti na tabáku: centra léčby.</a></li>
+        <li><a href="https://www.vzp.cz/pojistenci/zdravotnicka-zarizeni-a-specializovana-centra/lecba-zavislosti-na-tabaku">VZP: Léčba závislosti na tabáku, seznam center.</a></li>
+      </ol>
+    </div>
+  </section>
+</section>
+</main>
+
+<footer class="band">
+  <div class="wrap">
+    <p><strong>Prevence po transplantaci</strong> · připravila MUDr. Soňa Hudecová · <a href="#zdroje">Zdroje</a></p>
+    <p>Informace na tomto webu slouží ke vzdělávání a nenahrazují konzultaci s lékařem. O svém plánu prevence se vždy poraďte se svým transplantačním týmem.</p>
+  </div>
+</footer>
+
+<script>
+{
+  const views=[...document.querySelectorAll('[data-view]')];
+  const names=views.map(v=>v.dataset.view);
+  const sub={hpv:'ockovani',plan:'uvod'};
+  const show=()=>{
+    const h=(location.hash||'#uvod').slice(1);
+    const name=names.includes(h)?h:(sub[h]||'uvod');
+    views.forEach(v=>v.classList.toggle('on',v.dataset.view===name));
+    document.querySelectorAll('nav.top .links a').forEach(a=>{if(a.getAttribute('href')==='#'+name)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});
+    const target=sub[h]?document.getElementById(h):null;
+    if(target)target.scrollIntoView();else window.scrollTo(0,0);
+  };
+  window.addEventListener('hashchange',show);
+  show();
+
+  const months=['I','II','III','IV','V','VI','VII','VIII','IX','X','XI','XII'];
+  const rows=[
+    {n:'Kontrola kůže',c:'#d6d6dc',m:[1,2,3,4,5,6,7,8,9,10,11,12],l:'samovyšetření kůže, každý měsíc',t:'<b>Každý měsíc.</b> Prohlédněte si kůži a rty, i záda v zrcadle. Hledejte nové skvrny a ranky, které se nehojí.'},
+    {n:'Kožní lékař',c:'#e70000',m:[3],l:'kožní lékař, 1× ročně',t:'<b>1× ročně</b>, po kožním nádoru častěji. Kožní nádory jsou po transplantaci nejčastější a dobře se léčí, když se zachytí brzy.'},
+    {n:'Gynekolog',c:'#9b7fb8',m:[5],l:'gynekolog, 1× ročně',t:'<b>1× ročně.</b> Cytologie a HPV test zachytí změny na děložním hrdle dávno před nádorem.'},
+    {n:'Zubař',c:'#1d1d22',m:[2,8],l:'zubař, 2× ročně',t:'<b>2× ročně.</b> Zubař zkontroluje i sliznici úst, kde se mohou objevit změny.'},
+    {n:'Screening',c:'#c40000',m:[10],l:'screening dle národních programů',t:'<b>Podle národních programů:</b> tlusté střevo, prs, děložní hrdlo, u kuřáků plíce. Termín vám řekne praktický lékař.'},
+    {n:'Chřipka',c:'#b8c8d9',m:[10],l:'očkování proti chřipce, na podzim',t:'<b>Každý podzim.</b> Inaktivovaná vakcína je po transplantaci bezpečná a chrání před těžkým průběhem.'}
+  ];
+  document.querySelectorAll('.grid').forEach(g=>{g.innerHTML='<div></div>'+months.map(m=>'<div class="m">'+m+'</div>').join('')+rows.map((r,ri)=>'<div class="r" tabindex="0" data-i="'+ri+'">'+r.n+'</div>'+months.map((_,i)=>{const on=r.m.includes(i+1);const prev=r.m.includes(i);return '<div class="cell'+(on?' on':'')+(on&&prev?' join-l':'')+'" data-i="'+ri+'" style="--c:'+r.c+'"></div>'}).join('')).join('');
+  g.setAttribute('aria-label',rows.map(r=>r.l).join('; '));
+  const tip=g.parentNode.querySelector('.caltip');const def=tip?tip.innerHTML:'';
+  const show=i=>{g.querySelectorAll('[data-i]').forEach(e=>e.classList.toggle('hi',e.dataset.i===i));g.classList.toggle('hov',i!==null);if(tip)tip.innerHTML=i===null?def:'<span style="color:'+(rows[i].c==='#d6d6dc'?'#55555e':rows[i].c)+'">●</span> '+rows[i].t;};
+  g.addEventListener('mouseover',e=>{const t=e.target.closest('[data-i]');if(t)show(t.dataset.i);});
+  g.addEventListener('focusin',e=>{const t=e.target.closest('[data-i]');if(t)show(t.dataset.i);});
+  g.addEventListener('mouseleave',()=>show(null));g.addEventListener('focusout',()=>show(null));});
+
+  const yr=new Date().getFullYear();
+  const groups=[
+    {t:'Jednou za život',k:'once',note:'Zůstane odškrtnuté.',items:['Očkování proti HPV: 1. dávka','Očkování proti HPV: 2. dávka','Očkování proti HPV: 3. dávka','Očkování proti hepatitidě B','Očkování proti pneumokokům','Očkování proti pásovému oparu (2 dávky)']},
+    {t:'Každý rok',k:'y'+yr,note:'Odškrtnutí se v lednu samo vynuluje.',items:['Kožní lékař','Gynekolog / urolog','Zubař (2× ročně)','Očkování proti chřipce','Očkování proti covidu-19','Screening střeva / prsu / prostaty, pokud je na řadě']},
+    {t:'Každý den',k:'daily',note:'Návyky, které chrání nejvíc.',items:['Nekouřím','Krém SPF 50+ mám vždy s sebou','Léky beru přesně podle plánu']}
+  ];
+  const key='prevence-plan-v2';
+  let done={};
+  try{done=JSON.parse(localStorage.getItem(key)||'{}')||{}}catch(e){done={}}
+  const list=document.getElementById('planlist');
+  const count=document.getElementById('count');
+  const save=()=>{try{localStorage.setItem(key,JSON.stringify(done))}catch(e){}};
+  const total=groups.reduce((a,x)=>a+x.items.length,0);
+  const render=()=>{
+    let n=0;
+    list.innerHTML=groups.map(x=>'<div class="pgroup"><h3>'+x.t+'</h3><p class="pnote">'+x.note+'</p>'+x.items.map((t,i)=>{const id=x.k+'-'+i;if(done[id])n++;return '<label for="p-'+id+'"><input type="checkbox" id="p-'+id+'" data-id="'+id+'"'+(done[id]?' checked':'')+'><span>'+t+'</span></label>'}).join('')+'</div>').join('');
+    count.textContent='Hotovo '+n+' z '+total;
+  };
+  list.addEventListener('change',e=>{const id=e.target.dataset.id;if(!id)return;done[id]=e.target.checked;save();render();document.getElementById('p-'+id).focus()});
+  document.getElementById('reset').addEventListener('click',()=>{done={};save();render()});
+  render();
+}
+</script>
+</body>
+</html>
