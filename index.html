@@ -109,6 +109,8 @@ td:first-child{font-weight:700}
 footer{background:var(--coral);color:var(--blush);font-size:15px}
 footer .wrap{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-between}
 footer p{margin:0;max-width:70ch}
+.frow{flex-basis:100%;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:8px 32px}
+.fauthor{white-space:nowrap}
 .fcontacts{display:flex;flex-wrap:wrap;gap:12px 36px;font-size:15px;line-height:1.5}
 .fcontacts strong{color:#fff}
 .logos{display:flex;align-items:center;gap:16px}
@@ -1230,8 +1232,7 @@ footer a{color:var(--blush);text-decoration:underline}
       <div><strong>Transplantcentrum IKEM</strong><br>Vídeňská 1958/9, 140 21 Praha 4<br>Tel. <a href="tel:+420236054118">236&nbsp;054&nbsp;118</a> · <a href="https://www.ikem.cz">ikem.cz</a></div>
       <div><strong>Onkologie</strong><br>[doplnit pracoviště]<br>Tel. [doplnit]</div>
     </div>
-    <p>Autorka: MUDr. Soňa Hudecová · <a href="#zdroje">Zdroje</a></p>
-    <p>Informace na tomto webu slouží ke vzdělávání a nenahrazují konzultaci s lékařem. O svém plánu prevence se vždy poraďte se svým transplantačním týmem.</p>
+    <div class="frow"><p>Informace na tomto webu slouží ke vzdělávání a nenahrazují konzultaci s lékařem. O svém plánu prevence se vždy poraďte se svým transplantačním týmem.</p><p class="fauthor">Autorka: MUDr. Soňa Hudecová · <a href="#zdroje">Zdroje</a></p></div>
   </div>
 </footer>
 
