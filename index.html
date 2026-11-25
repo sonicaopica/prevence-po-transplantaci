@@ -121,9 +121,10 @@ footer a{color:var(--coralink)}
 .figs small{display:block;color:var(--muted);font-size:14px;margin-top:6px}
 .more{display:inline-block;margin-top:6px;font-weight:700;color:var(--coralink);text-underline-offset:4px}
 .areas{display:flex;flex-direction:column;gap:12px}
-.area{display:grid;grid-template-columns:44px minmax(0,1fr);gap:14px;align-items:center;background:#fff;border-radius:18px;padding:16px 20px;text-decoration:none;color:var(--ink);box-shadow:0 1px 0 rgba(0,0,0,.04)}
+.area{display:grid;grid-template-columns:44px minmax(0,1fr);gap:14px;align-items:center;background:#fff;border-radius:16px;padding:12px 18px;text-decoration:none;color:var(--ink);box-shadow:0 1px 0 rgba(0,0,0,.04)}
 .head-row .char{margin-block:calc(-1*clamp(28px,3.4vw,48px)) -16px;align-self:end}
 .hero .char{margin-block:-12px calc(-1*clamp(28px,3.4vw,48px));align-self:end}
+.heroimg{width:100%;height:auto;aspect-ratio:16/8;object-fit:cover;object-position:50% 40%;border-radius:18px;display:block;margin-bottom:12px}
 .area:hover{box-shadow:0 0 0 2px var(--coral)}
 .area .n{width:44px;height:44px;border-radius:50%;background:var(--coral);color:#fff;font-family:Manrope,sans-serif;font-weight:800;font-size:20px;display:flex;align-items:center;justify-content:center}
 .area b{display:block;font-family:Manrope,sans-serif;font-size:20px;color:var(--coralink)}
@@ -217,11 +218,14 @@ footer a{color:var(--coralink)}
         <h1>Prevence nádorů po transplantaci</h1>
         <p class="lead">Léky po transplantaci tlumí imunitu, aby tělo neodhojilo nový orgán. Utlumená imunita nás ale hůř chrání před infekcemi i nádory. Hodně ale máme ve svých rukách: nekouřit, nepít alkohol, chránit se před sluncem, nechat se očkovat a chodit na prohlídky.</p>
       </div>
-      <nav class="areas" aria-label="Tři oblasti prevence">
+      <div class="heroright">
+        <img class="heroimg" src="img/ikem.jpg" alt="Budova IKEM v Praze" width="900" height="560">
+        <nav class="areas" aria-label="Tři oblasti prevence">
         <a class="area" href="#prohlidky"><span class="n"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V3h6v1"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></span><span><b>Prevence a screeningy</b><small>Pravidelné prohlídky a na co si dát pozor</small></span></a>
         <a class="area" href="#kazdy-den"><span class="n"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="14" cy="4.5" r="2"/><path d="M12 9l-3 5 4 2-1.5 5"/><path d="M9 14l-4 1"/><path d="M12 9l4 3 3-.5"/></svg></span><span><b>Životní styl</b><small>Nekouřit, chránit kůži, méně alkoholu, pohyb</small></span></a>
         <a class="area" href="#ockovani"><span class="n"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3l4 4"/><path d="M19 5l-9.5 9.5"/><path d="M14.5 6.5l3 3"/><path d="M8 11l5 5-3 3H5v-5z"/><path d="M5 19l-2 2"/></svg></span><span><b>Očkování</b><small>HPV, hepatitida B a další, i pro vaše blízké</small></span></a>
       </nav>
+      </div>
     </div>
   </header>
 
